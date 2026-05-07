@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+</head>
+<script src="homepage.js"></script>
+
+<section class="search-page" id="searchPage">
+    <div class="search-page-inner">
+
+        <!-- Top -->
+        <div class="search-top-row">
+            <button class="search-back-btn" type="button" onclick="closeSearchPage()">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h1 class="search-page-title">Search</h1>
+        </div>
+
+
+        <!-- Search Bar -->
+        <div class="search-main-bar">
+            <span class="material-symbols-outlined search-icon">search</span>
+
+            <input type="text" id="searchInputPage" placeholder="Search for cupcakes, cakes..">
+
+            <button class="mic-btn interactive-btn" type="button" id="micButton">
+                <span class="material-symbols-outlined">mic</span>
+            </button>
+        </div>
+
+        <!-- Ask AI -->
+        <button class="ask-ai-card interactive-btn" type="button" id="askAiCard">
+            <div class="ask-ai-left">
+                <p class="ask-ai-label">
+                    <span class="material-symbols-outlined ask-ai-stars">auto_awesome</span>
+                    ASK AI
+                </p>
+
+                <h2>Help me choose a cake</h2>
+                <p class="ask-ai-desc">
+                    Answer a few questions to find the perfect match.
+                </p>
+            </div>
+
+            <div class="ask-ai-arrow-wrap">
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+        </button>
+
+        <!-- Popular Searches -->
+        <div class="search-block">
+            <h2 class="search-block-title">Popular Searches</h2>
+
+            <div class="popular-search-grid">
+                <button class="search-pill interactive-btn" type="button">chocolate cake</button>
+                <button class="search-pill interactive-btn" type="button">vanilla cake</button>
+                <button class="search-pill interactive-btn" type="button">kids cake</button>
+                <button class="search-pill interactive-btn" type="button">red velvet</button>
+                <button class="search-pill interactive-btn" type="button">wedding tier</button>
+                <button class="search-pill interactive-btn" type="button">vegan cupcakes</button>
+            </div>
+        </div>
+
+        <!-- Recent Searches -->
+        <div class="search-block">
+            <div class="recent-top">
+                <h2 class="search-block-title">Recent Searches</h2>
+                <button class="clear-all-btn interactive-btn" type="button" id="clearAllRecent">
+                    Clear all
+                </button>
+            </div>
+
+            <div class="recent-search-list" id="recentSearchList">
+                <button class="recent-search-item interactive-btn" type="button">
+                    <span class="material-symbols-outlined">history</span>
+                    <span>Chocolate cake</span>
+                </button>
+
+                <button class="recent-search-item interactive-btn" type="button">
+                    <span class="material-symbols-outlined">history</span>
+                    <span>Mint Cake</span>
+                </button>
+
+                <button class="recent-search-item interactive-btn" type="button">
+                    <span class="material-symbols-outlined">history</span>
+                    <span>Gluten free options</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom_bar">
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">favorite</span>
+            <p>FAVORITE</p>
+        </button>
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>AI ROBOT</p>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar active" type="button">
+            <span class="material-symbols-outlined">search</span>
+            <p>SEARCH</p>
+            <span class="bar-dot"></span>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <p>CART</p>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">person</span>
+            <p>PROFILE</p>
+        </button>
+    </nav>
+</section>
+
+<body>
+    <div class="header">
+        <div class="tittle">
+            <img src="Image/logo.png" alt="Logo">
+            <h1>The Cupcake Princess</h1>
+        </div>
+
+        <form>
+            <div class="searching">
+                <span class="material-symbols-outlined">search</span>
+                <button type="submit">Search</button>
+                <input class="searching-input" type="search" placeholder="Search" onclick="openSearchPage()">
+            </div>
+        </form>
+    </div>
+
+    <nav class="bottom_bar">
+        <button class="bottom-bar-item interactive-bar active" type="button">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+            <span class="bar-dot"></span>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">favorite</span>
+            <p>FAVORITE</p>
+        </button>
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>AI ROBOT</p>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar" type="button" onclick="openSearchPage()">
+            <span class="material-symbols-outlined">search</span>
+            <p>SEARCH</p>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <p>CART</p>
+        </button>
+
+        <button class="bottom-bar-item interactive-bar" type="button">
+            <span class="material-symbols-outlined">person</span>
+            <p>PROFILE</p>
+        </button>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <a href="#" class="collection">
+                <p>NEW SEASONAL COLLECTION </p>
+            </a>
+            <h2>Sweetness<br> Wrapped in<br> Elegance</h2>
+            <p class="hero-text">Bespoke artisanal cupcakes
+                and cakes crafted with organic ingredients and a touch of royalmagic.</p>
+            <div class="hero-button">
+                <a href="#" class="shop-now">
+                    <p>SHOP NOW</p>
+                </a>
+                <a href="#" class="our-story">
+                    <p>OUR STORY</p>
+                </a>
+            </div>
+        </div>
+        <img class="hero-image" src="Image/Screenshot 2026-04-29 at 11.52.47 pm.png" alt="hero-Cake">
+    </section>
+
+    <section class="category">
+        <h1>Shop by category</h1>
+        <div class="category-bottom">
+            <p>Find your perfect treat for any occasion.</p>
+
+            <a href="#" class="view-all-categories">
+                <p>View All Categories</p>
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+    <section class="category-4">
+        <div class="cup-and-ckae">
+            <a href="#" class="cake">
+                <img src="Image/cake.png" alt="cake">
+                <p>cake</p>
+            </a>
+
+            <a href="#" class="cupcake">
+                <img src="Image/cupcake.png" alt="cupake">
+                <p>cupcake</p>
+            </a>
+        </div>
+        <div class="cookie-DIY">
+            <a href="#" class="cookie">
+                <img src="Image/cookie.png" alt="cookie">
+                <p>cookies</p>
+            </a>
+
+            <a href="#" class="DIY">
+                <img src="Image/DIY.png" alt="DIY">
+                <p>DIY</p>
+            </a>
+        </div>
+    </section>
+    <section class="best-sellers">
+        <h2>Our Best Sellers</h2>
+        <h3>Hand-picked fan favorites that define the
+            Royal experience. Freshly baked and
+            delivered to your doorstep.</h3>
+        <div class="all-best">
+            <a href="#" class="Fresh-Flowers-Cake">
+                <div class="image-box">
+                    <img src="Image/Fresh Flowers Cake.png" alt="Fresh Flowers Cake">
+
+                    <button class="favorite-button" type="button" onclick="toggleFavorite(event, this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <h1>Fresh Flowers Cake</h1>
+                <p>Light-as-air sponge infused with wild
+                    strawberry essence and velvet cream.</p>
+                <div class="bottom">
+                    <h2>$169.00</h2>
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </div>
+            </a>
+
+            <a href="#" class="Classic-Fresh-Flowers">
+                <div class="image-box">
+                    <img src="Image/Classic Fresh Flowers Cake.png" alt="Classic Fresh Flowers">
+
+                    <button class="favorite-button" type="button" onclick="toggleFavorite(event, this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <h1>Classic Fresh Flowers</h1>
+                <p>Indulgent dark chocolate ganache draped over moist cocoa sponge tiers.</p>
+                <div class="bottom">
+                    <h2>$99.00</h2>
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </div>
+            </a>
+
+            <a href="#" class="Naked-Rose-Cake">
+                <div class="image-box">
+                    <img src="Image/Naked Rose Cake.png" alt="Naked Rose Cake">
+
+                    <button class="favorite-button" type="button" onclick="toggleFavorite(event, this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <h1>Naked Rose Cake</h1>
+                <p>Artisan vanilla bean layers with minimalist
+                    frosting and botanical accents.</p>
+                <div class="bottom">
+                    <h2>$169.00</h2>
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="reviews-section">
+        <div class="review-top">
+            <button class="write-review">Write a Review</button>
+        </div>
+
+        <div class="reviews-row">
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="avatar purple">D</div>
+
+                    <div class="review-user">
+                        <h3>Dilara</h3>
+                        <p>Jan 11, 2026</p>
+                    </div>
+
+                    <span class="google">G</span>
+                </div>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="review-text">
+                    Food Voyageur helped me with my engagement cake. It was absolutely exquisite,
+                    all of my guests were talking about how good it was. The cake was beautiful,
+                    fresh, soft, and delivered perfectly. I would definitely order again.
+                </p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img class="avatar-img" src="Image/user1.png" alt="Abbey Ross">
+
+                    <div class="review-user">
+                        <h3>Abbey Ross</h3>
+                        <p>Jan 7, 2026</p>
+                    </div>
+
+                    <span class="google">G</span>
+                </div>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="review-text">
+                    I recently ordered a cake for my friend's birthday that was the day after
+                    the Christmas public holidays. The team helped me quickly and the cake
+                    looked amazing. Everyone loved the design and flavour.
+                </p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="avatar brown">C</div>
+
+                    <div class="review-user">
+                        <h3>Caroline DG</h3>
+                        <p>Dec 19, 2025</p>
+                    </div>
+
+                    <span class="google">G</span>
+                </div>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="review-text">
+                    This business is truly excellent. I ordered a custom vintage cake very late
+                    Wednesday night and it was delivered to me the next day. The decoration
+                    was elegant and the cake tasted delicious.
+                </p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="avatar orange">K</div>
+
+                    <div class="review-user">
+                        <h3>K Hall</h3>
+                        <p>Dec 11, 2025</p>
+                    </div>
+
+                    <span class="google">G</span>
+                </div>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="review-text">
+                    24 hour turnaround on a last minute birthday cake. Under $100 and delivered
+                    the next morning to my house. The cake was fresh, beautiful, and everyone
+                    enjoyed it. THANK YOU 🙏❤️
+                </p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="avatar pink">M</div>
+
+                    <div class="review-user">
+                        <h3>Mia Chen</h3>
+                        <p>Nov 28, 2025</p>
+                    </div>
+
+                    <span class="google">G</span>
+                </div>
+
+                <div class="stars">★★★★★</div>
+
+                <p class="review-text">
+                    The cupcakes were so pretty and tasted amazing. I ordered them for a small
+                    party and everyone asked where they were from. The pink design matched
+                    my theme perfectly.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <section class="royal-list-section">
+        <div class="royal-list-card">
+            <div class="logo">
+                <span class="material-symbols-outlined royal-mail-icon">mail</span>
+            </div>
+
+            <h2>Join the Royal List</h2>
+
+            <p>
+                Subscribe to receive secret
+                recipes, early access to
+                seasonal launches, and a 10%
+                discount on your first order.
+            </p>
+
+            <form class="royal-form" onsubmit="subscribeAnimate(event)">
+                <input type="email" placeholder="Your email address" required>
+
+                <button type="submit" class="subscribe-button">
+                    <span class="button-text">SUBSCRIBE</span>
+                    <span class="material-symbols-outlined check-icon">check</span>
+                </button>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
