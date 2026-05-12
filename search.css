@@ -65,6 +65,7 @@ body {
     padding: 0;
     margin: 0;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .search-back-btn .material-symbols-outlined {
@@ -127,6 +128,7 @@ body {
 
 /* Ask AI card */
 .ask-ai-card {
+    text-decoration: none;
     min-height: 80px;
     border: none;
     cursor: pointer;
@@ -295,32 +297,28 @@ body {
     bottom: 20px;
     transform: translateX(-50%);
     width: 95%;
-    height: 6%;
+    height: 64px;
     background-color: #FFF8F8;
     border-radius: 60px;
-
     box-shadow: 0 -8px 24px rgba(217, 179, 196, 0.28);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 6px 6px;
+    padding: 6px;
     z-index: 1000;
 }
 
 .bottom-bar-item {
     flex: 1;
     min-width: 0;
-
     border: none;
     background: transparent;
     cursor: pointer;
     text-decoration: none;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     position: relative;
 }
 
@@ -331,12 +329,10 @@ body {
 }
 
 .bottom-bar-item p {
-    margin: 8px 0 0;
-
+    margin: 4px 0 0;
     font-size: 8px;
     font-weight: 800;
     letter-spacing: 0.3px;
-
     color: #968b90;
     white-space: nowrap;
     line-height: 1;
@@ -347,9 +343,8 @@ body {
     height: 4px;
     border-radius: 50%;
     background-color: #AC2D5E;
-
     display: block;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .interactive-bar {
@@ -370,197 +365,188 @@ body {
     color: #AC2D5E;
 }
 
+
 /* Bottom nav */
 
 
 @media (min-width: 1000px) {
-    .search-top-row {
 
+    /* Constrain and center the whole page content */
+    .search-page-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 40px 48px 160px;
+    }
+
+    /* Top row: back btn + title sit inline with the search bar */
+    .desktop-search {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 36px;
+    }
+
+    .search-top-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
         margin-top: 0;
     }
 
+    .search-back-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: #F6E3EA;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .search-back-btn .material-symbols-outlined {
-        font-size: 50px;
+        font-size: 32px;
     }
 
     .search-page-title {
-        font-size: 45px;
+        font-size: 26px;
+        white-space: nowrap;
     }
 
-    .desktop-search {
-        display: flex;
-        gap: 100px
-    }
-
+    /* Search bar fills the remaining width */
     .search-main-bar {
-        height: 80px;
-        width: 60%;
-        margin-top: 40px;
+        flex: 1;
+        height: 72px;
+        width: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0 px;
+        gap: 10px;
     }
 
     .search-main-bar span {
-        font-size: 50px;
-        margin-left: 25px;
+        font-size: 40px;
+        margin-left: 20px;
     }
 
     .search-main-bar input {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .mic-btn {
-        font-size: 50px;
-        margin-right: 25px;
+        font-size: 32px;
+        margin-right: 20px;
     }
 
+    /* Ask AI card */
     .ask-ai-card {
-        width: 80%;
-        min-height: 300px;
-        border: none;
-        cursor: pointer;
-        text-align: left;
-        border-radius: 40px;
-        padding: 15px;
-        margin-bottom: 40px;
-        display: flex;
-        gap: 15px;
-        background: linear-gradient(90deg, #FFF3F8 0%, #FAD9E7 100%);
-        box-shadow: 0 18px 35px rgba(217, 179, 196, 0.22);
-    }
-
-    .ask-ai-left {
-        flex: 1;
+        width: 100%;
+        min-height: auto;
+        border-radius: 24px;
+        padding: 28px 32px;
+        margin-bottom: 36px;
+        gap: 24px;
     }
 
     .ask-ai-label {
-        margin: 0 0 20px;
-        color: #AC2D5E;
-        font-size: 50px;
-        font-weight: 800;
-        letter-spacing: 2px;
+        font-size: 30px;
+        letter-spacing: 1.5px;
+        margin: 0 0 10px;
+    }
 
-        display: flex;
-        align-items: center;
-        gap: 6px;
+    .ask-ai-stars {
+        font-size: 24px;
     }
 
     .ask-ai-card h2 {
-        margin: 0 0 18px;
-        font-size: 40px;
-        color: #2F262C;
-        font-weight: 800;
+        font-size: 26px;
+        margin: 0 0 8px;
     }
 
     .ask-ai-desc {
-        margin: 0;
-        color: #6f6269;
-        font-size: 30px;
-        line-height: 1.45;
+        font-size: 22px;
+        line-height: 1.55;
     }
 
     .ask-ai-arrow-wrap {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.5);
-
-        display: flex;
-        margin-right: 100px;
-        flex-shrink: 0;
-        box-shadow: 0 12px 20px rgba(199, 127, 157, 0.22);
+        width: 48px;
+        height: 48px;
+        margin-right: 0;
+        align-items: center;
+        justify-content: center;
     }
 
     .ask-ai-arrow-wrap .material-symbols-outlined {
-        color: white;
-        font-size: 70px;
+        font-size: 35px;
+        color: #AC2D5E;
     }
 
-    /* Section block */
+    /* Section titles */
     .search-block {
-        margin-bottom: 25px;
+        margin-bottom: 32px;
     }
 
     .search-block-title {
-        margin: 0 0 30px;
-        font-size: 40px;
-        font-weight: 800;
-        color: #352a31;
+        font-size: 28px;
+        font-weight: 600;
+        margin: 0 0 16px;
     }
 
-    /* Popular search */
+    /* Popular pills */
     .popular-search-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px 40px;
+        gap: 10px;
     }
 
     .search-pill {
-        padding: 30px 30px;
-        font-size: 30px;
+        font-size: 22px;
+        padding: 10px 22px;
     }
 
+    /* Recent searches */
+    .recent-top {
+        margin-bottom: 4px;
+    }
 
     .clear-all-btn {
-        font-size: 35px;
+        font-size: 24px;
     }
 
     .recent-search-list {
-        gap: 30px;
+        gap: 2px;
     }
 
     .recent-search-item {
-        font-size: 35px;
+        font-size: 25px;
+        padding: 13px 16px;
+        border-radius: 14px;
+        transition: background-color 0.18s ease;
+    }
 
+    .recent-search-item:hover {
+        background-color: #FFF0F4;
     }
 
     .recent-search-item .material-symbols-outlined {
-        font-size: 45px;
+        font-size: 35px;
     }
 
+    /* Bottom nav */
     .bottom_bar {
-        position: fixed;
-        left: 50%;
-        bottom: 20px;
-        transform: translateX(-50%);
-        width: 95%;
-        height: 10%;
-        background-color: #FFF8F8;
-        border-radius: 60px;
-
-        box-shadow: 0 -8px 24px rgba(217, 179, 196, 0.28);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 6px 6px;
-        z-index: 1000;
+        height: 80px;
     }
-
 
     .bottom-bar-item .material-symbols-outlined {
-
-        font-size: 45px;
-        color: #968b90;
-        line-height: 1;
+        font-size: 32px;
     }
 
     .bottom-bar-item p {
-        margin: 8px 0 0;
-
-        font-size: 20px;
-        font-weight: 800;
-        letter-spacing: 0.3px;
-
-        color: #968b90;
-        white-space: nowrap;
-        line-height: 1;
+        font-size: 14px;
+        margin-top: 6px;
     }
 
     .bar-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #AC2D5E;
-
-        display: block;
+        width: 7px;
+        height: 7px;
         margin-top: 5px;
     }
 }

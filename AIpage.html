@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cake Advisor – The Cupcake Princess</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+    <link rel="stylesheet" href="ai-page.css">
+    <script src="ai-page.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="ai-header">
+        <a href="search-page.html" class="ai-back-btn">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+
+        <div class="ai-header-center">
+            <div class="ai-header-avatar">
+                <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="ai-header-info">
+                <h1>Royal AI Advisor</h1>
+                <p><span class="online-dot"></span>Online · Ready to help</p>
+            </div>
+        </div>
+
+        <div class="ai-header-right"></div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="chat-area" id="chatArea">
+
+        <p class="chat-timestamp">Today</p>
+
+        <!-- AI: Greeting -->
+        <div class="message ai-message">
+            <div class="msg-avatar">
+                <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="message-bubble ai-bubble">
+                Hello! I'm your Royal AI Cake Advisor. Tell me about your occasion and I'll help you find the perfect
+                creation. 🎂
+            </div>
+        </div>
+
+        <!-- AI: Occasion question -->
+        <div class="message ai-message">
+            <div class="msg-avatar">
+                <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="message-bubble ai-bubble">
+                What are we celebrating?
+            </div>
+        </div>
+
+        <!-- Occasion chips -->
+        <div class="suggestion-chips">
+            <button class="chip" type="button">🎂 Birthday</button>
+            <button class="chip" type="button">💍 Wedding</button>
+            <button class="chip" type="button">🥂 Anniversary</button>
+            <button class="chip" type="button">✨ Just because</button>
+        </div>
+
+        <!-- User: reply -->
+        <div class="message user-message">
+            <div class="message-bubble user-bubble">
+                It's my daughter's birthday 🎀
+            </div>
+        </div>
+
+        <!-- AI: follow-up -->
+        <div class="message ai-message">
+            <div class="msg-avatar">
+                <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="message-bubble ai-bubble">
+                How wonderful! How old is she turning, and does she have a favourite flavour?
+            </div>
+        </div>
+
+        <!-- Flavour chips -->
+        <div class="suggestion-chips">
+            <button class="chip" type="button">🍓 Strawberry</button>
+            <button class="chip" type="button">🍫 Chocolate</button>
+            <button class="chip" type="button">🍦 Vanilla</button>
+            <button class="chip" type="button">🎉 Surprise me!</button>
+        </div>
+
+        <!-- User: reply -->
+        <div class="message user-message">
+            <div class="message-bubble user-bubble">
+                She loves strawberries! She's turning 8.
+            </div>
+        </div>
+
+        <!-- AI: typing indicator -->
+        <div class="typing-wrap">
+            <div class="msg-avatar">
+                <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="typing-bubble">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+            </div>
+        </div>
+
+        <!-- AI: recommendation text -->
+        <div class="message ai-message">
+            <div class="msg-avatar">
+                <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="message-bubble ai-bubble">
+                Perfect! For a strawberry-loving birthday girl turning 8, I recommend our <strong>Fresh Flowers
+                    Cake</strong> — light-as-air sponge infused with wild strawberry essence and velvet cream. A
+                princess-worthy centrepiece!
+            </div>
+        </div>
+
+        <!-- Product recommendation card -->
+        <div class="rec-wrap">
+            <a href="#" class="product-rec">
+                <img src="Image/Fresh Flowers Cake.png" alt="Fresh Flowers Cake">
+                <div class="product-rec-info">
+                    <h3>Fresh Flowers Cake</h3>
+                    <p>Wild strawberry essence & velvet cream.</p>
+                    <div class="product-rec-footer">
+                        <span class="product-rec-price">$169.00</span>
+                        <button class="rec-add-btn" type="button" onclick="event.preventDefault()">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- AI: close -->
+        <div class="message ai-message">
+            <div class="msg-avatar">
+                <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="message-bubble ai-bubble">
+                Would you like to see more options, or shall I help you customise this one? 🌸
+            </div>
+        </div>
+
+        <!-- More options chips -->
+        <div class="suggestion-chips">
+            <button class="chip" type="button">Show more cakes</button>
+            <button class="chip" type="button">Customise this one</button>
+            <button class="chip" type="button">Add to cart</button>
+        </div>
+
+    </div>
+
+    <!-- Chat Input Bar -->
+    <div class="chat-input-wrap">
+        <div class="chat-input-bar">
+            <input type="text" id="chatInput" placeholder="Ask me anything about cakes…">
+            <button class="send-btn" type="button" id="sendBtn">
+                <span class="material-symbols-outlined">send</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom_bar">
+        <a href="homepage.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </a>
+
+        <a href="fav-page.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">favorite</span>
+            <p>FAVORITE</p>
+        </a>
+
+        <a href="search-page.html" class="bottom-bar-item interactive-bar active">
+            <span class="material-symbols-outlined">search</span>
+            <p>SEARCH</p>
+            <span class="bar-dot"></span>
+        </a>
+
+        <a href="cart-page.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <p>CART</p>
+        </a>
+
+        <a href="pro.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">person</span>
+            <p>PROFILE</p>
+        </a>
+    </nav>
+
+</body>
+
+</html>
