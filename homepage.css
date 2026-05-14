@@ -46,7 +46,7 @@ body {
 
 .tittle h1 {
     color: #AA1758;
-    font-size: 30px;
+    font-size: 22px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     line-height: 1.1;
@@ -202,8 +202,8 @@ form {
 /* ============================= */
 
 .hero {
-    width: 90%;
-    margin: 20px auto 120px;
+    width: 85%;
+    margin: 20px auto 80px;
     background-color: #fbe7ec;
     border-radius: 60px;
     position: relative;
@@ -213,11 +213,11 @@ form {
 }
 
 .hero-content {
-    padding: 0 clamp(34px, 7vw, 60px);
+    padding: 0 34px;
 }
 
 .collection {
-    width: min(500px, 100%);
+    width: 100%;
     height: 50px;
     background-color: #f0629a;
     border-radius: 200px;
@@ -236,32 +236,28 @@ form {
     color: #47001F;
     font-weight: 500;
     letter-spacing: 3px;
-    font-size: 15px;
+    font-size: 13px;
     white-space: nowrap;
 }
 
 .hero h2 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #47001F;
-
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
-
     text-align: left;
-    margin: 45px 0 5px;
-
+    margin: 28px 0 5px;
     line-height: 1.05;
 }
 
 .hero p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    font-size: clamp(22px, 4.5vw, 32px);
+    font-size: 16px;
     font-weight: 200;
     color: #6A5B61;
     text-align: left;
-    margin: 25px 0 35px;
-    letter-spacing: 1.4px;
+    margin: 16px 0 24px;
+    letter-spacing: 1px;
     line-height: 1.4;
 }
 
@@ -275,8 +271,8 @@ form {
 
 .shop-now,
 .our-story {
-    width: clamp(220px, 44vw, 300px);
-    height: clamp(72px, 13vw, 100px);
+    width: 200px;
+    height: 50px;
 
     border-radius: 200px;
     text-decoration: none;
@@ -299,7 +295,7 @@ form {
 .our-story p {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 300;
     letter-spacing: 5px;
 }
@@ -334,7 +330,7 @@ form {
 .category h1 {
     font-family: "Plus Jakarta Sans";
     text-align: center;
-    font-size: 40px;
+    font-size: 32px;
     color: #3C2F35;
 
 }
@@ -348,7 +344,7 @@ form {
     font-family: "Plus Jakarta Sans";
     text-align: center;
 
-    font-size: clamp(22px, 4.5vw, 34px);
+    font-size: 18px;
     color: #6A5B61;
 
     letter-spacing: 1px;
@@ -370,27 +366,27 @@ form {
 
 .view-all-categories p {
     font-family: "Plus Jakarta Sans";
-    font-size: clamp(22px, 4vw, 36px);
+    font-size: 18px;
     color: #AC2D5E;
+    margin-top: 5px;
 }
 
 .view-all-categories span {
     margin-left: 7px;
-    margin-top: 5px;
-
+    margin-top: 0;
     color: #AC2D5E;
-    font-size: clamp(30px, 6vw, 47px);
+    font-size: 25px;
 }
 
 .category-4 {
     width: min(800px, calc(100vw - 48px));
-    margin: 100px auto 0;
+    margin: 30px auto 0;
 }
 
 .cookie-DIY,
 .cup-and-ckae {
     display: flex;
-    gap: clamp(24px, 6vw, 70px);
+    gap: 25px;
     justify-content: center;
     align-items: center;
 }
@@ -404,9 +400,9 @@ form {
 .DIY img,
 .cupcake img,
 .cake img {
-    width: clamp(140px, 34vw, 280px);
+    width: 140px;
 
-    border-radius: clamp(50px, 12vw, 100px);
+    border-radius: 50px;
     border-style: solid;
     border-width: clamp(14px, 4vw, 30px);
     border-color: #F6E3EA;
@@ -433,15 +429,16 @@ form {
 .best-sellers {
     margin-top: 0px;
     width: 100%;
-    height: 3020px;
+    height: auto;
     background-color: #FFF0F4;
-    padding-top: 100px;
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 .best-sellers h2 {
     font-family: "Plus Jakarta Sans";
     text-align: center;
-    font-size: clamp(46px, 9vw, 78px);
+    font-size: 40px;
     color: #3C2F35;
     word-spacing: 2px;
 }
@@ -452,7 +449,7 @@ form {
     margin-right: auto;
     font-family: "Plus Jakarta Sans";
     text-align: center;
-    font-size: clamp(22px, 4.5vw, 34px);
+    font-size: 22px;
     font-weight: 300;
     color: #6A5B61;
 
@@ -462,9 +459,8 @@ form {
 }
 
 .all-best {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     gap: 45px;
@@ -476,14 +472,11 @@ form {
 .Naked-Rose-Cake {
     background-color: #FFFFFF;
     border-radius: 55px;
-
     margin-top: 30px;
-    padding: 34px;
-
+    padding: 20px;
     box-sizing: border-box;
     text-decoration: none;
     color: inherit;
-
     box-shadow: 0 18px 35px #0000001f;
     overflow: visible;
 }
@@ -492,7 +485,7 @@ form {
 .Classic-Fresh-Flowers img,
 .Naked-Rose-Cake img {
     width: 100%;
-    height: clamp(420px, 95vw, 900px);
+    height: 300px;
 
     object-fit: cover;
 
@@ -507,11 +500,11 @@ form {
 
 .favorite-button {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 15px;
+    right: 15px;
 
-    width: clamp(52px, 10vw, 80px);
-    height: clamp(52px, 10vw, 80px);
+    width: 45px;
+    height: 45px;
 
     border-radius: 50%;
     border: none;
@@ -550,11 +543,9 @@ form {
 .Naked-Rose-Cake h1 {
     color: #3C2F35;
     font-family: "Plus Jakarta Sans", sans-serif;
-
-    font-size: clamp(34px, 7vw, 60px);
+    font-size: 28px;
     line-height: 1.15;
-
-    margin: 40px 0 20px;
+    margin: 20px 0 20px;
 }
 
 .Fresh-Flowers-Cake p,
@@ -563,10 +554,10 @@ form {
     color: #6A5B61;
     font-family: "Plus Jakarta Sans", sans-serif;
 
-    font-size: clamp(22px, 4.5vw, 38px);
+    font-size: 18px;
     line-height: 1.45;
 
-    margin: 0 0 30px;
+    margin: 0 0 20px;
 }
 
 .bottom {
@@ -580,13 +571,13 @@ form {
     font-family: "Plus Jakarta Sans";
     color: #AC2D5E;
 
-    font-size: clamp(30px, 6vw, 50px);
+    font-size: 28px;
     margin: 0;
 }
 
 .bottom .material-symbols-outlined {
-    width: clamp(52px, 10vw, 80px);
-    height: clamp(52px, 10vw, 80px);
+    width: 45px;
+    height: 45px;
 
     border-radius: 50%;
     background-color: #AC2D5E;
@@ -606,7 +597,7 @@ form {
 
 .reviews-section {
     background-color: #FFF8F8;
-    padding: 60px 0 90px;
+    padding: 60px 0 60px;
 
     font-family: "Plus Jakarta Sans", sans-serif;
     overflow: hidden;
@@ -627,9 +618,9 @@ form {
     border: none;
     border-radius: 16px;
 
-    padding: 16px 30px;
+    padding: 14px 14px;
 
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
 
     cursor: pointer;
@@ -668,8 +659,8 @@ form {
 
 .avatar,
 .avatar-img {
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     flex-shrink: 0;
 }
@@ -680,7 +671,7 @@ form {
     align-items: center;
 
     color: #F6E3EA;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
 }
 
@@ -708,15 +699,15 @@ form {
     margin: 0;
 
     color: #2f2f2f;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 800;
 }
 
 .review-user p {
-    margin: 6px 0 0;
+    margin: 5px 0 0;
 
     color: #666666;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .google {
@@ -730,7 +721,7 @@ form {
 .stars {
     color: #745C00;
 
-    font-size: 36px;
+    font-size: 22px;
     letter-spacing: 2px;
 
     margin: 22px 0;
@@ -739,7 +730,7 @@ form {
 .review-text {
     color: #2f2f2f;
 
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.55;
 
     margin: 0;
@@ -760,10 +751,12 @@ form {
 
 .royal-list-card {
     width: min(650px, calc(100vw - 48px));
-    height: 500px;
+    height: auto;
+    min-height: 420px;
     background-color: #FFD6E4;
     border-radius: 60px;
     box-sizing: border-box;
+    padding-bottom: 36px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -810,7 +803,7 @@ form {
 
 .royal-form input {
     margin-top: 20px;
-    width: 300px;
+    width: min(300px, calc(100% - 48px));
     height: 60px;
     border-radius: 50px;
     border: none;
@@ -831,7 +824,7 @@ form {
 }
 
 .royal-form button {
-    width: 300px;
+    width: min(300px, calc(100% - 48px));
     height: 60px;
     margin-top: 40px;
 
