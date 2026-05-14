@@ -1,0 +1,180 @@
+.body {
+    background-color: #fbe7ec;
+}
+
+.hero {
+    background-color: #fbe7ec;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 15px 35px #0000001f;
+}
+
+.hero-content {
+    padding: 0 34px;
+}
+
+
+.hero h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #47001F;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: left;
+    margin: 28px 0 5px;
+    line-height: 1.05;
+}
+
+.hero p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color: #6A5B61;
+    text-align: left;
+    margin: 16px 0 24px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.hero-button {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: flex-start;
+    margin-top: 0;
+}
+
+.shop-now,
+.our-story {
+    width: 200px;
+    height: 50px;
+
+    border-radius: 200px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-now {
+    background: linear-gradient(to bottom, #f0629a, #ac2d5e);
+    box-shadow: 0 18px 25px #00000025;
+}
+
+.our-story {
+    background-color: #f1dfe6;
+    margin-bottom: 45px;
+}
+
+.shop-now p,
+.our-story p {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.shop-now p {
+    color: #FFF7F7;
+}
+
+.our-story p {
+    color: #AC2D5E;
+}
+
+.hero-image {
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    padding-bottom: 20px;
+    margin: auto;
+
+    border-radius: 400px 400px 200px 200px;
+}
+
+@media (min-width:1000px) {
+    .hero {
+        width: 1300px;
+        height: 826px;
+        margin-top: 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fbe7ec;
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px #0000001f;
+        padding-right: 30px;
+    }
+
+
+    .hero-content {
+        padding: 0 60px;
+    }
+
+    .hero p {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 650px;
+        font-size: 32px;
+        font-weight: 200;
+        color: #6A5B61;
+        text-align: left;
+        margin-top: 10px;
+        letter-spacing: 1.4px;
+        line-height: 1.4;
+    }
+
+    .hero h3 {
+        font-size: 30px;
+    }
+
+    .hero-button {
+        display: flex;
+        flex-direction: row;
+        gap: 35px;
+        align-items: flex-start;
+    }
+
+    .shop-now,
+    .our-story {
+        width: 300px;
+        height: 100px;
+        border-radius: 200px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shop-now {
+        background: linear-gradient(to bottom, #f0629a, #ac2d5e);
+        box-shadow: 0 18px 25px #00000025;
+        margin: 0px 0px 45px;
+    }
+
+    .our-story {
+        background-color: #F2DDE5;
+        margin: 0px 0px 45px;
+    }
+
+    .shop-now p,
+    .our-story p {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 35px;
+        font-weight: 300;
+        letter-spacing: 5px;
+    }
+
+    .shop-now p {
+        color: #FFF7F7;
+    }
+
+    .our-story p {
+        color: #AC2D5E;
+    }
+
+}
