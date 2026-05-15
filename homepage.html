@@ -27,7 +27,7 @@
 
         <form>
             <div class="searching">
-                <a href="search-page.html" class="search-text">
+                <a href="search-page.html" class="search-text" onclick="handleSearchClick(event)">
                     <span class="material-symbols-outlined">search</span>
                     <button type="submit">Search</button>
                     <input class="searching-input" type="search" placeholder="Search">
@@ -337,6 +337,17 @@
             </form>
         </div>
     </section>
+
+    <!-- Desktop slide-in search panel (iframe of search-page.html) -->
+    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
+    <div class="search-panel" id="searchPanel">
+        <div class="search-panel-header">
+            <button class="search-panel-close" onclick="closeSearchPanel()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
+    </div>
 </body>
 
 </html>

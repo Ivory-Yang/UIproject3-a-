@@ -244,9 +244,17 @@ form {
     font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.hero-label { display: none; }
-.hero-title { display: none; }
-.hero-stats { display: none; }
+.hero-label {
+    display: none;
+}
+
+.hero-title {
+    display: none;
+}
+
+.hero-stats {
+    display: none;
+}
 
 .hero-content {
     width: 100%;
@@ -476,7 +484,7 @@ form {
     text-decoration: none;
     color: inherit;
     box-shadow: 0 18px 35px #0000001f;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .Fresh-Flowers-Cake img,
@@ -923,6 +931,93 @@ form {
 }
 
 
+/* ============================= */
+/* SEARCH PANEL (desktop only)   */
+/* ============================= */
+
+.search-overlay,
+.search-panel {
+    display: none;
+}
+
+@media (min-width: 1000px) {
+
+    .search-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1100;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .search-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .search-panel {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 420px;
+        background-color: #FFF8F8;
+        z-index: 1200;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.14);
+        overflow: hidden;
+    }
+
+    .search-panel.open {
+        transform: translateX(0);
+    }
+
+    .search-panel-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 14px;
+        flex-shrink: 0;
+        background-color: #FFF8F8;
+        border-bottom: 1px solid #f0d5e0;
+    }
+
+    .search-panel-close {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: none;
+        background: #f6e3ea;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s;
+    }
+
+    .search-panel-close:hover {
+        background: #eac8d4;
+    }
+
+    .search-panel-close .material-symbols-outlined {
+        font-size: 18px;
+        color: #3C2F35;
+    }
+
+    .search-panel-frame {
+        width: 100%;
+        flex: 1;
+        border: none;
+        min-height: 0;
+    }
+}
+
 /* Desktop style */
 @media (min-width: 1000px) {
     body {
@@ -949,14 +1044,12 @@ form {
 
     .tittle {
         display: flex;
-        align-items: center;
-        /* Space between logo and text */
         flex-shrink: 0;
     }
 
     .tittle h1 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 50px;
+        font-size: 40px;
         margin: 0;
     }
 
@@ -977,7 +1070,7 @@ form {
         align-items: center;
         width: 100%;
         max-width: 1000px;
-        height: 60px;
+        height: 40px;
         border-width: 2px;
         border-radius: 50px;
         background: transparent;
@@ -985,7 +1078,7 @@ form {
 
     .searching-input {
         width: 100%;
-        font-size: 30px;
+        font-size: 18px;
         background: transparent;
     }
 
@@ -1174,7 +1267,7 @@ form {
     .category h1 {
         font-family: "Plus Jakarta Sans";
         text-align: center;
-        font-size: 80px;
+        font-size: 50px;
         color: #3C2F35;
         margin-bottom: 10px;
     }
@@ -1187,7 +1280,7 @@ form {
     .category p {
         font-family: "Plus Jakarta Sans";
         text-align: center;
-        font-size: 45px;
+        font-size: 25px;
         color: #6A5B61;
         letter-spacing: 1px;
         margin-top: 0;
@@ -1205,7 +1298,7 @@ form {
 
     .view-all-categories p {
         font-family: "Plus Jakarta Sans";
-        font-size: 40px;
+        font-size: 20px;
         color: #AC2D5E;
     }
 
@@ -1256,7 +1349,7 @@ form {
         color: #3C2F35;
         font-family: "Plus Jakarta Sans";
         font-weight: 600;
-        font-size: 60px;
+        font-size: 30px;
         text-align: center;
     }
 
@@ -1269,7 +1362,7 @@ form {
     .best-sellers h2 {
         font-family: "Plus Jakarta Sans";
         text-align: center;
-        font-size: 78px;
+        font-size: 50px;
         color: #3C2F35;
         word-spacing: 20px;
     }
@@ -1277,7 +1370,6 @@ form {
     .best-sellers h3 {
         font-family: "Plus Jakarta Sans";
         text-align: center;
-        font-size: 34px;
         font-weight: 300;
         color: #6A5B61;
         letter-spacing: 1px;
@@ -1292,7 +1384,6 @@ form {
         width: 100%;
         overflow-x: auto;
         overflow-y: hidden;
-
         padding: 20px 40px 50px;
         scroll-behavior: smooth;
     }
@@ -1300,24 +1391,24 @@ form {
     .Fresh-Flowers-Cake,
     .Classic-Fresh-Flowers,
     .Naked-Rose-Cake {
-        width: 500px;
-        height: 700px;
+        width: 100%;
+        height: 630px;
         background-color: #FFFFFF;
         border-radius: 55px;
         margin-top: 30px;
-        padding: 34px;
+        padding: 20px;
         box-sizing: border-box;
         text-decoration: none;
         color: inherit;
         box-shadow: 0 18px 35px #0000001f;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .Fresh-Flowers-Cake img,
     .Classic-Fresh-Flowers img,
     .Naked-Rose-Cake img {
         width: 100%;
-        height: 400px;
+        height: 300px;
         object-fit: cover;
         border-radius: 35px;
         margin: 0;
@@ -1332,7 +1423,6 @@ form {
         position: absolute;
         top: 14px;
         right: 14px;
-
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -1342,7 +1432,6 @@ form {
         display: flex;
         justify-content: center;
         align-items: center;
-
         cursor: pointer;
     }
 
@@ -1472,8 +1561,8 @@ form {
     }
 
     .royal-list-card {
-        width: 1300px;
-        height: 500px;
+        width: 85%;
+        height: 450px;
         background-color: #F2DDE5;
         border-radius: 60px;
         padding: 70px;
@@ -1490,7 +1579,7 @@ form {
 
     .royal-list-card h2 {
         color: #3C2F35;
-        font-size: 60px;
+        font-size: 50px;
         line-height: 1.1;
         text-align: center;
     }
@@ -1498,7 +1587,7 @@ form {
     .royal-list-card p {
         width: 1000px;
         color: #6A5B61;
-        font-size: 35px;
+        font-size: 30px;
         line-height: 1.45;
         text-align: center;
         margin: 10px 0 40px;

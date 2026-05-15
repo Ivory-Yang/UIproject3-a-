@@ -18,3 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+if (new URLSearchParams(window.location.search).get('panel') === '1') {
+    document.documentElement.classList.add('panel-mode');
+}
