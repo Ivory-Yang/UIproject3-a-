@@ -26,10 +26,10 @@
             </a>
         </div>
         <div class="cat-chips-scroll">
-            <button class="cat-chip active" onclick="setChip(this)">Cake</button>
-            <button class="cat-chip" onclick="setChip(this)">Cupcake</button>
-            <button class="cat-chip" onclick="setChip(this)">Cookie</button>
-            <button class="cat-chip" onclick="setChip(this)">DIY</button>
+            <button class="cat-chip active" data-cat="cake"    onclick="setChip(this)">Cake</button>
+            <button class="cat-chip"        data-cat="cupcake" onclick="setChip(this)">Cupcake</button>
+            <button class="cat-chip"        data-cat="cookie"  onclick="setChip(this)">Cookie</button>
+            <button class="cat-chip"        data-cat="diy"     onclick="setChip(this)">DIY</button>
         </div>
     </div>
 
@@ -86,10 +86,10 @@
             <div class="filter-group">
                 <h4>CATEGORIES</h4>
                 <ul class="cat-list">
-                    <li><a href="#" class="cat-item active">Cakes</a></li>
-                    <li><a href="#" class="cat-item">Cupcakes</a></li>
-                    <li><a href="#" class="cat-item">Cookies</a></li>
-                    <li><a href="#" class="cat-item">DIY Kits</a></li>
+                    <li><a href="#" class="cat-item active" data-cat="cake"    onclick="setSidebarCat(event,this)">Cakes</a></li>
+                    <li><a href="#" class="cat-item"        data-cat="cupcake" onclick="setSidebarCat(event,this)">Cupcakes</a></li>
+                    <li><a href="#" class="cat-item"        data-cat="cookie"  onclick="setSidebarCat(event,this)">Cookies</a></li>
+                    <li><a href="#" class="cat-item"        data-cat="diy"     onclick="setSidebarCat(event,this)">DIY Kits</a></li>
                 </ul>
             </div>
             <div class="filter-group">
@@ -111,7 +111,7 @@
         <section class="product-grid">
 
             <!-- Card 1 -->
-            <div class="product-card">
+            <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
                     <img src="Image/Fluffy Pink Cake.png" alt="Silky Smooth Pink Velvet">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
@@ -134,7 +134,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="product-card">
+            <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
                     <img src="Image/Naked Rose Cake.png" alt="Rose Garden Naked Cake">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
@@ -157,7 +157,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="product-card">
+            <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
                     <img src="Image/Pretty Marble Tower Cake.png" alt="Berry Dream Tower">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
@@ -180,7 +180,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="product-card">
+            <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
                     <img src="Image/Classic Fresh Flowers Cake.png" alt="Artisan Cocoa Elegance">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
@@ -203,7 +203,7 @@
             </div>
 
             <!-- Card 5 -->
-            <div class="product-card">
+            <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
                     <img src="Image/Fresh Flowers Cake.png" alt="Fresh Floral Delight">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
@@ -226,7 +226,7 @@
             </div>
 
             <!-- Card 6 -->
-            <div class="product-card">
+            <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
                     <img src="Image/Flower Tower Cake.png" alt="Blossom Tower">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
@@ -244,6 +244,192 @@
                         <button class="add-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CUPCAKE CARDS ===== -->
+
+            <div class="product-card" data-cat="cupcake">
+                <div class="card-image-wrap">
+                    <img src="Image/cupcake.png" alt="Rose Petal Silk">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Rose Petal Silk</span>
+                        <span class="card-rating">★ 4.1</span>
+                    </div>
+                    <p class="card-desc">A delicate whisper of Bulgarian rose blended into our signature light sponge.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$8.40</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="cupcake">
+                <div class="card-image-wrap">
+                    <img src="Image/cupcake.png" alt="Cocoa Noir">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Cocoa Noir</span>
+                        <span class="card-rating">★ 4.2</span>
+                    </div>
+                    <p class="card-desc">70% dark Belgian cocoa with a hand-crafted chocolate ganache.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$7.25</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="cupcake">
+                <div class="card-image-wrap">
+                    <img src="Image/cupcake.png" alt="Citrus Cloud">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Citrus Cloud</span>
+                        <span class="card-rating">★ 4.4</span>
+                    </div>
+                    <p class="card-desc">Bright Sicilian lemon zest paired with an irresistible light toasted meringue.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$8.75</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== COOKIE CARDS ===== -->
+
+            <div class="product-card" data-cat="cookie">
+                <div class="card-image-wrap">
+                    <img src="Image/cookie.png" alt="Classic Butter Cookie">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Classic Butter Cookie</span>
+                        <span class="card-rating">★ 4.6</span>
+                    </div>
+                    <p class="card-desc">Melt-in-your-mouth butter shortbread with a dusting of vanilla sugar.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$4.50</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="cookie">
+                <div class="card-image-wrap">
+                    <img src="Image/cookie.png" alt="Dark Choc Chip">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Dark Choc Chip</span>
+                        <span class="card-rating">★ 4.8</span>
+                    </div>
+                    <p class="card-desc">Rich 70% cacao chips folded into our signature brown butter dough.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$5.00</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="cookie">
+                <div class="card-image-wrap">
+                    <img src="Image/cookie.png" alt="Almond Crunch">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Almond Crunch</span>
+                        <span class="card-rating">★ 4.3</span>
+                    </div>
+                    <p class="card-desc">Toasted almond slices pressed into a delicate golden crisp cookie.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$4.75</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== DIY CARDS ===== -->
+
+            <div class="product-card" data-cat="diy">
+                <div class="card-image-wrap">
+                    <img src="Image/DIY.png" alt="Cake Decorating Kit">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Cake Decorating Kit</span>
+                        <span class="card-rating">★ 4.7</span>
+                    </div>
+                    <p class="card-desc">Everything you need to bake and decorate a signature princess cake at home.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$35.00</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="diy">
+                <div class="card-image-wrap">
+                    <img src="Image/DIY.png" alt="Cupcake Baking Box">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Cupcake Baking Box</span>
+                        <span class="card-rating">★ 4.9</span>
+                    </div>
+                    <p class="card-desc">Pre-measured ingredients and piping tools for 12 royal cupcakes.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$28.00</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="diy">
+                <div class="card-image-wrap">
+                    <img src="Image/DIY.png" alt="Cookie Craft Set">
+                    <button class="fav-btn" onclick="toggleFav(event,this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="card-top-row">
+                        <span class="card-name">Cookie Craft Set</span>
+                        <span class="card-rating">★ 4.5</span>
+                    </div>
+                    <p class="card-desc">Cookie cutters, icing bags, and sprinkle mixes for a creative baking day.</p>
+                    <div class="card-bottom-row">
+                        <span class="card-price">$22.00</span>
+                        <button class="add-btn"><span class="material-symbols-outlined">add</span></button>
                     </div>
                 </div>
             </div>
@@ -333,14 +519,43 @@
     </nav>
 
     <script>
+        function filterProducts(cat) {
+            const cards = document.querySelectorAll('.product-card');
+            let count = 0;
+            cards.forEach(card => {
+                const show = !cat || card.dataset.cat === cat;
+                card.style.display = show ? '' : 'none';
+                if (show) count++;
+            });
+            const countEl = document.querySelector('.item-count');
+            if (countEl) countEl.textContent = count + ' Divine Items';
+        }
+
+        function setChip(el) {
+            document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            document.querySelectorAll('.cat-item').forEach(c => {
+                c.classList.toggle('active', c.dataset.cat === el.dataset.cat);
+            });
+            filterProducts(el.dataset.cat);
+        }
+
+        function setSidebarCat(e, el) {
+            e.preventDefault();
+            document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            document.querySelectorAll('.cat-chip').forEach(c => {
+                c.classList.toggle('active', c.dataset.cat === el.dataset.cat);
+            });
+            filterProducts(el.dataset.cat);
+        }
+
         function toggleFav(e, btn) {
             e.preventDefault();
             btn.classList.toggle('active');
         }
-        function setChip(el) {
-            document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-        }
+
+        document.addEventListener('DOMContentLoaded', () => filterProducts('cake'));
     </script>
 </body>
 
