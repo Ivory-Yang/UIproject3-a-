@@ -451,7 +451,6 @@ form {
     line-height: 1.5;
     margin: 0 0 12px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -679,7 +678,7 @@ form {
         color: #9b8f95;
     }
 
-    .breadcrumb > span:last-child {
+    .breadcrumb>span:last-child {
         color: #AC2D5E;
     }
 
@@ -846,10 +845,23 @@ form {
         gap: 8px;
     }
 
-    .card-name   { font-size: 16px; }
-    .card-rating { font-size: 13px; }
-    .card-desc   { font-size: 13px; margin: 0; flex: 1; }
-    .card-price  { font-size: 18px; }
+    .card-name {
+        font-size: 16px;
+    }
+
+    .card-rating {
+        font-size: 13px;
+    }
+
+    .card-desc {
+        font-size: 13px;
+        margin: 0;
+        flex: 1;
+    }
+
+    .card-price {
+        font-size: 18px;
+    }
 
     .add-btn {
         width: 40px;
@@ -903,8 +915,14 @@ form {
         padding-right: 40px;
     }
 
-    .brand-col    { flex: 1.4; }
-    .newsletter-col { flex: 1.2; padding-right: 0; }
+    .brand-col {
+        flex: 1.4;
+    }
+
+    .newsletter-col {
+        flex: 1.2;
+        padding-right: 0;
+    }
 
     .footer-col h5 {
         font-size: 12px;
@@ -930,7 +948,9 @@ form {
         transition: color 0.15s;
     }
 
-    .footer-col ul li a:hover { color: #AC2D5E; }
+    .footer-col ul li a:hover {
+        color: #AC2D5E;
+    }
 
     .footer-brand {
         display: flex;
@@ -939,7 +959,10 @@ form {
         margin-bottom: 14px;
     }
 
-    .footer-brand img   { width: 36px; height: auto; }
+    .footer-brand img {
+        width: 36px;
+        height: auto;
+    }
 
     .footer-brand span {
         font-size: 18px;
@@ -978,8 +1001,13 @@ form {
         color: #AC2D5E;
     }
 
-    .social-icon:hover { background-color: #AC2D5E; }
-    .social-icon:hover .material-symbols-outlined { color: white; }
+    .social-icon:hover {
+        background-color: #AC2D5E;
+    }
+
+    .social-icon:hover .material-symbols-outlined {
+        color: white;
+    }
 
     .newsletter-col p {
         font-size: 14px;
@@ -1006,7 +1034,9 @@ form {
         background: white;
     }
 
-    .footer-form input::placeholder { color: #9b8f95; }
+    .footer-form input::placeholder {
+        color: #9b8f95;
+    }
 
     .footer-form button {
         height: 44px;
@@ -1045,5 +1075,7 @@ form {
         text-decoration: none;
     }
 
-    .footer-legal a:hover { color: #AC2D5E; }
+    .footer-legal a:hover {
+        color: #AC2D5E;
+    }
 }

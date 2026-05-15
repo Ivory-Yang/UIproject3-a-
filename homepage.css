@@ -198,124 +198,122 @@ form {
 
 
 /* ============================= */
-/* HERO */
+/* HERO                          */
 /* ============================= */
 
 .hero {
-    width: 85%;
-    margin: 20px auto 80px;
-    background-color: #fbe7ec;
-    border-radius: 60px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 0 15px 35px #0000001f;
-}
-
-.hero-content {
-    padding: 0 34px;
-}
-
-.collection {
-    width: 100%;
-    height: 50px;
-    background-color: #f0629a;
-    border-radius: 200px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: 40px auto;
-    padding: 0 16px;
-}
-
-.collection h3 {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #47001F;
-    font-weight: 500;
-    letter-spacing: 3px;
-    font-size: 13px;
-    white-space: nowrap;
-}
-
-.hero h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #47001F;
-    font-size: 40px;
-    font-weight: 700;
-    text-align: left;
-    margin: 28px 0 5px;
-    line-height: 1.05;
-}
-
-.hero p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    font-weight: 200;
-    color: #6A5B61;
-    text-align: left;
-    margin: 16px 0 24px;
-    letter-spacing: 1px;
-    line-height: 1.4;
-}
-
-.hero-button {
+    margin: 20px 16px 40px;
     display: flex;
     flex-direction: column;
-    gap: 35px;
-    align-items: flex-start;
-    margin-top: 0;
+    align-items: center;
 }
 
-.shop-now,
-.our-story {
-    width: 200px;
-    height: 50px;
+.hero-card {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+}
 
-    border-radius: 200px;
+.hero-img-m {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-img-d {
+    display: none;
+}
+
+.hero-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 22px 26px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.58) 0%, transparent 100%);
+}
+
+.hero-card-overlay h2 {
+    color: white;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.hero-label { display: none; }
+.hero-title { display: none; }
+.hero-stats { display: none; }
+
+.hero-content {
+    width: 100%;
+    text-align: center;
+    padding: 22px 4px 0;
+}
+
+.hero-desc {
+    font-size: 15px;
+    color: #6A5B61;
+    line-height: 1.65;
+    margin: 0 0 24px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.btn-shop {
+    width: 100%;
+    max-width: 320px;
+    height: 52px;
+    background: linear-gradient(to right, #f0629a, #AC2D5E);
+    color: white;
+    border-radius: 50px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    box-shadow: 0 10px 22px rgba(172, 45, 94, 0.35);
 }
 
-.shop-now {
-    background: linear-gradient(to bottom, #f0629a, #ac2d5e);
-    box-shadow: 0 18px 25px #00000025;
-}
-
-.our-story {
-    background-color: #f1dfe6;
-    margin-bottom: 45px;
-}
-
-.shop-now p,
-.our-story p {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 22px;
-    font-weight: 300;
-    letter-spacing: 5px;
-}
-
-.shop-now p {
-    color: #FFF7F7;
-}
-
-.our-story p {
+.btn-menu {
     color: #AC2D5E;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.hero-image {
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    padding-bottom: 20px;
-    margin: auto;
+.hero-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 26px;
+}
 
-    border-radius: 400px 400px 200px 200px;
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d9b3c4;
+    display: block;
+}
+
+.dot.active {
+    width: 18px;
+    border-radius: 50px;
+    background-color: #AC2D5E;
 }
 
 /* ============================= */
@@ -1034,118 +1032,138 @@ form {
 
 
     .hero {
-        width: 1300px;
-        height: 826px;
-        margin-top: 30px;
-        box-sizing: border-box;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        background-color: #fbe7ec;
-        border-radius: 50px;
-        overflow: hidden;
-        box-shadow: 0 15px 35px #0000001f;
-        padding-right: 30px;
+        gap: 60px;
+        margin: 50px auto 60px;
+        width: min(1300px, calc(100vw - 10%));
+        padding: 0;
     }
 
+    .hero-card {
+        flex-shrink: 0;
+        width: 500px;
+        height: 460px;
+        border-radius: 32px;
+        overflow: hidden;
+        position: relative;
+        order: 2;
+        background-color: #f5dde8;
+    }
+
+    .hero-img-m {
+        display: none;
+    }
+
+    .hero-img-d {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-card-overlay {
+        display: none;
+    }
 
     .hero-content {
-        padding: 0 60px;
-    }
-
-    .hero p {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        max-width: 650px;
-        font-size: 32px;
-        font-weight: 200;
-        color: #6A5B61;
+        flex: 1;
         text-align: left;
-        margin-top: 10px;
-        letter-spacing: 1.4px;
-        line-height: 1.4;
+        padding: 0;
+        order: 1;
     }
 
-    .hero h3 {
-        font-size: 30px;
+    .hero-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #AC2D5E;
+        margin: 0 0 16px;
+        font-family: "Plus Jakarta Sans", sans-serif;
     }
 
-    .hero-button {
-        display: flex;
-        flex-direction: row;
-        gap: 35px;
-        align-items: flex-start;
+    .hero-title {
+        display: block;
+        font-size: 58px;
+        font-weight: 800;
+        color: #3C2F35;
+        line-height: 1.1;
+        margin: 0 0 20px;
+        font-family: "Plus Jakarta Sans", sans-serif;
     }
 
-    .shop-now,
-    .our-story {
-        width: 300px;
-        height: 100px;
-        border-radius: 200px;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .shop-now {
-        background: linear-gradient(to bottom, #f0629a, #ac2d5e);
-        box-shadow: 0 18px 25px #00000025;
-        margin: 0px 0px 45px;
-    }
-
-    .our-story {
-        background-color: #F2DDE5;
-        margin: 0px 0px 45px;
-    }
-
-    .shop-now p,
-    .our-story p {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 35px;
-        font-weight: 300;
-        letter-spacing: 5px;
-    }
-
-    .shop-now p {
-        color: #FFF7F7;
-    }
-
-    .our-story p {
+    .hero-title em {
+        font-style: italic;
         color: #AC2D5E;
     }
 
-    .collection {
-        width: 600px;
-        height: 70px;
-        background-color: #f0629a;
-        border-radius: 200px;
+    .hero-desc {
+        font-size: 15px;
+        color: #6A5B61;
+        line-height: 1.65;
+        max-width: 380px;
+        margin: 0 0 32px;
+        text-align: left;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 48px;
+    }
+
+    .btn-shop {
+        width: auto;
+        max-width: none;
+        height: 50px;
+        padding: 0 32px;
+        font-size: 15px;
+    }
+
+    .btn-menu {
+        height: 50px;
+        padding: 0 32px;
+        border: 2px solid #AC2D5E;
+        border-radius: 50px;
+        color: #AC2D5E;
         text-decoration: none;
         display: flex;
-        justify-content: center;
         align-items: center;
-        margin-left: 0px;
-        box-sizing: border-box;
-    }
-
-
-
-    .hero h2 {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #47001F;
-        font-size: 100px;
+        font-size: 15px;
         font-weight: 700;
-        margin-top: -20px;
-        margin-left: 0px;
-        line-height: 1.05;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        letter-spacing: 0;
     }
 
-    .hero-image {
+    .hero-stats {
+        display: flex;
+        gap: 48px;
+    }
+
+    .stat-num {
         display: block;
-        margin-left: -20px;
-        max-width: 530px;
-        border-radius: 40px 40px 40px 40px;
+        font-size: 28px;
+        font-weight: 800;
+        color: #3C2F35;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        line-height: 1;
+    }
+
+    .stat-label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #9b8f95;
+        margin-top: 4px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .hero-dots {
+        display: none;
     }
 
     .category {
