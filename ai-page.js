@@ -55,3 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     chatArea.scrollTop = chatArea.scrollHeight;
 });
+if (window !== window.top) {
+    document.documentElement.classList.add('panel-mode');
+}

@@ -1023,6 +1023,7 @@ form {
     body {
         background-color: #FFF8F8;
         margin: 0;
+        padding-top: 130px;
     }
 
     .header {
@@ -1036,10 +1037,6 @@ form {
         right: 0;
         background-color: #FFF8F8;
         padding: 20px 5%;
-    }
-
-    body {
-        padding-top: 130px;
     }
 
     .tittle {
