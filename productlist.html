@@ -21,7 +21,7 @@
     <div class="mobile-sticky-top">
         <div class="mobile-header">
             <button class="hamburger-btn">
-                <span class="material-symbols-outlined">menu</span>
+                <img src="Image/logo.png" alt="Logo">
             </button>
             <span class="mobile-brand">The Cupcake Princess</span>
             <a href="search-page.html" class="mobile-search-btn">
@@ -61,10 +61,15 @@
         </div>
         <div class="list-meta">
             <span class="item-count">12 Divine Items</span>
-            <button class="sort-btn">
-                <span class="material-symbols-outlined">swap_vert</span>
-                SORT BY PRICE
-            </button>
+            <form class="sort-by">
+                <label class="sort-text" for="sort">SORT BY:</label>
+                <select class="sort-btn" name="cars" id="cars">
+                    <option value="best-selling">Best Selling</option>
+                    <option value="Relevant">Moset Relevant</option>
+                    <option value="price-l-h">Price Low to High</option>
+                    <option value="price-h-l">Price Hight to Low</option>
+                </select>
+            </form>
         </div>
     </div>
 
@@ -121,19 +126,19 @@
             <!-- Card 1 -->
             <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
-                    <img src="Image/Fluffy Pink Cake.png" alt="Silky Smooth Pink Velvet">
+                    <img src="Image/Fresh Flowers Cake.png" alt="Fresh Flowers Cake">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
                         <span class="material-symbols-outlined">favorite</span>
                     </button>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <span class="card-name">Silky Smooth Pink Velvet</span>
+                        <span class="card-name">Fresh Flowers Cake</span>
                         <span class="card-rating">★ 4.9</span>
                     </div>
                     <p class="card-desc">Lightweight sponge with premium berry-infused cream frosting.</p>
                     <div class="card-bottom-row">
-                        <span class="card-price">$42.00</span>
+                        <span class="card-price">$169.00</span>
                         <button class="add-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
@@ -144,19 +149,19 @@
             <!-- Card 2 -->
             <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
-                    <img src="Image/Naked Rose Cake.png" alt="Rose Garden Naked Cake">
+                    <img src="Image/Naked Rose Cake.png" alt="Naked Rose Cake">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
                         <span class="material-symbols-outlined">favorite</span>
                     </button>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <span class="card-name">Rose Garden Naked Cake</span>
+                        <span class="card-name">Naked Rose Cake</span>
                         <span class="card-rating">★ 4.9</span>
                     </div>
                     <p class="card-desc">Rustic aesthetic featuring edible rose petals and Madagascar vanilla.</p>
                     <div class="card-bottom-row">
-                        <span class="card-price">$55.00</span>
+                        <span class="card-price">$169.00</span>
                         <button class="add-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
@@ -167,19 +172,19 @@
             <!-- Card 3 -->
             <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
-                    <img src="Image/Pretty Marble Tower Cake.png" alt="Berry Dream Tower">
+                    <img src="Image/Pretty Marble Tower Cake.png" alt="Pretty Marble Tower Cake">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
                         <span class="material-symbols-outlined">favorite</span>
                     </button>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <span class="card-name">Berry Dream Tower</span>
+                        <span class="card-name">Pretty Marble Tower Cake</span>
                         <span class="card-rating">★ 5.0</span>
                     </div>
                     <p class="card-desc">Cascading fresh raspberries atop a cloud-like cream structure.</p>
                     <div class="card-bottom-row">
-                        <span class="card-price">$68.00</span>
+                        <span class="card-price">$199.00</span>
                         <button class="add-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
@@ -190,19 +195,19 @@
             <!-- Card 4 -->
             <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
-                    <img src="Image/Classic Fresh Flowers Cake.png" alt="Artisan Cocoa Elegance">
+                    <img src="Image/Classic Fresh Flowers Cake.png" alt="Classic Fresh Flowers Cake">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
                         <span class="material-symbols-outlined">favorite</span>
                     </button>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <span class="card-name">Artisan Cocoa Elegance</span>
+                        <span class="card-name">Classic Fresh Flowers Cake</span>
                         <span class="card-rating">★ 4.7</span>
                     </div>
                     <p class="card-desc">Triple-layer chocolate masterpiece with ganache finishing.</p>
                     <div class="card-bottom-row">
-                        <span class="card-price">$49.00</span>
+                        <span class="card-price">$199.00</span>
                         <button class="add-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
@@ -213,19 +218,19 @@
             <!-- Card 5 -->
             <div class="product-card" data-cat="cake">
                 <div class="card-image-wrap">
-                    <img src="Image/Fresh Flowers Cake.png" alt="Fresh Floral Delight">
+                    <img src="Image/Fluffy Pink Cake.png" alt="Fluffy Pink Cake">
                     <button class="fav-btn" onclick="toggleFav(event,this)">
                         <span class="material-symbols-outlined">favorite</span>
                     </button>
                 </div>
                 <div class="card-body">
                     <div class="card-top-row">
-                        <span class="card-name">Fresh Floral Delight</span>
+                        <span class="card-name">Fluffy Pink Cake</span>
                         <span class="card-rating">★ 4.8</span>
                     </div>
                     <p class="card-desc">Light chiffon layered with seasonal fresh flower accents.</p>
                     <div class="card-bottom-row">
-                        <span class="card-price">$62.00</span>
+                        <span class="card-price">$209.00</span>
                         <button class="add-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
@@ -248,13 +253,14 @@
                     </div>
                     <p class="card-desc">Tall celebration tier cake adorned with handpicked seasonal blooms.</p>
                     <div class="card-bottom-row">
-                        <span class="card-price">$75.00</span>
+                        <span class="card-price">$265.00</span>
                         <button class="add-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
                     </div>
                 </div>
             </div>
+
 
             <!-- ===== CUPCAKE CARDS ===== -->
 
@@ -567,44 +573,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => filterProducts('cake'));
-
-        function handleSearchClick(e) {
-            if (window.innerWidth >= 1000) {
-                e.preventDefault();
-                openSearchPanel();
-            }
-        }
-
-        function openSearchPanel() {
-            const frame = document.getElementById('searchPanelFrame');
-            if (!frame.dataset.loaded) {
-                frame.src = 'search-page.html?panel=1';
-                frame.dataset.loaded = '1';
-            }
-            document.getElementById('searchOverlay').classList.add('open');
-            document.getElementById('searchPanel').classList.add('open');
-        }
-
-        function closeSearchPanel() {
-            document.getElementById('searchOverlay').classList.remove('open');
-            document.getElementById('searchPanel').classList.remove('open');
-        }
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeSearchPanel();
-        });
     </script>
-
-    <!-- Desktop slide-in search panel -->
-    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
-    <div class="search-panel" id="searchPanel">
-        <div class="search-panel-header">
-            <button class="search-panel-close" onclick="closeSearchPanel()">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
-    </div>
 </body>
 
 </html>

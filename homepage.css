@@ -1,3 +1,24 @@
+:root {
+    --app-max-width: 800px;
+    --app-side-gap: 24px;
+    --bg-main: #FFF8F8;
+    --bg-soft: #FFF0F4;
+    --bg-card: #fbe7ec;
+    --white: #ffffff;
+    --box-shadow: #d9b3c447;
+    --pink-main: #AC2D5E;
+    --pink-bright: #f0629a;
+    --pink-title: #AA1758;
+
+    --text-dark: #3C2F35;
+    --text-deep: #47001F;
+    --text-muted: #6A5B61;
+    --nav-muted: #968b90;
+
+    --font-main: "Plus Jakarta Sans", sans-serif;
+    --font-title: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -9,8 +30,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #FFF8F8;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: var(--bg-main);
+    font-family: var(--font-main);
 }
 
 body {
@@ -30,7 +51,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #FFF8F8;
+    background-color: var(--bg-main);
     padding: 18px 18px 22px;
 }
 
@@ -45,9 +66,9 @@ body {
 }
 
 .tittle h1 {
-    color: #AA1758;
+    color: var(--pink-main);
     font-size: 22px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-title);
     margin: 0;
     line-height: 1.1;
     text-align: center;
@@ -74,9 +95,9 @@ form {
 .searching {
     width: min(700px, calc(100vw - 48px));
     height: 40px;
-    border: 2px solid #AC2D5E;
+    border: 2px solid var(--pink-main);
     border-radius: 40px;
-    background-color: #FFF8F8;
+    background-color: var(--bg-main);
 
     padding: 0 18px;
     z-index: 100;
@@ -92,7 +113,7 @@ form {
 }
 
 .searching span {
-    color: #AA1758;
+    color: var(--pink-main);
     font-size: 30px;
     flex-shrink: 0;
 }
@@ -105,12 +126,12 @@ form {
     background: transparent;
 
     font-size: 18px;
-    color: #6A5B61;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-muted);
+    font-family: var(--font-title);
 }
 
 .searching-input::placeholder {
-    color: #6A5B61;
+    color: var(--text-muted);
     opacity: 1;
 }
 
@@ -129,9 +150,9 @@ form {
     transform: translateX(-50%);
     width: 95%;
     height: 64px;
-    background-color: #FFF8F8;
+    background-color: var(--bg-main);
     border-radius: 60px;
-    box-shadow: 0 -8px 24px rgba(217, 179, 196, 0.28);
+    box-shadow: 0 -8px 24px var(--box-shadow);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -155,7 +176,7 @@ form {
 
 .bottom-bar-item .material-symbols-outlined {
     font-size: 22px;
-    color: #968b90;
+    color: var(--nav-muted);
     line-height: 1;
 }
 
@@ -164,7 +185,7 @@ form {
     font-size: 8px;
     font-weight: 800;
     letter-spacing: 0.3px;
-    color: #968b90;
+    color: var(--nav-muted);
     white-space: nowrap;
     line-height: 1;
 }
@@ -173,7 +194,7 @@ form {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background-color: #AC2D5E;
+    background-color: var(--pink-main);
     display: block;
     margin-top: 4px;
 }
@@ -193,7 +214,7 @@ form {
 
 .bottom-bar-item.active .material-symbols-outlined,
 .bottom-bar-item.active p {
-    color: #AC2D5E;
+    color: var(--pink-main);
 }
 
 
@@ -241,7 +262,7 @@ form {
     font-weight: 800;
     line-height: 1.1;
     margin: 0;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 }
 
 .hero-label {
@@ -264,10 +285,10 @@ form {
 
 .hero-desc {
     font-size: 15px;
-    color: #6A5B61;
+    color: var(--text-muted);
     line-height: 1.65;
     margin: 0 0 24px;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 }
 
 .hero-buttons {
@@ -281,7 +302,7 @@ form {
     width: 100%;
     max-width: 320px;
     height: 52px;
-    background: linear-gradient(to right, #f0629a, #AC2D5E);
+    background: linear-gradient(to right, var(--pink-bright), var(--pink-main));
     color: white;
     border-radius: 50px;
     text-decoration: none;
@@ -290,17 +311,18 @@ form {
     align-items: center;
     font-size: 16px;
     font-weight: 700;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
     box-shadow: 0 10px 22px rgba(172, 45, 94, 0.35);
 }
 
 .btn-menu {
-    color: #AC2D5E;
+    color: var(--pink-main);
     text-decoration: none;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 1.5px;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
+
 }
 
 .hero-dots {
@@ -321,7 +343,7 @@ form {
 .dot.active {
     width: 18px;
     border-radius: 50px;
-    background-color: #AC2D5E;
+    background-color: var(--pink-main);
 }
 
 /* ============================= */
@@ -337,7 +359,7 @@ form {
     font-family: "Plus Jakarta Sans";
     text-align: center;
     font-size: 32px;
-    color: #3C2F35;
+    color: var(--text-dark);
 
 }
 
@@ -351,7 +373,7 @@ form {
     text-align: center;
 
     font-size: 18px;
-    color: #6A5B61;
+    color: var(--text-muted);
 
     letter-spacing: 1px;
     margin-top: 0;
@@ -373,14 +395,14 @@ form {
 .view-all-categories p {
     font-family: "Plus Jakarta Sans";
     font-size: 18px;
-    color: #AC2D5E;
+    color: var(--pink-main);
     margin-top: 5px;
 }
 
 .view-all-categories span {
     margin-left: 7px;
     margin-top: 0;
-    color: #AC2D5E;
+    color: var(--pink-main);
     font-size: 25px;
 }
 
@@ -420,7 +442,7 @@ form {
 .cake p {
     margin-top: 15px;
 
-    color: #3C2F35;
+    color: var(--text-dark);
     font-family: "Plus Jakarta Sans";
     font-weight: 600;
 
@@ -436,7 +458,7 @@ form {
     margin-top: 0px;
     width: 100%;
     height: auto;
-    background-color: #FFF0F4;
+    background-color: var(--bg-soft);
     padding-top: 30px;
     padding-bottom: 50px;
 }
@@ -445,7 +467,7 @@ form {
     font-family: "Plus Jakarta Sans";
     text-align: center;
     font-size: 40px;
-    color: #3C2F35;
+    color: var(--text-dark);
     word-spacing: 2px;
 }
 
@@ -457,7 +479,7 @@ form {
     text-align: center;
     font-size: 22px;
     font-weight: 300;
-    color: #6A5B61;
+    color: var(--text-muted);
 
     letter-spacing: 1px;
     margin-top: 0;
@@ -476,7 +498,7 @@ form {
 .Fresh-Flowers-Cake,
 .Classic-Fresh-Flowers,
 .Naked-Rose-Cake {
-    background-color: #FFFFFF;
+    background-color: var(--white);
     border-radius: 55px;
     margin-top: 30px;
     padding: 20px;
@@ -484,7 +506,7 @@ form {
     text-decoration: none;
     color: inherit;
     box-shadow: 0 18px 35px #0000001f;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .Fresh-Flowers-Cake img,
@@ -514,7 +536,7 @@ form {
 
     border-radius: 50%;
     border: none;
-    background-color: #FEF9FA;
+    background-color: var(--bg-main);
 
     display: flex;
     justify-content: center;
@@ -524,7 +546,7 @@ form {
 }
 
 .favorite-button span {
-    color: #AC2D5E;
+    color: var(--pink-main);
     font-size: clamp(34px, 7vw, 50px);
 
     font-variation-settings:
@@ -535,7 +557,7 @@ form {
 }
 
 .favorite-button.active span {
-    color: #AC2D5E;
+    color: var(--pink-main);
 
     font-variation-settings:
         'FILL' 1,
@@ -547,8 +569,8 @@ form {
 .Fresh-Flowers-Cake h1,
 .Classic-Fresh-Flowers h1,
 .Naked-Rose-Cake h1 {
-    color: #3C2F35;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    color: var(--text-dark);
+    font-family: var(--font-main);
     font-size: 28px;
     line-height: 1.15;
     margin: 20px 0 20px;
@@ -557,8 +579,8 @@ form {
 .Fresh-Flowers-Cake p,
 .Classic-Fresh-Flowers p,
 .Naked-Rose-Cake p {
-    color: #6A5B61;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    color: var(--text-muted);
+    font-family: var(--font-main);
 
     font-size: 18px;
     line-height: 1.45;
@@ -575,7 +597,7 @@ form {
 
 .bottom h2 {
     font-family: "Plus Jakarta Sans";
-    color: #AC2D5E;
+    color: var(--pink-main);
 
     font-size: 28px;
     margin: 0;
@@ -586,7 +608,7 @@ form {
     height: 45px;
 
     border-radius: 50%;
-    background-color: #AC2D5E;
+    background-color: var(--pink-main);
     color: white;
 
     display: flex;
@@ -594,7 +616,7 @@ form {
     align-items: center;
 
     font-size: clamp(32px, 7vw, 50px);
-    box-shadow: 0 12px 18px #00000020;
+    box-shadow: 0 12px 18px var(--box-shadow);
 }
 
 /* ============================= */
@@ -602,10 +624,10 @@ form {
 /* ============================= */
 
 .reviews-section {
-    background-color: #FFF8F8;
+    background-color: var(--bg-main);
     padding: 60px 0 60px;
 
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
     overflow: hidden;
 }
 
@@ -618,7 +640,7 @@ form {
 }
 
 .write-review {
-    background-color: #AC2D5E;
+    background-color: var(--pink-main);
     color: white;
 
     border: none;
@@ -704,7 +726,7 @@ form {
 .review-user h3 {
     margin: 0;
 
-    color: #2f2f2f;
+    color: var(--text-dark);
     font-size: 18px;
     font-weight: 800;
 }
@@ -712,7 +734,7 @@ form {
 .review-user p {
     margin: 5px 0 0;
 
-    color: #666666;
+    color: var(--text-muted);
     font-size: 15px;
 }
 
@@ -725,7 +747,7 @@ form {
 }
 
 .stars {
-    color: #745C00;
+    color: var(--text-muted);
 
     font-size: 22px;
     letter-spacing: 2px;
@@ -734,7 +756,7 @@ form {
 }
 
 .review-text {
-    color: #2f2f2f;
+    color: var(--text-dark);
 
     font-size: 18px;
     line-height: 1.55;
@@ -747,7 +769,7 @@ form {
 /* ============================= */
 
 .royal-list-section {
-    background-color: #FFF8F8;
+    background-color: var(--bg-main);
     padding-top: 10px;
     padding-bottom: 100px;
     display: flex;
@@ -766,12 +788,13 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
+
 }
 
 .royal-mail-icon {
     padding-top: 30px;
-    color: #AC2D5E;
+    color: var(--pink-main);
     margin: 0 0 15px;
 }
 
@@ -780,7 +803,7 @@ form {
 }
 
 .royal-list-card h2 {
-    color: #3C2F35;
+    color: var(--text-dark);
 
     font-size: 30px;
     line-height: 1.1;
@@ -790,7 +813,7 @@ form {
 }
 
 .royal-list-card p {
-    color: #6A5B61;
+    color: var(--text-muted);
     font-size: 18px;
     line-height: 1.45;
     text-align: center;
@@ -817,9 +840,9 @@ form {
     padding: 0 30px;
     box-sizing: border-box;
     font-size: 16px;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 
-    color: #6A5B61;
+    color: var(--text-muted);
     background-color: white;
 
     text-align: left;
@@ -837,13 +860,13 @@ form {
     border: none;
     border-radius: 50px;
 
-    background: linear-gradient(to bottom, #f0629a, #ac2d5e);
-    box-shadow: 0 14px 20px #00000025;
+    background: linear-gradient(to bottom, var(--pink-bright), var(--pink-main));
+    box-shadow: 0 14px 20px var(--nav-muted);
 
     color: white;
 
     font-size: 20px;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
     font-weight: 600;
     letter-spacing: 4px;
 
@@ -859,13 +882,13 @@ form {
     border: none;
     border-radius: 50px;
 
-    background: linear-gradient(to bottom, #f0629a, #ac2d5e);
-    box-shadow: 0 14px 20px #00000025;
+    background: linear-gradient(to bottom, var(--pink-bright), var(--pink-main));
+    box-shadow: 0 14px 20px var(--nav-muted);
 
     color: white;
 
     font-size: 18px;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
     font-weight: 600;
     letter-spacing: 4px;
 
@@ -888,9 +911,9 @@ form {
 }
 
 .subscribe-button.subscribed {
-    background: linear-gradient(to bottom, #ff8fbc, #AC2D5E);
+    background: linear-gradient(to bottom, #ff8fbc, var(--pink-main));
     transform: scale(1.05);
-    box-shadow: 0 18px 30px #ac2d5e55;
+    box-shadow: 0 18px 30px var(--pink-main)55;
 }
 
 .subscribe-button.subscribed .check-icon {
@@ -929,6 +952,17 @@ form {
         left: 420px;
     }
 }
+
+
+/* ============================= */
+/* SEARCH PANEL (desktop only)   */
+/* ============================= */
+
+.search-overlay,
+.search-panel {
+    display: none;
+}
+
 
 
 /* ============================= */
@@ -1021,9 +1055,8 @@ form {
 /* Desktop style */
 @media (min-width: 1000px) {
     body {
-        background-color: #FFF8F8;
+        background-color: var(--bg-main);
         margin: 0;
-        padding-top: 130px;
     }
 
     .header {
@@ -1035,8 +1068,12 @@ form {
         top: 0;
         left: 0;
         right: 0;
-        background-color: #FFF8F8;
+        background-color: var(--bg-main);
         padding: 20px 5%;
+    }
+
+    body {
+        padding-top: 130px;
     }
 
     .tittle {
@@ -1046,7 +1083,7 @@ form {
 
     .tittle h1 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 40px;
+        font-size: 50px;
         margin: 0;
     }
 
@@ -1090,10 +1127,10 @@ form {
 
         height: 10%;
 
-        background-color: #FFF8F8;
+        background-color: var(--bg-main);
         border-radius: 70px;
 
-        box-shadow: 0 10px 12px #00000060;
+        box-shadow: 0 10px 12px var(--nav-muted);
         backdrop-filter: blur(100px);
         overflow: hidden;
     }
@@ -1107,15 +1144,15 @@ form {
         justify-content: center;
 
         text-decoration: none;
-        color: #777;
+        color: var(--text-muted);
     }
 
     .button_bar p {
         margin: 15px 0 0;
         padding-bottom: 10px;
 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #777;
+        font-family: var(--font-title);
+        color: var(--text-muted);
     }
 
 
@@ -1169,29 +1206,31 @@ form {
         font-size: 12px;
         font-weight: 800;
         letter-spacing: 2px;
-        color: #AC2D5E;
+        color: var(--pink-main);
         margin: 0 0 16px;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: var(--font-main);
+
     }
 
     .hero-title {
         display: block;
         font-size: 58px;
         font-weight: 800;
-        color: #3C2F35;
+        color: var(--text-dark);
         line-height: 1.1;
         margin: 0 0 20px;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: var(--font-main);
+
     }
 
     .hero-title em {
         font-style: italic;
-        color: #AC2D5E;
+        color: var(--pink-main);
     }
 
     .hero-desc {
         font-size: 15px;
-        color: #6A5B61;
+        color: var(--text-muted);
         line-height: 1.65;
         max-width: 380px;
         margin: 0 0 32px;
@@ -1216,15 +1255,15 @@ form {
     .btn-menu {
         height: 50px;
         padding: 0 32px;
-        border: 2px solid #AC2D5E;
+        border: 2px solid var(--pink-main);
         border-radius: 50px;
-        color: #AC2D5E;
+        color: var(--pink-main);
         text-decoration: none;
         display: flex;
         align-items: center;
         font-size: 15px;
         font-weight: 700;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: var(--font-main);
         letter-spacing: 0;
     }
 
@@ -1237,8 +1276,8 @@ form {
         display: block;
         font-size: 28px;
         font-weight: 800;
-        color: #3C2F35;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-dark);
+        font-family: var(--font-main);
         line-height: 1;
     }
 
@@ -1249,7 +1288,8 @@ form {
         letter-spacing: 1.5px;
         color: #9b8f95;
         margin-top: 4px;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: var(--font-main);
+
     }
 
     .hero-dots {
@@ -1264,7 +1304,7 @@ form {
     .category h1 {
         font-family: "Plus Jakarta Sans";
         text-align: center;
-        font-size: 50px;
+        font-size: 80px;
         color: #3C2F35;
         margin-bottom: 10px;
     }
@@ -1277,7 +1317,7 @@ form {
     .category p {
         font-family: "Plus Jakarta Sans";
         text-align: center;
-        font-size: 25px;
+        font-size: 45px;
         color: #6A5B61;
         letter-spacing: 1px;
         margin-top: 0;
@@ -1295,14 +1335,14 @@ form {
 
     .view-all-categories p {
         font-family: "Plus Jakarta Sans";
-        font-size: 20px;
+        font-size: 40px;
         color: #AC2D5E;
     }
 
     .view-all-categories span {
         margin-left: 8px;
         margin-top: 5px;
-        color: #AC2D5E;
+        color: var(--pink-main);
         font-size: 47px;
     }
 
@@ -1343,7 +1383,7 @@ form {
     .cupcake p,
     .cake p {
         margin-top: 15px;
-        color: #3C2F35;
+        color: var(--text-dark);
         font-family: "Plus Jakarta Sans";
         font-weight: 600;
         font-size: 30px;
@@ -1352,14 +1392,14 @@ form {
 
     .best-sellers {
         height: 1300px;
-        background-color: #FFF0F4;
+        background-color: var(--bg-soft);
         padding-top: 100px;
     }
 
     .best-sellers h2 {
         font-family: "Plus Jakarta Sans";
         text-align: center;
-        font-size: 50px;
+        font-size: 78px;
         color: #3C2F35;
         word-spacing: 20px;
     }
@@ -1368,7 +1408,7 @@ form {
         font-family: "Plus Jakarta Sans";
         text-align: center;
         font-weight: 300;
-        color: #6A5B61;
+        color: var(--text-muted);
         letter-spacing: 1px;
         margin-top: 0;
         margin-bottom: 10px;
@@ -1388,8 +1428,8 @@ form {
     .Fresh-Flowers-Cake,
     .Classic-Fresh-Flowers,
     .Naked-Rose-Cake {
-        width: 100%;
-        height: 630px;
+        width: 500px;
+        height: 700px;
         background-color: #FFFFFF;
         border-radius: 55px;
         margin-top: 30px;
@@ -1398,7 +1438,7 @@ form {
         text-decoration: none;
         color: inherit;
         box-shadow: 0 18px 35px #0000001f;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .Fresh-Flowers-Cake img,
@@ -1433,21 +1473,19 @@ form {
     }
 
     .favorite-button span {
-        color: #AC2D5E;
+        color: var(--pink-main);
         font-size: 30px;
 
-        font-variation-settings:
-            'FILL' 0,
+        font-variation-settings: 'FILL' 0,
             'wght' 400,
             'GRAD' 0,
             'opsz' 24;
     }
 
     .favorite-button.active span {
-        color: #AC2D5E;
+        color: var(--pink-main);
 
-        font-variation-settings:
-            'FILL' 1,
+        font-variation-settings: 'FILL' 1,
             'wght' 400,
             'GRAD' 0,
             'opsz' 24;
@@ -1456,8 +1494,8 @@ form {
     .Fresh-Flowers-Cake h1,
     .Classic-Fresh-Flowers h1,
     .Naked-Rose-Cake h1 {
-        color: #3C2F35;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-dark);
+        font-family: var(--font-main);
         font-size: 30px;
         line-height: 1.15;
         margin: 40px 0 20px;
@@ -1466,8 +1504,8 @@ form {
     .Fresh-Flowers-Cake p,
     .Classic-Fresh-Flowers p,
     .Naked-Rose-Cake p {
-        color: #6A5B61;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-muted);
+        font-family: var(--font-main);
         font-size: 20px;
         line-height: 1.45;
         margin: 0 0 30px;
@@ -1484,7 +1522,7 @@ form {
 
     .bottom h2 {
         font-family: "Plus Jakarta Sans";
-        color: #AC2D5E;
+        color: var(--pink-main);
         font-size: 30px;
         margin: 0;
     }
@@ -1493,7 +1531,7 @@ form {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: #AC2D5E;
+        background-color: var(--pink-main);
         color: white;
 
         display: flex;
@@ -1501,14 +1539,14 @@ form {
         align-items: center;
 
         font-size: 30px;
-        box-shadow: 0 12px 18px #00000020;
+        box-shadow: 0 12px 18px var(--nav-muted);
     }
 
     .reviews-section {
-        background-color: #FFF8F8;
+        background-color: var(--bg-main);
         padding: 60px 0 90px;
 
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: var(--font-main);
         overflow: hidden;
     }
 
@@ -1521,7 +1559,7 @@ form {
     }
 
     .write-review {
-        background-color: #AC2D5E;
+        background-color: var(--pink-main);
         color: white;
 
         border: none;
@@ -1549,7 +1587,7 @@ form {
 
 
     .royal-list-section {
-        background-color: #FFF8F8;
+        background-color: var(--bg-main);
         padding-top: 100px;
         margin-bottom: 60px;
         display: flex;
@@ -1567,7 +1605,8 @@ form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: var(--font-main);
+
     }
 
     .logo {
@@ -1576,7 +1615,7 @@ form {
 
     .royal-list-card h2 {
         color: #3C2F35;
-        font-size: 50px;
+        font-size: 60px;
         line-height: 1.1;
         text-align: center;
     }
@@ -1584,7 +1623,7 @@ form {
     .royal-list-card p {
         width: 1000px;
         color: #6A5B61;
-        font-size: 30px;
+        font-size: 35px;
         line-height: 1.45;
         text-align: center;
         margin: 10px 0 40px;
@@ -1609,14 +1648,14 @@ form {
         box-sizing: border-box;
 
         font-size: 30px;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        color: #6A5B61;
+        font-family: var(--font-main);
+        color: var(--text-muted);
         background-color: white;
         text-align: left;
     }
 
     .royal-form input::placeholder {
-        color: #9b8f95;
+        color: var(--nav-muted);
     }
 
     .royal-form button {
@@ -1627,12 +1666,12 @@ form {
         border: none;
         border-radius: 50px;
 
-        background: linear-gradient(to bottom, #f0629a, #ac2d5e);
-        box-shadow: 0 14px 20px #00000025;
+        background: linear-gradient(to bottom, var(--pink-bright), var(--pink-main));
+        box-shadow: 0 14px 20px var(--nav-muted);
 
         color: white;
         font-size: 30px;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: var(--font-main);
         font-weight: 600;
         letter-spacing: 4px;
 
@@ -1662,4 +1701,78 @@ form {
         margin-top: 5px;
     }
 
+    .search-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1100;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .search-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .search-panel {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 420px;
+        background-color: var(--bg-main);
+        z-index: 1200;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.14);
+        overflow: hidden;
+    }
+
+    .search-panel.open {
+        transform: translateX(0);
+    }
+
+    .search-panel-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 14px;
+        flex-shrink: 0;
+        background-color: var(--bg-main);
+        border-bottom: 1px solid #f0d5e0;
+    }
+
+    .search-panel-close {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: none;
+        background: #f6e3ea;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s;
+    }
+
+    .search-panel-close:hover {
+        background: #eac8d4;
+    }
+
+    .search-panel-close .material-symbols-outlined {
+        font-size: 18px;
+        color: var(--text-dark);
+    }
+
+    .search-panel-frame {
+        width: 100%;
+        flex: 1;
+        border: none;
+        min-height: 0;
+    }
 }

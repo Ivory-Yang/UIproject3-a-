@@ -1,11 +1,11 @@
 :root {
     --app-max-width: 800px;
     --app-side-gap: 24px;
-
     --bg-main: #FFF8F8;
     --bg-soft: #FFF0F4;
     --bg-card: #fbe7ec;
-
+    --white: #ffffff;
+    --box-shadow: #d9b3c447;
     --pink-main: #AC2D5E;
     --pink-bright: #f0629a;
     --pink-title: #AA1758;
@@ -39,9 +39,9 @@ body {
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background-color: #FFF8F8;
+    background-color: var(--bg-main);
     overflow-y: auto;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 }
 
 
@@ -82,7 +82,7 @@ body {
 .search-main-bar {
     height: 40px;
     border-radius: 60px;
-    background-color: #ffffff;
+    background-color: var(--white);
     box-shadow: 0 18px 35px rgba(217, 179, 196, 0.28);
     display: flex;
     align-items: center;
@@ -93,7 +93,7 @@ body {
 }
 
 .search-main-bar span {
-    color: #AC2D5E;
+    color: var(--pink-main);
     font-size: 30px;
     margin-left: 5px;
 }
@@ -106,7 +106,7 @@ body {
 
     color: #4b3d44;
     font-size: 15px;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 }
 
 .search-main-bar input::placeholder {
@@ -150,7 +150,7 @@ body {
 
 .ask-ai-label {
     margin: 0 0 20px;
-    color: #AC2D5E;
+    color: var(--pink-main);
     font-size: 22px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -228,7 +228,7 @@ body {
 
     font-size: 15px;
     font-weight: 600;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 
     transition: all 0.2s ease;
 }
@@ -249,7 +249,7 @@ body {
     font-size: 17px;
     font-weight: 700;
     cursor: pointer;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 }
 
 .recent-search-list {
@@ -273,7 +273,7 @@ body {
 
     color: #34292F;
     font-size: 15px;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: var(--font-main);
 }
 
 .recent-search-item .material-symbols-outlined {
@@ -288,7 +288,7 @@ body {
 }
 
 .recent-search-item .close:hover {
-    color: #AC2D5E;
+    color: var(--pink-main);
 }
 
 .bottom_bar {
@@ -298,7 +298,7 @@ body {
     transform: translateX(-50%);
     width: 95%;
     height: 64px;
-    background-color: #FFF8F8;
+    background-color: var(--bg-main);
     border-radius: 60px;
     box-shadow: 0 -8px 24px rgba(217, 179, 196, 0.28);
     display: flex;
@@ -324,7 +324,7 @@ body {
 
 .bottom-bar-item .material-symbols-outlined {
     font-size: 22px;
-    color: #968b90;
+    color: var(--nav-muted);
     line-height: 1;
 }
 
@@ -333,7 +333,7 @@ body {
     font-size: 8px;
     font-weight: 800;
     letter-spacing: 0.3px;
-    color: #968b90;
+    color: var(--nav-muted);
     white-space: nowrap;
     line-height: 1;
 }
@@ -342,7 +342,7 @@ body {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background-color: #AC2D5E;
+    background-color: var(--pink-main);
     display: block;
     margin-top: 4px;
 }
@@ -362,7 +362,7 @@ body {
 
 .bottom-bar-item.active .material-symbols-outlined,
 .bottom-bar-item.active p {
-    color: #AC2D5E;
+    color: var(--pink-main);
 }
 
 
