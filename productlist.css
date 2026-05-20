@@ -41,10 +41,12 @@
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
     }
+
     .search-overlay.open {
         opacity: 1;
         visibility: visible;
     }
+
     .search-panel {
         display: flex;
         flex-direction: column;
@@ -60,9 +62,11 @@
         box-shadow: -10px 0 40px rgba(0, 0, 0, 0.14);
         overflow: hidden;
     }
+
     .search-panel.open {
         transform: translateX(0);
     }
+
     .search-panel-header {
         display: flex;
         justify-content: flex-end;
@@ -72,6 +76,7 @@
         background-color: #FFF8F8;
         border-bottom: 1px solid #f0d5e0;
     }
+
     .search-panel-close {
         width: 34px;
         height: 34px;
@@ -84,13 +89,16 @@
         justify-content: center;
         transition: background 0.15s;
     }
+
     .search-panel-close:hover {
         background: #eac8d4;
     }
+
     .search-panel-close .material-symbols-outlined {
         font-size: 18px;
         color: #3C2F35;
     }
+
     .search-panel-frame {
         width: 100%;
         flex: 1;
