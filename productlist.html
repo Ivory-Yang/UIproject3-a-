@@ -578,6 +578,16 @@
         </div>
     </footer>
 
+    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
+    <div class="search-panel" id="searchPanel">
+        <div class="search-panel-header">
+            <button class="search-panel-close" onclick="closeSearchPanel()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
+    </div>
+
     <nav class="bottom_bar">
         <a href="homepage.html" class="bottom-bar-item interactive-bar">
             <span class="material-symbols-outlined">home</span>
