@@ -1,24 +1,4 @@
-:root {
-    --app-max-width: 800px;
-    --app-side-gap: 24px;
-    --bg-main: #FFF8F8;
-    --bg-soft: #FFF0F4;
-    --bg-card: #fbe7ec;
-    --white: #ffffff;
-    --box-shadow: #d9b3c447;
-    --pink-main: #AC2D5E;
-    --pink-bright: #f0629a;
-    --pink-title: #AA1758;
-
-    --text-dark: #3C2F35;
-    --text-deep: #47001F;
-    --text-muted: #6A5B61;
-    --nav-muted: #968b90;
-
-    --font-main: "Plus Jakarta Sans", sans-serif;
-    --font-title: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
-}
+@import url(variable.css);
 
 * {
     box-sizing: border-box;

@@ -1,7 +1,6 @@
 function toggleFavorite(event, button) {
     event.preventDefault();
     event.stopPropagation();
-
     button.classList.toggle("active");
 }
 function subscribeAnimate(event) {
