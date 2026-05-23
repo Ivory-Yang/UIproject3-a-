@@ -578,6 +578,85 @@
         </div>
     </footer>
 
+    <!-- Quick Add Sheet -->
+    <div class="qa-overlay" id="qaOverlay" onclick="closeQuickAdd()"></div>
+    <div class="quick-add-sheet" id="quickAddSheet">
+        <div class="qa-handle"></div>
+        <div class="qa-header">
+            <div class="qa-product-info">
+                <img class="qa-img" id="qaImg" src="" alt="">
+                <div class="qa-text">
+                    <h2 class="qa-name" id="qaName"></h2>
+                    <p class="qa-price" id="qaPrice"></p>
+                </div>
+            </div>
+            <button class="qa-close" onclick="closeQuickAdd()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div class="qa-divider"></div>
+
+        <div class="qa-body">
+            <!-- Cake: size with price adjustments -->
+            <div class="qa-section" id="qaSizeSection">
+                <p class="qa-section-label">SELECT SIZE</p>
+                <div class="qa-options" id="qaSizeOptions">
+                    <button class="qa-option active" type="button" data-price-add="0" onclick="selectQaOption(this)">4 inch</button>
+                    <button class="qa-option" type="button" data-price-add="20" onclick="selectQaOption(this)">6 inch</button>
+                    <button class="qa-option" type="button" data-price-add="40" onclick="selectQaOption(this)">8 inch</button>
+                </div>
+            </div>
+
+            <!-- Cupcake: box quantity with price multiplier -->
+            <div class="qa-section" id="qaBoxSection">
+                <p class="qa-section-label">SELECT BOX</p>
+                <div class="qa-options" id="qaBoxOptions">
+                    <button class="qa-option active" type="button" data-price-mult="1" onclick="selectQaOption(this)">Quarter Dozen</button>
+                    <button class="qa-option" type="button" data-price-mult="2" onclick="selectQaOption(this)">Half Dozen</button>
+                    <button class="qa-option" type="button" data-price-mult="4" onclick="selectQaOption(this)">One Dozen</button>
+                </div>
+            </div>
+
+            <div class="qa-section">
+                <p class="qa-section-label">SELECT FLAVOR</p>
+                <div class="qa-options" id="qaFlavorOptions">
+                    <button class="qa-option" type="button" onclick="selectQaOption(this)">Vanilla</button>
+                    <button class="qa-option active" type="button" onclick="selectQaOption(this)">Strawberry</button>
+                    <button class="qa-option" type="button" onclick="selectQaOption(this)">Chocolate</button>
+                </div>
+            </div>
+
+            <div class="qa-divider"></div>
+
+            <div class="qa-quantity-row">
+                <p class="qa-section-label">QUANTITY</p>
+                <div class="qa-qty-control">
+                    <button class="qa-qty-btn" type="button" onclick="changeQty(-1)">
+                        <span class="material-symbols-outlined">remove</span>
+                    </button>
+                    <span class="qa-qty-num" id="qaQty">1</span>
+                    <button class="qa-qty-btn" type="button" onclick="changeQty(1)">
+                        <span class="material-symbols-outlined">add</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="qa-footer">
+            <button class="qa-add-cart-btn" id="qaAddCartBtn" type="button" onclick="addToCart()">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                Add to Cart
+            </button>
+        </div>
+    </div>
+
+    <!-- Added to cart toast -->
+    <div class="qa-toast" id="qaToast">
+        <span class="material-symbols-outlined qa-toast-icon">check_circle</span>
+        <span class="qa-toast-text" id="qaToastText"></span>
+    </div>
+
     <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
     <div class="search-panel" id="searchPanel">
         <div class="search-panel-header">

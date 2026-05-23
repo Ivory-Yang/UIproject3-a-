@@ -10,6 +10,272 @@
     display: none;
 }
 
+/* ============================= */
+/* QUICK ADD SHEET               */
+/* ============================= */
+
+.qa-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.qa-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quick-add-sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+    background: #FFF8F8;
+    border-radius: 28px 28px 0 0;
+    padding: 12px 22px 36px;
+    transform: translateY(110%);
+    transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 92vh;
+    overflow-y: auto;
+}
+
+.quick-add-sheet.open {
+    transform: translateY(0);
+}
+
+.qa-handle {
+    width: 38px;
+    height: 4px;
+    border-radius: 99px;
+    background: #d9b3c4;
+    margin: 0 auto 18px;
+}
+
+.qa-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 4px;
+}
+
+.qa-product-info {
+    display: flex;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+}
+
+.qa-img {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+.qa-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.qa-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #2F262C;
+    margin: 0 0 8px;
+    line-height: 1.25;
+}
+
+.qa-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--pink-main);
+    margin: 0;
+}
+
+.qa-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.qa-close .material-symbols-outlined {
+    font-size: 22px;
+    color: #6A5B61;
+}
+
+.qa-divider {
+    height: 1px;
+    background: #f0d5e0;
+    margin: 18px 0;
+}
+
+.qa-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.qa-section {
+    margin-bottom: 20px;
+}
+
+.qa-section-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #6A5B61;
+    margin: 0 0 12px;
+}
+
+.qa-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.qa-option {
+    border: none;
+    background-color: #F1E1E8;
+    color: #34292F;
+    border-radius: 999px;
+    padding: 11px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.qa-option.active {
+    background-color: var(--pink-main);
+    color: white;
+    font-weight: 700;
+}
+
+.qa-quantity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.qa-qty-control {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #F1E1E8;
+    border-radius: 999px;
+    padding: 8px 20px;
+}
+
+.qa-qty-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.qa-qty-btn .material-symbols-outlined {
+    font-size: 20px;
+    color: #3C2F35;
+}
+
+.qa-qty-num {
+    font-size: 18px;
+    font-weight: 800;
+    color: #3C2F35;
+    min-width: 22px;
+    text-align: center;
+}
+
+.qa-footer {
+    margin-top: 28px;
+}
+
+.qa-add-cart-btn {
+    width: 100%;
+    height: 58px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(to right, #c9527a, var(--pink-main));
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--font-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(172, 45, 94, 0.35);
+    transition: opacity 0.15s, transform 0.15s;
+}
+
+.qa-add-cart-btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+.qa-add-cart-btn .material-symbols-outlined {
+    font-size: 22px;
+}
+
+.qa-add-cart-btn.added {
+    background: linear-gradient(to right, #c9527a, #b84070);
+}
+
+/* Toast */
+.qa-toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.88);
+    z-index: 1300;
+    background: #FFF3F6;
+    border-radius: 999px;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 40px rgba(172, 45, 94, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.qa-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.qa-toast-icon {
+    font-size: 26px;
+    color: var(--pink-title);
+}
+
+.qa-toast-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--pink-title);
+    font-family: var(--font-main);
+}
+
 
 html,
 body {
@@ -926,6 +1192,86 @@ form {
         flex: 1;
         border: none;
         min-height: 0;
+    }
+
+    /* Quick add sheet — centered modal on desktop */
+    .quick-add-sheet {
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        top: 50%;
+        width: 560px;
+        border-radius: 28px;
+        padding: 28px 36px 44px;
+        transform: translate(-50%, 80vh);
+        max-height: 88vh;
+    }
+
+    .quick-add-sheet.open {
+        transform: translate(-50%, -50%);
+    }
+
+    .qa-handle {
+        display: none;
+    }
+
+    .qa-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+    }
+
+    .qa-name {
+        font-size: 24px;
+    }
+
+    .qa-price {
+        font-size: 28px;
+    }
+
+    .qa-section-label {
+        font-size: 13px;
+        letter-spacing: 1.8px;
+        margin-bottom: 14px;
+    }
+
+    .qa-option {
+        font-size: 18px;
+        padding: 13px 28px;
+    }
+
+    .qa-qty-num {
+        font-size: 22px;
+    }
+
+    .qa-qty-btn .material-symbols-outlined {
+        font-size: 24px;
+    }
+
+    .qa-close .material-symbols-outlined {
+        font-size: 26px;
+    }
+
+    .qa-add-cart-btn {
+        font-size: 20px;
+        height: 64px;
+    }
+
+    .qa-add-cart-btn .material-symbols-outlined {
+        font-size: 26px;
+    }
+
+    .qa-toast {
+        padding: 26px 48px;
+        gap: 18px;
+    }
+
+    .qa-toast-icon {
+        font-size: 38px;
+    }
+
+    .qa-toast-text {
+        font-size: 24px;
     }
 
 }

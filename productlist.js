@@ -22,8 +22,126 @@ function closeSearchPanel() {
 }
 
 document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeSearchPanel();
+    if (e.key === 'Escape') {
+        closeSearchPanel();
+        closeQuickAdd();
+    }
 });
+
+// ===========================
+// QUICK ADD SHEET
+// ===========================
+
+let _qaQty = 1;
+let _qaBasePrice = 0;
+let _qaUnitPrice = 0;
+
+function updateQaPrice(unitPrice) {
+    _qaUnitPrice = unitPrice;
+    document.getElementById('qaPrice').textContent = '$' + (_qaUnitPrice * _qaQty).toFixed(2);
+}
+
+function openQuickAdd(name, price, imgSrc, category) {
+    _qaBasePrice = parseFloat(price.replace('$', ''));
+
+    document.getElementById('qaName').textContent = name;
+    updateQaPrice(_qaBasePrice);
+
+    const img = document.getElementById('qaImg');
+    img.src = imgSrc;
+    img.alt = name;
+
+    _qaQty = 1;
+    document.getElementById('qaQty').textContent = _qaQty;
+
+    const sizeSection = document.getElementById('qaSizeSection');
+    const boxSection = document.getElementById('qaBoxSection');
+
+    if (category === 'cake') {
+        sizeSection.style.display = '';
+        boxSection.style.display = 'none';
+        document.querySelectorAll('#qaSizeOptions .qa-option').forEach((btn, i) => {
+            btn.classList.toggle('active', i === 0);
+        });
+    } else if (category === 'cupcake') {
+        sizeSection.style.display = 'none';
+        boxSection.style.display = '';
+        document.querySelectorAll('#qaBoxOptions .qa-option').forEach((btn, i) => {
+            btn.classList.toggle('active', i === 0);
+        });
+    } else {
+        sizeSection.style.display = 'none';
+        boxSection.style.display = 'none';
+    }
+
+    document.querySelectorAll('#qaFlavorOptions .qa-option').forEach((btn, i) => {
+        btn.classList.toggle('active', i === 1);
+    });
+
+    // Reset button state
+    const btn = document.getElementById('qaAddCartBtn');
+    btn.classList.remove('added');
+    btn.innerHTML = '<span class="material-symbols-outlined">shopping_bag</span> Add to Cart';
+
+    document.getElementById('qaOverlay').classList.add('open');
+    document.getElementById('quickAddSheet').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickAdd() {
+    document.getElementById('qaOverlay').classList.remove('open');
+    document.getElementById('quickAddSheet').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function addToCart() {
+    const btn = document.getElementById('qaAddCartBtn');
+    const productName = document.getElementById('qaName').textContent;
+
+    // Change button to "Added to Cart"
+    btn.classList.add('added');
+    btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Added to Cart';
+
+    // After short pause, slide sheet down and show toast
+    setTimeout(() => {
+        closeQuickAdd();
+
+        setTimeout(() => {
+            showCartToast(productName);
+        }, 200);
+    }, 600);
+}
+
+let _toastTimer = null;
+
+function showCartToast(name) {
+    document.getElementById('qaToastText').textContent = name + ' added to cart';
+    const toast = document.getElementById('qaToast');
+    toast.classList.add('show');
+
+    if (_toastTimer) clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
+
+function selectQaOption(btn) {
+    const container = btn.closest('.qa-options');
+    container.querySelectorAll('.qa-option').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    if (btn.dataset.priceAdd !== undefined) {
+        updateQaPrice(_qaBasePrice + parseFloat(btn.dataset.priceAdd));
+    } else if (btn.dataset.priceMult !== undefined) {
+        updateQaPrice(_qaBasePrice * parseFloat(btn.dataset.priceMult));
+    }
+}
+
+function changeQty(delta) {
+    _qaQty = Math.max(1, _qaQty + delta);
+    document.getElementById('qaQty').textContent = _qaQty;
+    document.getElementById('qaPrice').textContent = '$' + (_qaUnitPrice * _qaQty).toFixed(2);
+}
 
 function filterProducts(cat) {
     const cards = document.querySelectorAll('.product-card');
@@ -61,4 +179,17 @@ function toggleFav(e, btn) {
     btn.classList.toggle('active');
 }
 
-document.addEventListener('DOMContentLoaded', () => filterProducts('cake'));
+document.addEventListener('DOMContentLoaded', () => {
+    filterProducts('cake');
+
+    document.querySelector('.product-grid').addEventListener('click', function (e) {
+        const btn = e.target.closest('.add-btn');
+        if (!btn) return;
+        const card = btn.closest('.product-card');
+        const name = card.querySelector('.card-name').textContent;
+        const price = card.querySelector('.card-price').textContent;
+        const imgSrc = card.querySelector('.card-image-wrap img').src;
+        const category = card.dataset.cat;
+        openQuickAdd(name, price, imgSrc, category);
+    });
+});
