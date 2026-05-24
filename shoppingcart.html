@@ -23,182 +23,264 @@
             <span class="material-symbols-outlined">menu</span>
         </button>
         <span class="cart-brand">The Cupcake Princess</span>
-        <a href="#" class="cart-bag-btn">
-            <span class="material-symbols-outlined">shopping_bag</span>
+        <a href="search-page.html" class="cart-bag-btn">
+            <span class="material-symbols-outlined">search</span>
         </a>
     </header>
 
-    <!-- Desktop Header -->
-    <div class="header">
-        <div class="tittle">
-            <img src="Image/logo.png" alt="Logo">
-            <h1>The Cupcake Princess</h1>
+    <!-- Desktop Nav Header -->
+    <header class="desktop-nav-header">
+        <a href="index.html" class="dnav-brand">The Cupcake Princess</a>
+        <nav class="dnav-links">
+            <a href="productlist.html">Shop All</a>
+            <a href="#">Custom Orders</a>
+            <a href="#">Best Sellers</a>
+            <a href="#">Bakeries</a>
+            <a href="#">Gifts</a>
+            <a href="#">Our Story</a>
+        </nav>
+        <div class="dnav-icons">
+            <a href="search-page.html" class="dnav-icon">
+                <span class="material-symbols-outlined">search</span>
+            </a>
+            <a href="#" class="dnav-icon">
+                <span class="material-symbols-outlined">person</span>
+            </a>
         </div>
-        <form>
-            <div class="searching">
-                <a href="search-page.html" class="search-text">
-                    <span class="material-symbols-outlined">search</span>
-                    <input class="searching-input" type="search" placeholder="Search">
-                </a>
-            </div>
-        </form>
-    </div>
+    </header>
 
     <!-- Cart Content -->
     <main class="cart-main">
         <div class="cart-inner">
 
-            <h1 class="cart-title">Your Cart</h1>
-            <p class="cart-subtitle">Review your sweet selection before checkout.</p>
+            <!-- Two-column layout -->
+            <div class="cart-layout">
 
-            <!-- Select All -->
-            <div class="select-all-row" onclick="toggleSelectAll()">
-                <button class="cb cb-active" id="selectAllCb" type="button">
-                    <span class="material-symbols-outlined">check</span>
-                </button>
-                <span class="select-all-label">Select All (<span id="selectCount">3</span>)</span>
-            </div>
+                <!-- LEFT: title + items -->
+                <div class="cart-left">
+                    <h1 class="cart-title">My Shopping Bag</h1>
+                    <p class="cart-subtitle" id="cartSubtitle">You have 3 exquisite treats waiting for you.</p>
 
-            <!-- Cart Items -->
-            <div id="cartItemsList">
-
-                <!-- Item 1 -->
-                <div class="cart-item" data-unit="169.00">
-                    <button class="cb cb-active item-cb" type="button" onclick="toggleItemCb(this)">
-                        <span class="material-symbols-outlined">check</span>
-                    </button>
-                    <div class="ci-img">
-                        <img src="Image/Fresh Flowers Cake.png" alt="Fresh Flowers Cake">
+                    <!-- Select All (mobile only) -->
+                    <div class="select-all-row" id="selectAllRow" onclick="toggleSelectAll()">
+                        <button class="cb cb-active" id="selectAllCb" type="button">
+                            <span class="material-symbols-outlined">check</span>
+                        </button>
+                        <span class="select-all-label">Select All (<span id="selectCount">3</span>)</span>
                     </div>
-                    <div class="ci-body">
-                        <div class="ci-top">
-                            <div class="ci-meta">
-                                <p class="ci-name">Fresh Flowers Cake</p>
-                                <p class="ci-desc">Light-as-air sponge with berry cream</p>
-                            </div>
-                            <span class="ci-price">$169.00</span>
-                        </div>
-                        <div class="ci-bottom">
-                            <div class="ci-qty">
-                                <button class="qty-btn" type="button" onclick="changeCartQty(this,-1)">−</button>
-                                <span class="qty-num">1</span>
-                                <button class="qty-btn" type="button" onclick="changeCartQty(this,1)">+</button>
-                            </div>
-                            <button class="ci-del" type="button" onclick="deleteCartItem(this)">
-                                <span class="material-symbols-outlined">delete</span>
+
+                    <!-- Cart Items -->
+                    <div id="cartItemsList">
+
+                        <!-- Item 1 -->
+                        <div class="cart-item" data-unit="10.25">
+                            <button class="cb cb-active item-cb" type="button" onclick="toggleItemCb(this)">
+                                <span class="material-symbols-outlined">check</span>
                             </button>
+                            <div class="ci-img">
+                                <img src="Image/rosecupcake.jpg" alt="Blushing Rose Cupcake">
+                            </div>
+                            <div class="ci-body">
+                                <div class="ci-top">
+                                    <div class="ci-meta">
+                                        <p class="ci-category">SIGNATURE COLLECTION</p>
+                                        <p class="ci-name">Blushing Rose Cupcake</p>
+                                        <p class="ci-desc">Light sponge infused with organic rose water and Madagascar
+                                            vanilla.</p>
+                                    </div>
+                                    <span class="ci-price">$20.50</span>
+                                </div>
+                                <div class="ci-bottom">
+                                    <div class="ci-qty">
+                                        <button class="qty-btn" type="button"
+                                            onclick="changeCartQty(this,-1)">−</button>
+                                        <span class="qty-num">2</span>
+                                        <button class="qty-btn" type="button" onclick="changeCartQty(this,1)">+</button>
+                                    </div>
+                                    <button class="ci-del" type="button" onclick="deleteCartItem(this)">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Item 2 -->
-                <div class="cart-item" data-unit="6.00">
-                    <button class="cb cb-active item-cb" type="button" onclick="toggleItemCb(this)">
-                        <span class="material-symbols-outlined">check</span>
-                    </button>
-                    <div class="ci-img">
-                        <img src="Image/chocolatecupcake.jpg" alt="Chocolate Cupcake">
-                    </div>
-                    <div class="ci-body">
-                        <div class="ci-top">
-                            <div class="ci-meta">
-                                <p class="ci-name">Chocolate Cupcake</p>
-                                <p class="ci-desc">Baked fresh with luscious soft sponge</p>
-                            </div>
-                            <span class="ci-price">$36.00</span>
-                        </div>
-                        <div class="ci-bottom">
-                            <div class="ci-qty">
-                                <button class="qty-btn" type="button" onclick="changeCartQty(this,-1)">−</button>
-                                <span class="qty-num">6</span>
-                                <button class="qty-btn" type="button" onclick="changeCartQty(this,1)">+</button>
-                            </div>
-                            <button class="ci-del" type="button" onclick="deleteCartItem(this)">
-                                <span class="material-symbols-outlined">delete</span>
+                        <!-- Item 2 -->
+                        <div class="cart-item" data-unit="169.00">
+                            <button class="cb cb-active item-cb" type="button" onclick="toggleItemCb(this)">
+                                <span class="material-symbols-outlined">check</span>
                             </button>
+                            <div class="ci-img">
+                                <img src="Image/Naked Rose Cake.png" alt="Dark Velvet Noir Cake">
+                            </div>
+                            <div class="ci-body">
+                                <div class="ci-top">
+                                    <div class="ci-meta">
+                                        <p class="ci-category">LUXURY TIER</p>
+                                        <p class="ci-name">Dark Velvet Noir Cake</p>
+                                        <p class="ci-desc">6-inch triple layer dark cocoa with gold leaf accents.</p>
+                                    </div>
+                                    <span class="ci-price">$169.00</span>
+                                </div>
+                                <div class="ci-bottom">
+                                    <div class="ci-qty">
+                                        <button class="qty-btn" type="button"
+                                            onclick="changeCartQty(this,-1)">−</button>
+                                        <span class="qty-num">1</span>
+                                        <button class="qty-btn" type="button" onclick="changeCartQty(this,1)">+</button>
+                                    </div>
+                                    <button class="ci-del" type="button" onclick="deleteCartItem(this)">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Item 3 -->
-                <div class="cart-item" data-unit="8.75">
-                    <button class="cb cb-active item-cb" type="button" onclick="toggleItemCb(this)">
-                        <span class="material-symbols-outlined">check</span>
-                    </button>
-                    <div class="ci-img">
-                        <img src="Image/pearlcupcake.jpg" alt="Pearl Cupcake">
-                    </div>
-                    <div class="ci-body">
-                        <div class="ci-top">
-                            <div class="ci-meta">
-                                <p class="ci-name">Pearl Cupcake</p>
-                                <p class="ci-desc">Too pretty to eat, too delicious to resist</p>
-                            </div>
-                            <span class="ci-price">$105.00</span>
-                        </div>
-                        <div class="ci-bottom">
-                            <div class="ci-qty">
-                                <button class="qty-btn" type="button" onclick="changeCartQty(this,-1)">−</button>
-                                <span class="qty-num">12</span>
-                                <button class="qty-btn" type="button" onclick="changeCartQty(this,1)">+</button>
-                            </div>
-                            <button class="ci-del" type="button" onclick="deleteCartItem(this)">
-                                <span class="material-symbols-outlined">delete</span>
+                        <!-- Item 3 -->
+                        <div class="cart-item" data-unit="4.75">
+                            <button class="cb cb-active item-cb" type="button" onclick="toggleItemCb(this)">
+                                <span class="material-symbols-outlined">check</span>
                             </button>
+                            <div class="ci-img">
+                                <img src="Image/cookie.png" alt="Sea Salt Caramel Chunk">
+                            </div>
+                            <div class="ci-body">
+                                <div class="ci-top">
+                                    <div class="ci-meta">
+                                        <p class="ci-category">FRESH DAILY</p>
+                                        <p class="ci-name">Sea Salt Caramel Chunk</p>
+                                        <p class="ci-desc">Giant soft-baked brown butter cookie with fleur de sel.</p>
+                                    </div>
+                                    <span class="ci-price">$28.50</span>
+                                </div>
+                                <div class="ci-bottom">
+                                    <div class="ci-qty">
+                                        <button class="qty-btn" type="button"
+                                            onclick="changeCartQty(this,-1)">−</button>
+                                        <span class="qty-num">6</span>
+                                        <button class="qty-btn" type="button" onclick="changeCartQty(this,1)">+</button>
+                                    </div>
+                                    <button class="ci-del" type="button" onclick="deleteCartItem(this)">
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Empty state -->
+                    <div class="cart-empty" id="cartEmpty">
+                        <span class="material-symbols-outlined cart-empty-icon">shopping_bag</span>
+                        <p class="cart-empty-title">Your bag is empty</p>
+                        <p class="cart-empty-sub">Add something delicious to get started.</p>
+                        <a href="productlist.html" class="cart-empty-btn">Shop Now</a>
+                    </div>
+
+                    <!-- Summary (mobile only — shows below items) -->
+                    <div class="cart-summary cart-summary-mobile" id="cartSummaryMobile">
+                        <div class="summary-divider"></div>
+                        <div class="summary-row">
+                            <span>Order Subtotal</span>
+                            <span id="summarySubtotalM">$218.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery Fee</span>
+                            <span>$5.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Estimated Taxes</span>
+                            <span id="summaryTaxesM">$19.62</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span class="total-amount" id="summaryTotalM">$242.62</span>
+                        </div>
+                        <button class="checkout-btn" type="button">
+                            Proceed to Checkout
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: order summary sidebar (desktop only) -->
+                <div class="cart-right" id="cartRight">
+                    <div class="order-summary-card">
+                        <h2 class="os-title">Order Summary</h2>
+
+                        <div class="os-row">
+                            <span>Subtotal</span>
+                            <span id="summarySubtotal">$218.00</span>
+                        </div>
+                        <div class="os-row">
+                            <span>Delivery Fee</span>
+                            <span>$12.50</span>
+                        </div>
+                        <div class="os-row">
+                            <span>Estimated Taxes</span>
+                            <span id="summaryTaxes">$19.62</span>
+                        </div>
+
+                        <div class="os-total-row">
+                            <span>Total</span>
+                            <span class="os-total-amount" id="summaryTotal">$250.12</span>
+                        </div>
+
+                        <button class="checkout-btn-desk" type="button">
+                            Proceed to Checkout
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+
+                        <div class="os-note">
+                            <span class="material-symbols-outlined os-note-icon">check_circle</span>
+                            <p>Our treats are baked fresh to order. Hand-delivered in temperature-controlled packaging
+                                to
+                                ensure velvet perfection.</p>
+                        </div>
+
+                        <div class="os-payments">
+                            <p class="os-payments-label">Accepted Payments</p>
+                            <div class="os-payment-icons">
+                                <span class="material-symbols-outlined">credit_card</span>
+                                <span class="material-symbols-outlined">account_balance_wallet</span>
+                                <span class="material-symbols-outlined">toll</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-
-            <!-- Empty state -->
-            <div class="cart-empty" id="cartEmpty">
-                <span class="material-symbols-outlined cart-empty-icon">shopping_bag</span>
-                <p class="cart-empty-title">Your cart is empty</p>
-                <p class="cart-empty-sub">Add something delicious to get started.</p>
-                <a href="productlist.html" class="cart-empty-btn">Shop Now</a>
-            </div>
-
-            <!-- Order Summary -->
-            <div class="cart-summary" id="cartSummary">
-                <div class="summary-divider"></div>
-                <div class="summary-row">
-                    <span>Order Subtotal</span>
-                    <span id="summarySubtotal">$310.00</span>
-                </div>
-                <div class="summary-row">
-                    <span>Delivery</span>
-                    <span>$5.00</span>
-                </div>
-                <div class="summary-row">
-                    <span>Taxes</span>
-                    <span id="summaryTaxes">$27.90</span>
-                </div>
-                <div class="summary-row total-row">
-                    <span>Total</span>
-                    <span class="total-amount" id="summaryTotal">$342.90</span>
-                </div>
-                <button class="checkout-btn" type="button">Proceed to Checkout</button>
-            </div>
-
         </div>
     </main>
 
-    <!-- Bottom Nav -->
+    <!-- Footer (desktop only) -->
+    <footer class="site-footer">
+        <p class="footer-brand">The Cupcake Princess</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping &amp; Returns</a>
+            <a href="#">Wholesale</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Store Locator</a>
+        </div>
+        <p class="footer-copy">© 2024 The Cupcake Princess. Crafted with velvet frosting and editorial grace.</p>
+    </footer>
+
     <nav class="bottom_bar">
-        <a href="homepage.html" class="bottom-bar-item interactive-bar">
+        <a href="index.html" class="bottom-bar-item interactive-bar">
             <span class="material-symbols-outlined">home</span>
             <p>HOME</p>
+        </a>
+        <a href="fav-page.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">favorite</span>
+            <p>FAVORITE</p>
         </a>
         <a href="productlist.html" class="bottom-bar-item interactive-bar">
             <span class="material-symbols-outlined">storefront</span>
             <p>BAKERY</p>
         </a>
-        <a href="search-page.html" class="bottom-bar-item interactive-bar">
-            <span class="material-symbols-outlined">search</span>
-            <p>SEARCH</p>
-        </a>
-        <a href="cart-page.html" class="bottom-bar-item interactive-bar active">
+        <a href="shoppingcart.html" class="bottom-bar-item interactive-bar active">
             <span class="material-symbols-outlined">shopping_bag</span>
             <p>CART</p>
             <span class="bar-dot"></span>
