@@ -35,14 +35,43 @@ document.addEventListener('keydown', function (e) {
 let _qaQty = 1;
 let _qaBasePrice = 0;
 let _qaUnitPrice = 0;
+let _qaImgSrc = '';
+let _qaCategory = '';
+let _qaDesc = '';
+
+const CATEGORY_LABELS = {
+    cake: 'LUXURY TIER',
+    cupcake: 'SIGNATURE COLLECTION',
+    cookie: 'FRESH DAILY',
+    diy: 'PREMIUM SELECTION'
+};
+
+function getCart() {
+    try { return JSON.parse(localStorage.getItem('cupcakeCart')) || []; }
+    catch { return []; }
+}
+
+function saveToCart(item) {
+    const cart = getCart();
+    const existing = cart.find(i => i.name === item.name && i.unitPrice === item.unitPrice);
+    if (existing) {
+        existing.qty += item.qty;
+    } else {
+        cart.push(item);
+    }
+    localStorage.setItem('cupcakeCart', JSON.stringify(cart));
+}
 
 function updateQaPrice(unitPrice) {
     _qaUnitPrice = unitPrice;
     document.getElementById('qaPrice').textContent = '$' + (_qaUnitPrice * _qaQty).toFixed(2);
 }
 
-function openQuickAdd(name, price, imgSrc, category) {
+function openQuickAdd(name, price, imgSrc, category, desc) {
     _qaBasePrice = parseFloat(price.replace('$', ''));
+    _qaImgSrc = imgSrc;
+    _qaCategory = category;
+    _qaDesc = desc || '';
 
     document.getElementById('qaName').textContent = name;
     updateQaPrice(_qaBasePrice);
@@ -98,17 +127,22 @@ function addToCart() {
     const btn = document.getElementById('qaAddCartBtn');
     const productName = document.getElementById('qaName').textContent;
 
-    // Change button to "Added to Cart"
+    saveToCart({
+        id: Date.now().toString(),
+        name: productName,
+        imgSrc: _qaImgSrc,
+        unitPrice: _qaUnitPrice,
+        qty: _qaQty,
+        category: CATEGORY_LABELS[_qaCategory] || _qaCategory.toUpperCase(),
+        desc: _qaDesc
+    });
+
     btn.classList.add('added');
     btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Added to Cart';
 
-    // After short pause, slide sheet down and show toast
     setTimeout(() => {
         closeQuickAdd();
-
-        setTimeout(() => {
-            showCartToast(productName);
-        }, 200);
+        setTimeout(() => showCartToast(productName), 200);
     }, 600);
 }
 
@@ -188,8 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = btn.closest('.product-card');
         const name = card.querySelector('.card-name').textContent;
         const price = card.querySelector('.card-price').textContent;
-        const imgSrc = card.querySelector('.card-image-wrap img').src;
+        const imgSrc = card.querySelector('.card-image-wrap img').getAttribute('src');
         const category = card.dataset.cat;
-        openQuickAdd(name, price, imgSrc, category);
+        const desc = card.querySelector('.card-desc').textContent.trim();
+        openQuickAdd(name, price, imgSrc, category, desc);
     });
 });
