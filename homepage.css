@@ -511,14 +511,11 @@ form {
     position: absolute;
     top: 15px;
     right: 15px;
-
     width: 45px;
     height: 45px;
-
     border-radius: 50%;
     border: none;
     background-color: var(--bg-main);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -529,7 +526,6 @@ form {
 .favorite-button span {
     color: var(--pink-main);
     font-size: clamp(34px, 7vw, 50px);
-
     font-variation-settings:
         'FILL' 0,
         'wght' 400,
@@ -539,7 +535,6 @@ form {
 
 .favorite-button.active span {
     color: var(--pink-main);
-
     font-variation-settings:
         'FILL' 1,
         'wght' 400,
@@ -579,7 +574,6 @@ form {
 .bottom h2 {
     font-family: "Plus Jakarta Sans";
     color: var(--pink-main);
-
     font-size: 28px;
     margin: 0;
 }
@@ -587,15 +581,12 @@ form {
 .bottom .material-symbols-outlined {
     width: 45px;
     height: 45px;
-
     border-radius: 50%;
     background-color: var(--pink-main);
     color: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: clamp(32px, 7vw, 50px);
     box-shadow: 0 12px 18px var(--box-shadow);
 }
@@ -1334,7 +1325,7 @@ form {
         background-color: #FFFFFF;
         border-radius: 55px;
         margin-top: 30px;
-        padding: 20px;
+        padding: 30px;
         box-sizing: border-box;
         text-decoration: none;
         color: inherit;
@@ -1366,7 +1357,6 @@ form {
         border-radius: 50%;
         border: none;
         background-color: #FEF9FA;
-
         display: flex;
         justify-content: center;
         align-items: center;

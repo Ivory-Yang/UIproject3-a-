@@ -132,8 +132,10 @@ function addToCart() {
         name: productName,
         imgSrc: _qaImgSrc,
         unitPrice: _qaUnitPrice,
+        basePrice: _qaBasePrice,
         qty: _qaQty,
         category: CATEGORY_LABELS[_qaCategory] || _qaCategory.toUpperCase(),
+        categoryType: _qaCategory,
         desc: _qaDesc
     });
 
@@ -214,7 +216,11 @@ function toggleFav(e, btn) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    filterProducts('cake');
+    const params = new URLSearchParams(window.location.search);
+    const initialCat = params.get('cat') || 'cake';
+    const chip = document.querySelector(`.cat-chip[data-cat="${initialCat}"]`);
+    if (chip) setChip(chip);
+    else filterProducts(initialCat);
 
     document.querySelector('.product-grid').addEventListener('click', function (e) {
         const btn = e.target.closest('.add-btn');

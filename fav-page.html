@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites — The Cupcake Princess</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+    <link rel="stylesheet" href="fav-page.css">
+</head>
+
+<body>
+
+    <!-- Header (same as index.html) -->
+    <div class="header">
+        <div class="tittle">
+            <img src="Image/logo.png" alt="Logo">
+            <h1>The Cupcake Princess</h1>
+        </div>
+        <form>
+            <div class="searching">
+                <a href="search-page.html" class="search-text">
+                    <span class="material-symbols-outlined">search</span>
+                    <button type="submit">Search</button>
+                    <input class="searching-input" type="search" placeholder="Search">
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Page content -->
+    <main class="fav-main">
+        <div class="fav-heading">
+            <h1 class="fav-title">My Favorites</h1>
+            <p class="fav-subtitle">Your curated selection of royal treats.</p>
+        </div>
+
+        <div class="fav-grid">
+
+            <!-- Card 1 -->
+            <div class="fav-card">
+                <div class="fav-img-wrap">
+                    <img src="Image/Fluffy Pink Cake.png" alt="Silky Smooth Pink Velvet">
+                    <button class="fav-heart active" type="button" onclick="toggleHeart(this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="fav-card-body">
+                    <h3 class="fav-card-name">Silky Smooth Pink Velvet</h3>
+                    <p class="fav-card-price">STARTING AT $45.00</p>
+                    <button class="fav-add-btn fav-add-filled" type="button">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="fav-card">
+                <div class="fav-img-wrap">
+                    <img src="Image/rosecupcake.jpg" alt="Blushing Rose Cupcake">
+                    <button class="fav-heart active" type="button" onclick="toggleHeart(this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="fav-card-body">
+                    <h3 class="fav-card-name">Blushing Rose Cupcake</h3>
+                    <p class="fav-card-price">STARTING AT $5.50</p>
+                    <button class="fav-add-btn" type="button">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="fav-card">
+                <div class="fav-img-wrap">
+                    <img src="Image/saultcookie.png" alt="Salted Caramel Chunk">
+                    <button class="fav-heart active" type="button" onclick="toggleHeart(this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="fav-card-body">
+                    <h3 class="fav-card-name">Salted Caramel Chunk</h3>
+                    <p class="fav-card-price">STARTING AT $4.25</p>
+                    <button class="fav-add-btn" type="button">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="fav-card">
+                <div class="fav-img-wrap">
+                    <img src="Image/Fresh Flowers Cake.png" alt="Fresh Flowers Cake">
+                    <button class="fav-heart active" type="button" onclick="toggleHeart(this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="fav-card-body">
+                    <h3 class="fav-card-name">Fresh Flowers Cake</h3>
+                    <p class="fav-card-price">STARTING AT $65.00</p>
+                    <button class="fav-add-btn fav-add-filled" type="button">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="fav-card">
+                <div class="fav-img-wrap">
+                    <img src="Image/lemoncupcake.jpg" alt="Lavender Bloom Cupcake">
+                    <button class="fav-heart active" type="button" onclick="toggleHeart(this)">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="fav-card-body">
+                    <h3 class="fav-card-name">Lavender Bloom Cupcake</h3>
+                    <p class="fav-card-price">STARTING AT $5.75</p>
+                    <button class="fav-add-btn" type="button">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Bottom nav (same as index.html) -->
+    <nav class="bottom_bar">
+        <a href="index.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </a>
+        <a href="fav-page.html" class="bottom-bar-item interactive-bar active">
+            <span class="material-symbols-outlined">favorite</span>
+            <p>FAVORITE</p>
+            <span class="bar-dot"></span>
+        </a>
+        <a href="productlist.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">storefront</span>
+            <p>BAKERY</p>
+        </a>
+        <a href="shoppingcart.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <p>CART</p>
+        </a>
+        <a href="pro.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">person</span>
+            <p>PROFILE</p>
+        </a>
+    </nav>
+
+    <script>
+        function toggleHeart(btn) {
+            btn.classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>

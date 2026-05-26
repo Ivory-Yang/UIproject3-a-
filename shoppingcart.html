@@ -17,38 +17,34 @@
 
 <body>
 
-    <!-- Mobile Header -->
-    <header class="mobile-cart-header">
-        <button class="cart-menu-btn" type="button">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
-        <span class="cart-brand">The Cupcake Princess</span>
-        <a href="search-page.html" class="cart-bag-btn">
-            <span class="material-symbols-outlined">search</span>
-        </a>
-    </header>
-
-    <!-- Desktop Nav Header -->
-    <header class="desktop-nav-header">
-        <a href="index.html" class="dnav-brand">The Cupcake Princess</a>
-        <nav class="dnav-links">
-            <a href="productlist.html">Shop All</a>
-            <a href="#">Custom Orders</a>
-            <a href="#">Best Sellers</a>
-            <a href="#">Bakeries</a>
-            <a href="#">Gifts</a>
-            <a href="#">Our Story</a>
-        </nav>
-        <div class="dnav-icons">
-            <a href="search-page.html" class="dnav-icon">
+    <div class="mobile-sticky-top">
+        <div class="mobile-header">
+            <button class="hamburger-btn">
+                <img src="Image/logo.png" alt="Logo">
+            </button>
+            <span class="mobile-brand">The Cupcake Princess</span>
+            <a href="search-page.html" class="mobile-search-btn">
                 <span class="material-symbols-outlined">search</span>
             </a>
-            <a href="#" class="dnav-icon">
-                <span class="material-symbols-outlined">person</span>
-            </a>
         </div>
-    </header>
+    </div>
 
+    <!-- Desktop: homepage-style header (hidden on mobile) -->
+    <div class="header">
+        <div class="tittle">
+            <img src="Image/logo.png" alt="Logo">
+            <h1>The Cupcake Princess</h1>
+        </div>
+        <form>
+            <div class="searching">
+                <a href="search-page.html" class="search-text" onclick="handleSearchClick(event)">
+                    <span class="material-symbols-outlined">search</span>
+                    <button type="submit">Search</button>
+                    <input class="searching-input" type="search" placeholder="Search">
+                </a>
+            </div>
+        </form>
+    </div>
     <!-- Cart Content -->
     <main class="cart-main">
         <div class="cart-inner">
@@ -56,120 +52,182 @@
             <!-- Two-column layout -->
             <div class="cart-layout">
 
-                <!-- LEFT: title + items -->
-                <div class="cart-left">
-                    <h1 class="cart-title">My Shopping Bag</h1>
-                    <p class="cart-subtitle" id="cartSubtitle">You have 3 exquisite treats waiting for you.</p>
-
-                    <!-- Select All (mobile only) -->
-                    <div class="select-all-row" id="selectAllRow" onclick="toggleSelectAll()">
-                        <button class="cb cb-active" id="selectAllCb" type="button">
-                            <span class="material-symbols-outlined">check</span>
-                        </button>
-                        <span class="select-all-label">Select All (<span id="selectCount">3</span>)</span>
-                    </div>
-
-                    <!-- Cart Items (populated from localStorage) -->
-                    <div id="cartItemsList"></div>
-
-                    <!-- Empty state -->
-                    <div class="cart-empty" id="cartEmpty">
-                        <span class="material-symbols-outlined cart-empty-icon">shopping_bag</span>
-                        <p class="cart-empty-title">Your bag is empty</p>
-                        <p class="cart-empty-sub">Add something delicious to get started.</p>
-                        <a href="productlist.html" class="cart-empty-btn">Shop Now</a>
-                    </div>
-
-                    <!-- Summary (mobile only — shows below items) -->
-                    <div class="cart-summary cart-summary-mobile" id="cartSummaryMobile">
-                        <div class="summary-divider"></div>
-                        <div class="summary-row">
-                            <span>Order Subtotal</span>
-                            <span id="summarySubtotalM">$218.00</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Delivery Fee</span>
-                            <span>$5.00</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Estimated Taxes</span>
-                            <span id="summaryTaxesM">$19.62</span>
-                        </div>
-                        <div class="summary-row total-row">
-                            <span>Total</span>
-                            <span class="total-amount" id="summaryTotalM">$242.62</span>
-                        </div>
-                        <button class="checkout-btn" type="button">
-                            Proceed to Checkout
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </button>
-                    </div>
-
+                <!-- Select All (mobile only) -->
+                <div class="select-all-row" id="selectAllRow" onclick="toggleSelectAll()">
+                    <button class="cb cb-active" id="selectAllCb" type="button">
+                        <span class="material-symbols-outlined">check</span>
+                    </button>
+                    <span class="select-all-label">Select All (<span id="selectCount">3</span>)</span>
                 </div>
 
-                <!-- RIGHT: order summary sidebar (desktop only) -->
-                <div class="cart-right" id="cartRight">
-                    <div class="order-summary-card">
-                        <h2 class="os-title">Order Summary</h2>
+                <!-- Cart Items (populated from localStorage) -->
+                <div id="cartItemsList"></div>
 
-                        <div class="os-row">
-                            <span>Subtotal</span>
-                            <span id="summarySubtotal">$218.00</span>
-                        </div>
-                        <div class="os-row">
-                            <span>Delivery Fee</span>
-                            <span>$12.50</span>
-                        </div>
-                        <div class="os-row">
-                            <span>Estimated Taxes</span>
-                            <span id="summaryTaxes">$19.62</span>
-                        </div>
+                <!-- Empty state -->
+                <div class="cart-empty" id="cartEmpty">
+                    <span class="material-symbols-outlined cart-empty-icon">shopping_bag</span>
+                    <p class="cart-empty-title">Your bag is empty</p>
+                    <p class="cart-empty-sub">Add something delicious to get started.</p>
+                    <a href="productlist.html" class="cart-empty-btn">Shop Now</a>
+                </div>
 
-                        <div class="os-total-row">
-                            <span>Total</span>
-                            <span class="os-total-amount" id="summaryTotal">$250.12</span>
-                        </div>
-
-                        <button class="checkout-btn-desk" type="button">
-                            Proceed to Checkout
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </button>
-
-                        <div class="os-note">
-                            <span class="material-symbols-outlined os-note-icon">check_circle</span>
-                            <p>Our treats are baked fresh to order. Hand-delivered in temperature-controlled packaging
-                                to
-                                ensure velvet perfection.</p>
-                        </div>
-
-                        <div class="os-payments">
-                            <p class="os-payments-label">Accepted Payments</p>
-                            <div class="os-payment-icons">
-                                <span class="material-symbols-outlined">credit_card</span>
-                                <span class="material-symbols-outlined">account_balance_wallet</span>
-                                <span class="material-symbols-outlined">toll</span>
-                            </div>
-                        </div>
+                <!-- Summary (mobile only — shows below items) -->
+                <div class="cart-summary cart-summary-mobile" id="cartSummaryMobile">
+                    <div class="summary-divider"></div>
+                    <div class="summary-row">
+                        <span>Order Subtotal</span>
+                        <span id="summarySubtotalM">$218.00</span>
                     </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span>$5.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Estimated Taxes</span>
+                        <span id="summaryTaxesM">$19.62</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Total</span>
+                        <span class="total-amount" id="summaryTotalM">$242.62</span>
+                    </div>
+                    <button class="checkout-btn" type="button">
+                        Proceed to Checkout
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
                 </div>
 
             </div>
+
+            <!-- RIGHT: order summary sidebar (desktop only) -->
+            <div class="cart-right" id="cartRight">
+                <div class="order-summary-card">
+                    <h2 class="os-title">Order Summary</h2>
+
+                    <div class="os-row">
+                        <span>Subtotal</span>
+                        <span id="summarySubtotal">$218.00</span>
+                    </div>
+                    <div class="os-row">
+                        <span>Delivery Fee</span>
+                        <span>$5.00</span>
+                    </div>
+                    <div class="os-row">
+                        <span>Estimated Taxes</span>
+                        <span id="summaryTaxes">$19.62</span>
+                    </div>
+
+                    <div class="os-total-row">
+                        <span>Total</span>
+                        <span class="os-total-amount" id="summaryTotal">$250.12</span>
+                    </div>
+
+                    <button class="checkout-btn-desk" type="button">
+                        Proceed to Checkout
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+
+                    <div class="os-note">
+                        <span class="material-symbols-outlined os-note-icon">check_circle</span>
+                        <p>Our treats are baked fresh to order. Hand-delivered in temperature-controlled packaging
+                            to
+                            ensure velvet perfection.</p>
+                    </div>
+
+                    <div class="os-payments">
+                        <p class="os-payments-label">Accepted Payments</p>
+                        <div class="os-payment-icons">
+                            <span class="material-symbols-outlined">credit_card</span>
+                            <span class="material-symbols-outlined">account_balance_wallet</span>
+                            <span class="material-symbols-outlined">toll</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         </div>
     </main>
 
-    <!-- Footer (desktop only) -->
-    <footer class="site-footer">
-        <p class="footer-brand">The Cupcake Princess</p>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Shipping &amp; Returns</a>
-            <a href="#">Wholesale</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Store Locator</a>
+    <!-- Edit cart item sheet -->
+    <div class="qa-overlay" id="editOverlay" onclick="closeEditSheet()"></div>
+    <div class="quick-add-sheet" id="editSheet">
+        <div class="qa-handle"></div>
+        <div class="qa-header">
+            <div class="qa-product-info">
+                <img class="qa-img" id="editImg" src="" alt="">
+                <div class="qa-text">
+                    <h2 class="qa-name" id="editName"></h2>
+                    <p class="qa-price" id="editPrice"></p>
+                </div>
+            </div>
+            <button class="qa-close" type="button" onclick="closeEditSheet()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
         </div>
-        <p class="footer-copy">© 2024 The Cupcake Princess. Crafted with velvet frosting and editorial grace.</p>
-    </footer>
+
+        <div class="qa-divider"></div>
+
+        <div class="qa-body">
+            <div class="qa-section" id="editSizeSection">
+                <p class="qa-section-label">SELECT SIZE</p>
+                <div class="qa-options" id="editSizeOptions">
+                    <button class="qa-option active" type="button" data-price-add="0" onclick="selectEditOption(this)">4 inch</button>
+                    <button class="qa-option" type="button" data-price-add="20" onclick="selectEditOption(this)">6 inch</button>
+                    <button class="qa-option" type="button" data-price-add="40" onclick="selectEditOption(this)">8 inch</button>
+                </div>
+            </div>
+
+            <div class="qa-section" id="editBoxSection">
+                <p class="qa-section-label">SELECT BOX</p>
+                <div class="qa-options" id="editBoxOptions">
+                    <button class="qa-option active" type="button" data-price-mult="1" onclick="selectEditOption(this)">Quarter Dozen</button>
+                    <button class="qa-option" type="button" data-price-mult="2" onclick="selectEditOption(this)">Half Dozen</button>
+                    <button class="qa-option" type="button" data-price-mult="4" onclick="selectEditOption(this)">One Dozen</button>
+                </div>
+            </div>
+
+            <div class="qa-section">
+                <p class="qa-section-label">SELECT FLAVOR</p>
+                <div class="qa-options" id="editFlavorOptions">
+                    <button class="qa-option" type="button" onclick="selectEditOption(this)">Vanilla</button>
+                    <button class="qa-option active" type="button" onclick="selectEditOption(this)">Strawberry</button>
+                    <button class="qa-option" type="button" onclick="selectEditOption(this)">Chocolate</button>
+                </div>
+            </div>
+
+            <div class="qa-divider"></div>
+
+            <div class="qa-quantity-row">
+                <p class="qa-section-label">QUANTITY</p>
+                <div class="qa-qty-control">
+                    <button class="qa-qty-btn" type="button" onclick="changeEditQty(-1)">
+                        <span class="material-symbols-outlined">remove</span>
+                    </button>
+                    <span class="qa-qty-num" id="editQty">1</span>
+                    <button class="qa-qty-btn" type="button" onclick="changeEditQty(1)">
+                        <span class="material-symbols-outlined">add</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="qa-footer">
+            <button class="qa-add-cart-btn" id="editSaveBtn" type="button" onclick="saveEditChanges()">
+                <span class="material-symbols-outlined">check_circle</span>
+                Update Cart
+            </button>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
+    <div class="search-panel" id="searchPanel">
+        <div class="search-panel-header">
+            <button class="search-panel-close" onclick="closeSearchPanel()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
+    </div>
 
     <nav class="bottom_bar">
         <a href="index.html" class="bottom-bar-item interactive-bar">

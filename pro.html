@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile — The Cupcake Princess</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+    <link rel="stylesheet" href="pro.css">
+</head>
+
+<body>
+
+    <!-- Header (same as index.html) -->
+    <div class="header">
+        <div class="tittle">
+            <img src="Image/logo.png" alt="Logo">
+            <h1>The Cupcake Princess</h1>
+        </div>
+        <form>
+            <div class="searching">
+                <a href="search-page.html" class="search-text">
+                    <span class="material-symbols-outlined">search</span>
+                    <button type="submit">Search</button>
+                    <input class="searching-input" type="search" placeholder="Search">
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <main class="pro-main">
+
+        <!-- ── PROFILE HERO ── -->
+        <section class="pro-hero">
+            <div class="pro-avatar-wrap">
+                <img src="Image/logo.png" alt="Profile" class="pro-avatar">
+            </div>
+            <h1 class="pro-name">Sophia Chen</h1>
+            <p class="pro-badge">ROYAL GOLD MEMBER (1,240 SPRINKLES)</p>
+        </section>
+
+        <!-- ── RECENT ORDERS ── -->
+        <section class="pro-section">
+            <div class="pro-section-header">
+                <h2 class="pro-section-title">Recent Orders</h2>
+                <a href="#" class="pro-view-all">View All</a>
+            </div>
+            <div class="pro-orders-scroll">
+                <div class="pro-order-card">
+                    <div class="pro-order-top">
+                        <span class="material-symbols-outlined pro-order-icon">cake</span>
+                        <span class="pro-order-status in-oven">In the Oven</span>
+                    </div>
+                    <p class="pro-order-name">Velvet Dream Box</p>
+                    <p class="pro-order-meta">Order #88291 · $42.00</p>
+                </div>
+                <div class="pro-order-card">
+                    <div class="pro-order-top">
+                        <span class="material-symbols-outlined pro-order-icon">local_shipping</span>
+                        <span class="pro-order-status delivered">Delivered</span>
+                    </div>
+                    <p class="pro-order-name">Princess Box Set</p>
+                    <p class="pro-order-meta">Order #88104 · $68.50</p>
+                </div>
+                <div class="pro-order-card">
+                    <div class="pro-order-top">
+                        <span class="material-symbols-outlined pro-order-icon">check_circle</span>
+                        <span class="pro-order-status delivered">Delivered</span>
+                    </div>
+                    <p class="pro-order-name">Rose Cupcake Set</p>
+                    <p class="pro-order-meta">Order #87990 · $24.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── PERSONAL DETAILS ── -->
+        <section class="pro-section">
+            <h2 class="pro-section-title">Personal Details</h2>
+            <div class="pro-details-card">
+                <div class="pro-detail-row">
+                    <p class="pro-detail-label">FULL NAME</p>
+                    <p class="pro-detail-value">Sophia Chen</p>
+                </div>
+                <div class="pro-detail-divider"></div>
+                <div class="pro-detail-row">
+                    <p class="pro-detail-label">EMAIL ADDRESS</p>
+                    <p class="pro-detail-value">sophia.chen@editorial.com</p>
+                </div>
+                <div class="pro-detail-divider"></div>
+                <div class="pro-detail-row">
+                    <p class="pro-detail-label">PHONE</p>
+                    <p class="pro-detail-value">+1 (555) 234-5678</p>
+                </div>
+                <button class="pro-edit-btn" type="button">Edit Information</button>
+            </div>
+        </section>
+
+        <!-- ── PREFERENCES ── -->
+        <section class="pro-section">
+            <h2 class="pro-section-title">Preferences</h2>
+            <div class="pro-list-card">
+                <div class="pro-list-item">
+                    <span class="material-symbols-outlined pro-list-icon">mail</span>
+                    <div class="pro-list-text">
+                        <p class="pro-list-name">Newsletter</p>
+                        <p class="pro-list-sub">Weekly recipes and offers</p>
+                    </div>
+                    <label class="pro-toggle">
+                        <input type="checkbox" checked>
+                        <span class="pro-toggle-track"></span>
+                    </label>
+                </div>
+                <div class="pro-list-divider"></div>
+                <div class="pro-list-item pro-list-item-link">
+                    <span class="material-symbols-outlined pro-list-icon">restaurant</span>
+                    <div class="pro-list-text">
+                        <p class="pro-list-name">Dietary Filters</p>
+                        <p class="pro-list-sub">Nut-free, Gluten-free priority</p>
+                    </div>
+                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── MY BOUTIQUE ── -->
+        <section class="pro-section">
+            <h2 class="pro-section-title">My Boutique</h2>
+            <div class="pro-list-card">
+                <div class="pro-list-item pro-list-item-link">
+                    <span class="material-symbols-outlined pro-list-icon">location_on</span>
+                    <div class="pro-list-text">
+                        <p class="pro-list-name">Saved Addresses</p>
+                    </div>
+                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                </div>
+                <div class="pro-list-divider"></div>
+                <div class="pro-list-item pro-list-item-link">
+                    <span class="material-symbols-outlined pro-list-icon">credit_card</span>
+                    <div class="pro-list-text">
+                        <p class="pro-list-name">Payment Methods</p>
+                    </div>
+                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── MY REVIEWS ── -->
+        <section class="pro-section">
+            <h2 class="pro-section-title">My Reviews</h2>
+            <div class="pro-reviews">
+
+                <div class="pro-review-card">
+                    <div class="pro-review-img">
+                        <img src="Image/strawbarrycupcake.jpg" alt="Strawberry Bliss">
+                    </div>
+                    <div class="pro-review-body">
+                        <div class="pro-review-top">
+                            <p class="pro-review-name">Strawberry Bliss</p>
+                            <button class="pro-review-del" type="button">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </div>
+                        <div class="pro-stars">★★★★★</div>
+                        <p class="pro-review-text">"The sponge was so light and airy. The strawberry frosting was naturally sweet and delicious!"</p>
+                    </div>
+                </div>
+
+                <div class="pro-review-card">
+                    <div class="pro-review-img">
+                        <img src="Image/chocolatecupcake.jpg" alt="Chocolate Lava Dream">
+                    </div>
+                    <div class="pro-review-body">
+                        <div class="pro-review-top">
+                            <p class="pro-review-name">Chocolate Lava Dream</p>
+                            <button class="pro-review-del" type="button">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </div>
+                        <div class="pro-stars">★★★★★</div>
+                        <p class="pro-review-text">"Rich and decadent. Perfect for chocolate lovers, though a bit heavy for an afternoon snack."</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── SUPPORT ── -->
+        <section class="pro-section">
+            <h2 class="pro-section-title">Support</h2>
+            <div class="pro-list-card">
+                <div class="pro-list-item pro-list-item-link">
+                    <span class="material-symbols-outlined pro-list-icon">help</span>
+                    <div class="pro-list-text">
+                        <p class="pro-list-name">Help Center</p>
+                    </div>
+                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                </div>
+                <div class="pro-list-divider"></div>
+                <div class="pro-list-item pro-list-item-link">
+                    <span class="material-symbols-outlined pro-list-icon">auto_awesome</span>
+                    <div class="pro-list-text">
+                        <p class="pro-list-name">Our Process</p>
+                    </div>
+                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                </div>
+                <div class="pro-list-divider"></div>
+                <div class="pro-list-item pro-list-item-link">
+                    <span class="material-symbols-outlined pro-list-icon">chat_bubble</span>
+                    <div class="pro-list-text">
+                        <p class="pro-list-name">Contact Us</p>
+                    </div>
+                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SIGN OUT ── -->
+        <div class="pro-signout-wrap">
+            <button class="pro-signout-btn" type="button">
+                <span class="material-symbols-outlined">logout</span>
+                Sign Out
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Bottom nav -->
+    <nav class="bottom_bar">
+        <a href="index.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </a>
+        <a href="fav-page.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">favorite</span>
+            <p>FAVORITE</p>
+        </a>
+        <a href="productlist.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">storefront</span>
+            <p>BAKERY</p>
+        </a>
+        <a href="shoppingcart.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <p>CART</p>
+        </a>
+        <a href="pro.html" class="bottom-bar-item interactive-bar active">
+            <span class="material-symbols-outlined">person</span>
+            <p>PROFILE</p>
+            <span class="bar-dot"></span>
+        </a>
+    </nav>
+
+</body>
+</html>
