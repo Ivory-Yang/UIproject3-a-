@@ -13,10 +13,11 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
     <link rel="stylesheet" href="pro.css">
 </head>
+<script src="pro.js"></script>
 
 <body>
 
-    <!-- Header (same as index.html) -->
+    <!-- Mobile header -->
     <div class="mobile-sticky-top">
         <div class="mobile-header">
             <button class="hamburger-btn">
@@ -29,206 +30,314 @@
         </div>
     </div>
 
+    <!-- Desktop: homepage-style header (hidden on mobile) -->
+    <div class="header">
+        <div class="tittle">
+            <img src="Image/logo.png" alt="Logo">
+            <h1>The Cupcake Princess</h1>
+        </div>
+        <form>
+            <div class="searching">
+                <a href="search-page.html" class="search-text" onclick="handleSearchClick(event)">
+                    <span class="material-symbols-outlined">search</span>
+                    <button type="submit">Search</button>
+                    <input class="searching-input" type="search" placeholder="Search">
+                </a>
+            </div>
+        </form>
+    </div>
 
     <main class="pro-main">
 
-        <!-- ── PROFILE HERO ── -->
-        <section class="pro-hero">
-            <div class="pro-avatar-wrap">
-                <img src="Image/logo.png" alt="Profile" class="pro-avatar">
+        <!-- ══════════════════════════════ -->
+        <!-- DESKTOP LEFT SIDEBAR           -->
+        <!-- ══════════════════════════════ -->
+        <aside class="pro-sidebar">
+            <div class="pro-sidebar-avatar-wrap">
+                <img src="Image/logo.png" alt="Profile" class="pro-sidebar-avatar">
+                <span class="pro-sidebar-badge-wrap">ROYAL GOLD</span>
             </div>
-            <h1 class="pro-name">Sophia Chen</h1>
-            <p class="pro-badge">ROYAL GOLD MEMBER (1,240 SPRINKLES)</p>
-        </section>
+            <p class="pro-sidebar-name">Sophia Chen</p>
+            <p class="pro-sidebar-since">Member since 2022</p>
 
-        <!-- ── RECENT ORDERS ── -->
-        <section class="pro-section">
-            <div class="pro-section-header">
-                <h2 class="pro-section-title">Recent Orders</h2>
-                <a href="#" class="pro-view-all">View All</a>
-            </div>
-            <div class="pro-orders-scroll">
-                <div class="pro-order-card">
-                    <div class="pro-order-top">
-                        <span class="material-symbols-outlined pro-order-icon">cake</span>
-                        <span class="pro-order-status in-oven">In the Oven</span>
-                    </div>
-                    <p class="pro-order-name">Velvet Dream Box</p>
-                    <p class="pro-order-meta">Order #88291 · $42.00</p>
-                </div>
-                <div class="pro-order-card">
-                    <div class="pro-order-top">
-                        <span class="material-symbols-outlined pro-order-icon">local_shipping</span>
-                        <span class="pro-order-status delivered">Delivered</span>
-                    </div>
-                    <p class="pro-order-name">Princess Box Set</p>
-                    <p class="pro-order-meta">Order #88104 · $68.50</p>
-                </div>
-                <div class="pro-order-card">
-                    <div class="pro-order-top">
-                        <span class="material-symbols-outlined pro-order-icon">check_circle</span>
-                        <span class="pro-order-status delivered">Delivered</span>
-                    </div>
-                    <p class="pro-order-name">Rose Cupcake Set</p>
-                    <p class="pro-order-meta">Order #87990 · $24.00</p>
-                </div>
-            </div>
-        </section>
+            <nav class="pro-sidebar-nav">
+                <a href="#orders" class="pro-sidebar-link active">
+                    <span class="material-symbols-outlined">receipt_long</span>
+                    Order History
+                </a>
+                <a href="#details" class="pro-sidebar-link">
+                    <span class="material-symbols-outlined">person</span>
+                    Personal Details
+                </a>
+                <a href="#prefs" class="pro-sidebar-link">
+                    <span class="material-symbols-outlined">tune</span>
+                    Preferences
+                </a>
+                <a href="#reviews" class="pro-sidebar-link">
+                    <span class="material-symbols-outlined">star</span>
+                    My Reviews
+                </a>
+                <button class="pro-sidebar-link signout" type="button">
+                    <span class="material-symbols-outlined">logout</span>
+                    Sign Out
+                </button>
+            </nav>
+        </aside>
 
-        <!-- ── PERSONAL DETAILS ── -->
-        <section class="pro-section">
-            <h2 class="pro-section-title">Personal Details</h2>
-            <div class="pro-details-card">
-                <div class="pro-detail-row">
-                    <p class="pro-detail-label">FULL NAME</p>
-                    <p class="pro-detail-value">Sophia Chen</p>
-                </div>
-                <div class="pro-detail-divider"></div>
-                <div class="pro-detail-row">
-                    <p class="pro-detail-label">EMAIL ADDRESS</p>
-                    <p class="pro-detail-value">sophia.chen@editorial.com</p>
-                </div>
-                <div class="pro-detail-divider"></div>
-                <div class="pro-detail-row">
-                    <p class="pro-detail-label">PHONE</p>
-                    <p class="pro-detail-value">+1 (555) 234-5678</p>
-                </div>
-                <button class="pro-edit-btn" type="button">Edit Information</button>
-            </div>
-        </section>
+        <!-- ══════════════════════════════ -->
+        <!-- MAIN CONTENT                   -->
+        <!-- ══════════════════════════════ -->
+        <div class="pro-content">
 
-        <!-- ── PREFERENCES ── -->
-        <section class="pro-section">
-            <h2 class="pro-section-title">Preferences</h2>
-            <div class="pro-list-card">
-                <div class="pro-list-item">
-                    <span class="material-symbols-outlined pro-list-icon">mail</span>
-                    <div class="pro-list-text">
-                        <p class="pro-list-name">Newsletter</p>
-                        <p class="pro-list-sub">Weekly recipes and offers</p>
-                    </div>
-                    <label class="pro-toggle">
-                        <input type="checkbox" checked>
-                        <span class="pro-toggle-track"></span>
-                    </label>
+            <!-- Mobile profile hero (hidden on desktop) -->
+            <section class="pro-hero">
+                <div class="pro-avatar-wrap">
+                    <img src="Image/logo.png" alt="Profile" class="pro-avatar">
                 </div>
-                <div class="pro-list-divider"></div>
-                <div class="pro-list-item pro-list-item-link">
-                    <span class="material-symbols-outlined pro-list-icon">restaurant</span>
-                    <div class="pro-list-text">
-                        <p class="pro-list-name">Dietary Filters</p>
-                        <p class="pro-list-sub">Nut-free, Gluten-free priority</p>
-                    </div>
-                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
-                </div>
-            </div>
-        </section>
+                <h1 class="pro-name">Sophia Chen</h1>
+                <p class="pro-badge">ROYAL GOLD MEMBER (1,240 SPRINKLES)</p>
+            </section>
 
-        <!-- ── MY BOUTIQUE ── -->
-        <section class="pro-section">
-            <h2 class="pro-section-title">My Boutique</h2>
-            <div class="pro-list-card">
-                <div class="pro-list-item pro-list-item-link">
-                    <span class="material-symbols-outlined pro-list-icon">location_on</span>
-                    <div class="pro-list-text">
-                        <p class="pro-list-name">Saved Addresses</p>
-                    </div>
-                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+            <!-- ── RECENT ORDERS ── -->
+            <section class="pro-section" id="orders">
+                <div class="pro-section-header">
+                    <h2 class="pro-section-title">Recent Orders</h2>
+                    <a href="#" class="pro-view-all">View All History</a>
                 </div>
-                <div class="pro-list-divider"></div>
-                <div class="pro-list-item pro-list-item-link">
-                    <span class="material-symbols-outlined pro-list-icon">credit_card</span>
-                    <div class="pro-list-text">
-                        <p class="pro-list-name">Payment Methods</p>
-                    </div>
-                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── MY REVIEWS ── -->
-        <section class="pro-section">
-            <h2 class="pro-section-title">My Reviews</h2>
-            <div class="pro-reviews">
-
-                <div class="pro-review-card">
-                    <div class="pro-review-img">
-                        <img src="Image/strawbarrycupcake.jpg" alt="Strawberry Bliss">
-                    </div>
-                    <div class="pro-review-body">
-                        <div class="pro-review-top">
-                            <p class="pro-review-name">Strawberry Bliss</p>
-                            <button class="pro-review-del" type="button">
-                                <span class="material-symbols-outlined">delete</span>
+                <div class="pro-orders-scroll">
+                    <div class="pro-order-card">
+                        <div class="pro-order-top">
+                            <span class="material-symbols-outlined pro-order-icon">cake</span>
+                            <span class="pro-order-status in-oven">In the Oven</span>
+                        </div>
+                        <p class="pro-order-name">Royal Velvet Dozen</p>
+                        <p class="pro-order-meta">Order #CP-92831</p>
+                        <div class="pro-order-card-footer">
+                            <div>
+                                <p class="pro-order-date-label">Estimated Arrival</p>
+                                <p class="pro-order-date-value">Today, 4:00 PM</p>
+                            </div>
+                            <button class="pro-order-arrow" type="button">
+                                <span class="material-symbols-outlined">arrow_forward</span>
                             </button>
                         </div>
-                        <div class="pro-stars">★★★★★</div>
-                        <p class="pro-review-text">"The sponge was so light and airy. The strawberry frosting was
-                            naturally sweet and delicious!"</p>
                     </div>
-                </div>
-
-                <div class="pro-review-card">
-                    <div class="pro-review-img">
-                        <img src="Image/chocolatecupcake.jpg" alt="Chocolate Lava Dream">
-                    </div>
-                    <div class="pro-review-body">
-                        <div class="pro-review-top">
-                            <p class="pro-review-name">Chocolate Lava Dream</p>
-                            <button class="pro-review-del" type="button">
-                                <span class="material-symbols-outlined">delete</span>
+                    <div class="pro-order-card">
+                        <div class="pro-order-top">
+                            <span class="material-symbols-outlined pro-order-icon">local_shipping</span>
+                            <span class="pro-order-status delivered">Delivered</span>
+                        </div>
+                        <p class="pro-order-name">Midnight Mocha x6</p>
+                        <p class="pro-order-meta">Order #CP-92745</p>
+                        <div class="pro-order-card-footer">
+                            <div>
+                                <p class="pro-order-date-label">Date Delivered</p>
+                                <p class="pro-order-date-value">Oct 14, 2023</p>
+                            </div>
+                            <button class="pro-order-arrow" type="button">
+                                <span class="material-symbols-outlined">arrow_forward</span>
                             </button>
                         </div>
-                        <div class="pro-stars">★★★★★</div>
-                        <p class="pro-review-text">"Rich and decadent. Perfect for chocolate lovers, though a bit heavy
-                            for an afternoon snack."</p>
+                    </div>
+                    <div class="pro-order-card">
+                        <div class="pro-order-top">
+                            <span class="material-symbols-outlined pro-order-icon">check_circle</span>
+                            <span class="pro-order-status delivered">Delivered</span>
+                        </div>
+                        <p class="pro-order-name">Rose Cupcake Set</p>
+                        <p class="pro-order-meta">Order #CP-87990</p>
+                        <div class="pro-order-card-footer">
+                            <div>
+                                <p class="pro-order-date-label">Date Delivered</p>
+                                <p class="pro-order-date-value">Sep 2, 2023</p>
+                            </div>
+                            <button class="pro-order-arrow" type="button">
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+            </section>
 
+            <!-- ── PERSONAL DETAILS ── -->
+            <section class="pro-section" id="details">
+                <h2 class="pro-section-title">Personal Details</h2>
+
+                <!-- Mobile view (read-only rows) -->
+                <div class="pro-details-card pro-details-mobile">
+                    <div class="pro-detail-row">
+                        <p class="pro-detail-label">FULL NAME</p>
+                        <p class="pro-detail-value">Sophia Chen</p>
+                    </div>
+                    <div class="pro-detail-divider"></div>
+                    <div class="pro-detail-row">
+                        <p class="pro-detail-label">EMAIL ADDRESS</p>
+                        <p class="pro-detail-value">sophia.chen@editorial.com</p>
+                    </div>
+                    <div class="pro-detail-divider"></div>
+                    <div class="pro-detail-row">
+                        <p class="pro-detail-label">PHONE</p>
+                        <p class="pro-detail-value">+1 (555) 234-5678</p>
+                    </div>
+                    <button class="pro-edit-btn" type="button">Edit Information</button>
+                </div>
+
+                <!-- Desktop view (editable form) -->
+                <div class="pro-details-card pro-details-desktop">
+                    <div class="pro-detail-form-grid">
+                        <div class="pro-detail-field">
+                            <label>First Name</label>
+                            <input type="text" value="Sophia">
+                        </div>
+                        <div class="pro-detail-field">
+                            <label>Last Name</label>
+                            <input type="text" value="Chen">
+                        </div>
+                        <div class="pro-detail-field">
+                            <label>Email Address</label>
+                            <input type="email" value="sophia.chen@example.com">
+                        </div>
+                        <div class="pro-detail-field">
+                            <label>Phone Number</label>
+                            <input type="tel" value="+1 (555) 123-4567">
+                        </div>
+                    </div>
+                    <div class="pro-detail-form-actions">
+                        <button class="pro-update-btn" type="button">Update Profile</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── PREFERENCES ── -->
+            <section class="pro-section" id="prefs">
+                <h2 class="pro-section-title">Account Preferences</h2>
+                <div class="pro-list-card">
+                    <div class="pro-list-item">
+                        <div class="pro-list-text">
+                            <p class="pro-list-name">Princess Newsletter</p>
+                            <p class="pro-list-sub">Join our royal court for weekly exclusives, secret recipes, and
+                                early access to seasonal collections every Friday morning.</p>
+                        </div>
+                        <label class="pro-toggle">
+                            <input type="checkbox" checked>
+                            <span class="pro-toggle-track"></span>
+                        </label>
+                    </div>
+                    <div class="pro-list-divider"></div>
+                    <div class="pro-list-item">
+                        <div class="pro-list-text">
+                            <p class="pro-list-name">Order Tracking SMS</p>
+                            <p class="pro-list-sub">Receive real-time text updates about your sweet treats — from the
+                                moment they enter the oven to the minute they arrive at your door.</p>
+                        </div>
+                        <label class="pro-toggle">
+                            <input type="checkbox" checked>
+                            <span class="pro-toggle-track"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── MY REVIEWS ── -->
+            <section class="pro-section" id="reviews">
+                <div class="pro-section-header">
+                    <h2 class="pro-section-title">My Reviews</h2>
+                    <span class="pro-view-all">2 Reviews Published</span>
+                </div>
+                <div class="pro-reviews">
+
+                    <div class="pro-review-card">
+                        <div class="pro-review-img">
+                            <img src="Image/strawbarrycupcake.jpg" alt="Strawberry Cloud Delight">
+                        </div>
+                        <div class="pro-review-body">
+                            <div class="pro-review-top">
+                                <p class="pro-review-name">Strawberry Cloud Delight</p>
+                                <button class="pro-review-del" type="button">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                            <div class="pro-stars">★★★★★</div>
+                            <p class="pro-review-text">"The frosting was absolutely divine! It felt like eating a
+                                literal cloud. Will definitely be ordering the Royal Velvet dozen next time."</p>
+                            <p class="pro-review-date">REVIEWED ON OCT 20, 2022 · <span
+                                    class="pro-review-verified">VERIFIED PURCHASE</span></p>
+                        </div>
+                    </div>
+
+                    <div class="pro-review-card">
+                        <div class="pro-review-img">
+                            <img src="Image/chocolatecupcake.jpg" alt="Midnight Mocha Ganache">
+                        </div>
+                        <div class="pro-review-body">
+                            <div class="pro-review-top">
+                                <p class="pro-review-name">Midnight Mocha Ganache</p>
+                                <button class="pro-review-del" type="button">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                            <div class="pro-stars">★★★★<span style="color:#ddd">★</span></div>
+                            <p class="pro-review-text">"A bit too rich for some, but perfect for a chocolate lover like
+                                me. The gold flakes made it feel so special!!"</p>
+                            <p class="pro-review-date">REVIEWED ON OCT 15, 2022 · <span
+                                    class="pro-review-verified">VERIFIED PURCHASE</span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── SUPPORT (mobile only) ── -->
+            <section class="pro-section pro-mobile-only">
+                <h2 class="pro-section-title">Support</h2>
+                <div class="pro-list-card">
+                    <div class="pro-list-item pro-list-item-link">
+                        <span class="material-symbols-outlined pro-list-icon">help</span>
+                        <div class="pro-list-text">
+                            <p class="pro-list-name">Help Center</p>
+                        </div>
+                        <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                    </div>
+                    <div class="pro-list-divider"></div>
+                    <div class="pro-list-item pro-list-item-link">
+                        <span class="material-symbols-outlined pro-list-icon">auto_awesome</span>
+                        <div class="pro-list-text">
+                            <p class="pro-list-name">Our Process</p>
+                        </div>
+                        <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                    </div>
+                    <div class="pro-list-divider"></div>
+                    <div class="pro-list-item pro-list-item-link">
+                        <span class="material-symbols-outlined pro-list-icon">chat_bubble</span>
+                        <div class="pro-list-text">
+                            <p class="pro-list-name">Contact Us</p>
+                        </div>
+                        <span class="material-symbols-outlined pro-chevron">chevron_right</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mobile sign out -->
+            <div class="pro-signout-wrap">
+                <button class="pro-signout-btn" type="button">
+                    <span class="material-symbols-outlined">logout</span>
+                    Sign Out
+                </button>
             </div>
-        </section>
 
-        <!-- ── SUPPORT ── -->
-        <section class="pro-section">
-            <h2 class="pro-section-title">Support</h2>
-            <div class="pro-list-card">
-                <div class="pro-list-item pro-list-item-link">
-                    <span class="material-symbols-outlined pro-list-icon">help</span>
-                    <div class="pro-list-text">
-                        <p class="pro-list-name">Help Center</p>
-                    </div>
-                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
-                </div>
-                <div class="pro-list-divider"></div>
-                <div class="pro-list-item pro-list-item-link">
-                    <span class="material-symbols-outlined pro-list-icon">auto_awesome</span>
-                    <div class="pro-list-text">
-                        <p class="pro-list-name">Our Process</p>
-                    </div>
-                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
-                </div>
-                <div class="pro-list-divider"></div>
-                <div class="pro-list-item pro-list-item-link">
-                    <span class="material-symbols-outlined pro-list-icon">chat_bubble</span>
-                    <div class="pro-list-text">
-                        <p class="pro-list-name">Contact Us</p>
-                    </div>
-                    <span class="material-symbols-outlined pro-chevron">chevron_right</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SIGN OUT ── -->
-        <div class="pro-signout-wrap">
-            <button class="pro-signout-btn" type="button">
-                <span class="material-symbols-outlined">logout</span>
-                Sign Out
-            </button>
-        </div>
+        </div><!-- /pro-content -->
 
     </main>
-
-    <!-- Bottom nav -->
+    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
+    <div class="search-panel" id="searchPanel">
+        <div class="search-panel-header">
+            <button class="search-panel-close" onclick="closeSearchPanel()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
+    </div>
+    <!-- Bottom nav (mobile only) -->
     <nav class="bottom_bar">
         <a href="index.html" class="bottom-bar-item interactive-bar">
             <span class="material-symbols-outlined">home</span>
