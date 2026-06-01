@@ -199,6 +199,22 @@ function toggleSelectAll() {
     updateSummary();
 }
 
+function proceedToCheckout() {
+    const selected = document.querySelectorAll('.item-cb.cb-active');
+    if (selected.length === 0) {
+        const toast = document.getElementById('cartToast');
+        if (toast) {
+            toast.textContent = 'Please select at least one item to checkout.';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2800);
+        }
+        return;
+    }
+    const selectedIds = Array.from(selected).map(cb => cb.closest('.cart-item').dataset.cartId);
+    localStorage.setItem('cupcakeCheckout', JSON.stringify(selectedIds));
+    location.href = 'checkout.html';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
     document.getElementById('cartItemsList').addEventListener('click', function (e) {

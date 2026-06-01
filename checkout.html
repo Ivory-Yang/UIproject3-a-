@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — The Cupcake Princess</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+    <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body>
+
+    <!-- Mobile header -->
+    <div class="co-mobile-header">
+        <a href="shoppingcart.html" class="co-back-btn">
+            <span class="material-symbols-outlined">arrow_back_ios</span>
+        </a>
+        <span class="co-mobile-title">Checkout</span>
+        <div class="co-header-spacer"></div>
+    </div>
+
+    <!-- Desktop header -->
+    <div class="co-desktop-header">
+        <div class="tittle">
+            <img src="Image/logo.png" alt="Logo">
+            <h1>The Cupcake Princess</h1>
+        </div>
+        <a href="shoppingcart.html" class="co-desktop-back">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Back to Cart
+        </a>
+    </div>
+
+    <main class="co-main">
+
+        <div class="co-left">
+
+            <!-- Desktop page title -->
+            <h1 class="co-page-title">Review Your Order</h1>
+
+            <!-- ── SELECTIONS ── -->
+            <section class="co-section">
+                <div class="co-section-header">
+                    <span class="co-section-label">Your Selections</span>
+                    <span class="co-item-count" id="coItemCount">0 ITEMS</span>
+                </div>
+                <div class="co-items-list" id="coItemsList"></div>
+            </section>
+
+            <!-- ── FULFILLMENT ── -->
+            <section class="co-section">
+                <span class="co-section-label">Fulfillment Method</span>
+                <div class="co-fulfillment-row">
+                    <button class="co-fulfillment-card" id="coDelivery" onclick="selectFulfillment('delivery')">
+                        <span class="material-symbols-outlined co-fulfill-icon">electric_moped</span>
+                        <p class="co-fulfill-name">Delivery</p>
+                        <p class="co-fulfill-sub" id="coDeliverySub">To your doorstep</p>
+                        <span class="co-fulfill-check material-symbols-outlined">check_circle</span>
+                    </button>
+                    <button class="co-fulfillment-card" id="coPickup" onclick="selectFulfillment('pickup')">
+                        <span class="material-symbols-outlined co-fulfill-icon">storefront</span>
+                        <p class="co-fulfill-name">Boutique Pickup</p>
+                        <p class="co-fulfill-sub">Visit our kitchen</p>
+                        <span class="co-fulfill-check material-symbols-outlined">check_circle</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ── CALENDAR ── -->
+            <section class="co-section">
+                <span class="co-section-label">Choose a Date</span>
+                <div class="co-calendar">
+                    <div class="co-cal-nav">
+                        <button class="co-cal-arrow" onclick="prevMonth()">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <span class="co-cal-month-label" id="coCalMonthLabel"></span>
+                        <button class="co-cal-arrow" onclick="nextMonth()">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                    <div class="co-cal-grid">
+                        <div class="co-cal-dow">S</div>
+                        <div class="co-cal-dow">M</div>
+                        <div class="co-cal-dow">T</div>
+                        <div class="co-cal-dow">W</div>
+                        <div class="co-cal-dow">T</div>
+                        <div class="co-cal-dow">F</div>
+                        <div class="co-cal-dow">S</div>
+                        <div id="coCalDays" class="co-cal-days-wrap"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mobile price summary -->
+            <section class="co-section co-mobile-summary">
+                <div class="co-summary-row"><span>Subtotal</span><span id="mSubtotal">$0.00</span></div>
+                <div class="co-summary-row"><span>Delivery Fee</span><span id="mDeliveryFee">$5.00</span></div>
+                <div class="co-summary-row"><span>Taxes</span><span id="mTaxes">$0.00</span></div>
+                <div class="co-summary-row co-total-row">
+                    <span>Total Price</span>
+                    <span id="mTotal" class="co-total-price">$0.00</span>
+                </div>
+            </section>
+
+            <!-- Mobile place order -->
+            <button class="co-place-btn co-mobile-place" type="button" onclick="placeOrder()">Place Order</button>
+            <p class="co-secured co-mobile-secured">SECURED BY SWEETPAY™</p>
+
+        </div>
+
+        <!-- Desktop order summary sidebar -->
+        <aside class="co-sidebar">
+            <div class="co-summary-card">
+                <p class="co-summary-title">Order Summary</p>
+                <div class="co-summary-row"><span>Subtotal</span><span id="dSubtotal">$0.00</span></div>
+                <div class="co-summary-row">
+                    <span>Delivery Fee</span>
+                    <span id="dDeliveryFee" class="co-free-tag">FREE</span>
+                </div>
+                <div class="co-summary-row"><span>Estimated Taxes</span><span id="dTaxes">$0.00</span></div>
+                <div class="co-summary-divider"></div>
+                <div class="co-summary-row co-total-row">
+                    <span>Total Price</span>
+                    <span id="dTotal" class="co-total-price">$0.00</span>
+                </div>
+                <button class="co-place-btn" type="button" onclick="placeOrder()">Place Order</button>
+                <p class="co-secured">SECURED BY SWEETPAY™</p>
+                <div class="co-payment-icons">
+                    <span class="material-symbols-outlined">credit_card</span>
+                    <span class="material-symbols-outlined">contactless</span>
+                    <span class="material-symbols-outlined">account_balance</span>
+                </div>
+            </div>
+            <div class="co-rewards-banner">
+                <span class="material-symbols-outlined co-rewards-icon">workspace_premium</span>
+                <div>
+                    <p class="co-rewards-title">Join Royal Rewards</p>
+                    <p class="co-rewards-sub" id="coRewardsSub">Earn crumbs on this order!</p>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <script src="checkout.js"></script>
+
+</body>
+
+</html>

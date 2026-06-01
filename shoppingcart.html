@@ -90,7 +90,7 @@
                         <span>Total</span>
                         <span class="total-amount" id="summaryTotalM">$242.62</span>
                     </div>
-                    <button class="checkout-btn" type="button">
+                    <button class="checkout-btn" type="button" onclick="proceedToCheckout()">
                         Proceed to Checkout
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </button>
@@ -121,7 +121,7 @@
                         <span class="os-total-amount" id="summaryTotal">$250.12</span>
                     </div>
 
-                    <button class="checkout-btn-desk" type="button">
+                    <button class="checkout-btn-desk" type="button" onclick="proceedToCheckout()">
                         Proceed to Checkout
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </button>
@@ -252,6 +252,8 @@
             <p>PROFILE</p>
         </a>
     </nav>
+
+    <div id="cartToast" class="cart-toast"></div>
 
 </body>
 
