@@ -223,6 +223,25 @@ document.addEventListener('DOMContentLoaded', () => {
     else filterProducts(initialCat);
 
     document.querySelector('.product-grid').addEventListener('click', function (e) {
+        const imgClick = e.target.closest('.card-image-wrap');
+        if (imgClick && !e.target.closest('.fav-btn')) {
+            const card = imgClick.closest('.product-card');
+            const name = card.querySelector('.card-name').textContent;
+            const priceText = card.querySelector('.card-price').textContent;
+            const imgSrc = card.querySelector('.card-image-wrap img').getAttribute('src');
+            const category = card.dataset.cat;
+            const desc = card.querySelector('.card-desc').textContent.trim();
+            const ratingText = card.querySelector('.card-rating')?.textContent || '★ 4.9';
+            const rating = parseFloat(ratingText.replace('★', '').trim()) || 4.9;
+            const basePrice = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
+            sessionStorage.setItem('ppProduct', JSON.stringify({
+                name, price: priceText, imgSrc, categoryType: category,
+                desc, rating, basePrice
+            }));
+            location.href = 'productpage.html';
+            return;
+        }
+
         const btn = e.target.closest('.add-btn');
         if (!btn) return;
         const card = btn.closest('.product-card');

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product — The Cupcake Princess</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+    <link rel="stylesheet" href="productpage.css">
+</head>
+
+<body>
+
+    <!-- Mobile header (same as productlist) -->
+    <div class="mobile-sticky-top">
+        <div class="mobile-header">
+            <button class="hamburger-btn" onclick="history.back()">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <span class="mobile-brand">Cupcake Princess</span>
+            <a href="search-page.html" class="mobile-search-btn">
+                <span class="material-symbols-outlined">search</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Desktop header (same as productlist) -->
+    <div class="header">
+        <div class="tittle">
+            <img src="Image/logo.png" alt="Logo">
+            <h1>The Cupcake Princess</h1>
+        </div>
+        <form>
+            <div class="searching">
+                <a href="search-page.html" class="search-text" onclick="handleSearchClick(event)">
+                    <span class="material-symbols-outlined">search</span>
+                    <button type="submit">Search</button>
+                    <input class="searching-input" type="search" placeholder="Search">
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scrollable page content -->
+    <div class="pp-page">
+
+        <!-- TOP: two-column on desktop (image left, details right) -->
+        <div class="pp-top-grid">
+
+            <!-- Left: hero image -->
+            <div class="pp-hero-wrap">
+                <div class="pp-hero">
+                    <img src="" alt="" class="pp-hero-img" id="ppHeroImg">
+                    <button class="pp-heart-btn" id="ppHeartBtn" onclick="toggleHeart(this)" type="button">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: product details -->
+            <div class="pp-body">
+
+                <p class="pp-category" id="ppCategory">PREMIUM COLLECTION</p>
+
+                <div class="pp-name-price-row">
+                    <h1 class="pp-name" id="ppName">Product Name</h1>
+                    <span class="pp-price" id="ppPrice">$0.00</span>
+                </div>
+
+                <div class="pp-rating-row">
+                    <span class="pp-stars" id="ppStars">☆☆☆☆☆</span>
+                    <span class="pp-rating-text" id="ppRatingText">4.9 stars from 124 reviews</span>
+                </div>
+
+                <blockquote class="pp-quote" id="ppQuote"></blockquote>
+
+                <!-- Size / Box section -->
+                <div class="pp-option-section" id="ppSizeSection">
+                    <p class="pp-option-label">SELECT SIZE</p>
+                    <div class="pp-option-row" id="ppSizeOptions">
+                        <button class="pp-option active" type="button" data-price-add="0" onclick="selectPpOption(this)">4 inch</button>
+                        <button class="pp-option" type="button" data-price-add="20" onclick="selectPpOption(this)">6 inch</button>
+                        <button class="pp-option" type="button" data-price-add="40" onclick="selectPpOption(this)">8 inch</button>
+                    </div>
+                </div>
+                <div class="pp-option-section" id="ppBoxSection">
+                    <p class="pp-option-label">SELECT BOX</p>
+                    <div class="pp-option-row" id="ppBoxOptions">
+                        <button class="pp-option active" type="button" data-price-mult="1" onclick="selectPpOption(this)">Quarter Dozen</button>
+                        <button class="pp-option" type="button" data-price-mult="2" onclick="selectPpOption(this)">Half Dozen</button>
+                        <button class="pp-option" type="button" data-price-mult="4" onclick="selectPpOption(this)">One Dozen</button>
+                    </div>
+                </div>
+
+                <!-- Flavor section -->
+                <div class="pp-option-section">
+                    <p class="pp-option-label">SELECT FLAVOR</p>
+                    <div class="pp-option-row" id="ppFlavorOptions">
+                        <button class="pp-option" type="button" onclick="selectPpOption(this)">Vanilla</button>
+                        <button class="pp-option active" type="button" onclick="selectPpOption(this)">Strawberry</button>
+                        <button class="pp-option" type="button" onclick="selectPpOption(this)">Chocolate</button>
+                    </div>
+                </div>
+
+                <!-- Desktop inline add bar -->
+                <div class="pp-add-bar-inline">
+                    <div class="pp-qty-row">
+                        <button class="pp-qty-btn" onclick="changeQty(-1)" type="button">−</button>
+                        <span class="pp-qty-val" id="ppQtyDesktop">1</span>
+                        <button class="pp-qty-btn" onclick="changeQty(1)" type="button">+</button>
+                    </div>
+                    <button class="pp-add-btn" id="ppAddBtnDesktop" onclick="addToCartFromPage()" type="button">
+                        Add to Cart
+                    </button>
+                </div>
+
+            </div><!-- /pp-body -->
+        </div><!-- /pp-top-grid -->
+
+        <!-- BOTTOM: full-width sections -->
+        <div class="pp-bottom-section">
+
+            <!-- Ingredients card -->
+            <div class="pp-ing-card">
+                <h3 class="pp-ing-title">Ingredients</h3>
+                <div id="ppIngredients"></div>
+            </div>
+
+            <!-- Customer Reviews -->
+            <section class="pp-reviews-section">
+                <h3 class="pp-reviews-title">Customer Reviews</h3>
+                <div id="ppReviews"></div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Fixed bottom add bar -->
+    <div class="pp-add-bar">
+        <div class="pp-qty-row">
+            <button class="pp-qty-btn" onclick="changeQty(-1)" type="button">−</button>
+            <span class="pp-qty-val" id="ppQty">1</span>
+            <button class="pp-qty-btn" onclick="changeQty(1)" type="button">+</button>
+        </div>
+        <button class="pp-add-btn" id="ppAddBtn" onclick="addToCartFromPage()" type="button">
+            Add to Cart
+        </button>
+    </div>
+
+    <!-- Bottom nav (same as productlist) -->
+    <nav class="bottom_bar">
+        <a href="index.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">home</span>
+            <p>HOME</p>
+        </a>
+        <a href="fav-page.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">favorite</span>
+            <p>FAVORITE</p>
+        </a>
+        <a href="productlist.html" class="bottom-bar-item interactive-bar active">
+            <span class="material-symbols-outlined">storefront</span>
+            <p>BAKERY</p>
+            <span class="bar-dot"></span>
+        </a>
+        <a href="shoppingcart.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <p>CART</p>
+        </a>
+        <a href="pro.html" class="bottom-bar-item interactive-bar">
+            <span class="material-symbols-outlined">person</span>
+            <p>PROFILE</p>
+        </a>
+    </nav>
+
+    <!-- Desktop search panel -->
+    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
+    <div class="search-panel" id="searchPanel">
+        <div class="search-panel-header">
+            <button class="search-panel-close" onclick="closeSearchPanel()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
+    </div>
+
+    <script src="productpage.js"></script>
+</body>
+
+</html>

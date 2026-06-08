@@ -23,3 +23,36 @@ function closeSearchPanel() {
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { closeSearchPanel(); closeEditSheet(); }
 });
+
+function openEditProfile() {
+    document.getElementById('epOverlay').classList.add('open');
+    document.getElementById('epSheet').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeEditProfile() {
+    document.getElementById('epOverlay').classList.remove('open');
+    document.getElementById('epSheet').classList.remove('open');
+    document.body.style.overflow = '';
+}
+function saveEditProfile() {
+    const name = document.getElementById('epName').value.trim();
+    const email = document.getElementById('epEmail').value.trim();
+    const phone = document.getElementById('epPhone').value.trim();
+    // update visible detail rows
+    document.querySelectorAll('.pro-detail-row').forEach(row => {
+        const label = row.querySelector('.pro-detail-label')?.textContent;
+        const val = row.querySelector('.pro-detail-value');
+        if (!val) return;
+        if (label === 'FULL NAME') val.textContent = name;
+        if (label === 'EMAIL ADDRESS') val.textContent = email;
+        if (label === 'PHONE') val.textContent = phone;
+    });
+    // update hero name
+    const heroName = document.querySelector('.pro-name');
+    if (heroName && name) heroName.textContent = name;
+    const sidebarName = document.querySelector('.pro-sidebar-name');
+    if (sidebarName && name) sidebarName.textContent = name;
+    closeEditProfile();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEditProfile(); });
+

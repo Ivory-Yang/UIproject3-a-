@@ -179,7 +179,7 @@
                         <p class="pro-detail-label">PHONE</p>
                         <p class="pro-detail-value">+1 (555) 234-5678</p>
                     </div>
-                    <button class="pro-edit-btn" type="button">Edit Information</button>
+                    <button class="pro-edit-btn" type="button" onclick="openEditProfile()">Edit Information</button>
                 </div>
 
                 <!-- Desktop view (editable form) -->
@@ -204,6 +204,27 @@
                     </div>
                     <div class="pro-detail-form-actions">
                         <button class="pro-update-btn" type="button">Update Profile</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── MY BOUTIQUE ── -->
+            <section class="pro-section" id="boutique">
+                <h2 class="pro-section-title pro-boutique-title">My Boutique</h2>
+                <div class="pro-boutique-list">
+                    <div class="pro-boutique-item" onclick="openAddressSheet()">
+                        <div class="pro-boutique-icon-wrap">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <span class="pro-boutique-name">Saved Addresses</span>
+                        <span class="material-symbols-outlined pro-boutique-chevron">chevron_right</span>
+                    </div>
+                    <div class="pro-boutique-item" onclick="openPaymentSheet()">
+                        <div class="pro-boutique-icon-wrap">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                        <span class="pro-boutique-name">Payment Methods</span>
+                        <span class="material-symbols-outlined pro-boutique-chevron">chevron_right</span>
                     </div>
                 </div>
             </section>
@@ -328,15 +349,6 @@
         </div><!-- /pro-content -->
 
     </main>
-    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
-    <div class="search-panel" id="searchPanel">
-        <div class="search-panel-header">
-            <button class="search-panel-close" onclick="closeSearchPanel()">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
-    </div>
     <!-- Bottom nav (mobile only) -->
     <nav class="bottom_bar">
         <a href="index.html" class="bottom-bar-item interactive-bar">
@@ -361,6 +373,362 @@
             <span class="bar-dot"></span>
         </a>
     </nav>
+
+    <!-- Edit Profile Modal -->
+    <div class="ep-overlay" id="epOverlay" onclick="closeEditProfile()"></div>
+    <div class="ep-sheet" id="epSheet">
+        <button class="ep-close" type="button" onclick="closeEditProfile()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+
+        <div class="ep-avatar-wrap">
+            <img src="Image/logo.png" alt="Profile" class="ep-avatar">
+        </div>
+
+        <h2 class="ep-title">Edit Profile</h2>
+        <p class="ep-sub">Update your information to keep your sweets coming.</p>
+
+        <div class="ep-field">
+            <label class="ep-label">FULL NAME</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="text" id="epName" value="Sophia Chen">
+                <span class="material-symbols-outlined ep-input-icon">person</span>
+            </div>
+        </div>
+
+        <div class="ep-field">
+            <label class="ep-label">EMAIL ADDRESS</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="email" id="epEmail" value="sophia.chen@editorial.com">
+                <span class="material-symbols-outlined ep-input-icon">mail</span>
+            </div>
+        </div>
+
+        <div class="ep-field">
+            <label class="ep-label">PHONE NUMBER</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="tel" id="epPhone" value="+1 (555) 234-5678">
+                <span class="material-symbols-outlined ep-input-icon">call</span>
+            </div>
+        </div>
+
+        <button class="ep-save-btn" type="button" onclick="saveEditProfile()">Save Changes</button>
+        <button class="ep-cancel-btn" type="button" onclick="closeEditProfile()">Cancel</button>
+
+        <div class="ep-footer-icon">
+            <span class="material-symbols-outlined">cake</span>
+        </div>
+    </div>
+
+    <script>
+        function openEditProfile() {
+            document.getElementById('epOverlay').classList.add('open');
+            document.getElementById('epSheet').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeEditProfile() {
+            document.getElementById('epOverlay').classList.remove('open');
+            document.getElementById('epSheet').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function saveEditProfile() {
+            const name  = document.getElementById('epName').value.trim();
+            const email = document.getElementById('epEmail').value.trim();
+            const phone = document.getElementById('epPhone').value.trim();
+            // update visible detail rows
+            document.querySelectorAll('.pro-detail-row').forEach(row => {
+                const label = row.querySelector('.pro-detail-label')?.textContent;
+                const val   = row.querySelector('.pro-detail-value');
+                if (!val) return;
+                if (label === 'FULL NAME')      val.textContent = name;
+                if (label === 'EMAIL ADDRESS')  val.textContent = email;
+                if (label === 'PHONE')          val.textContent = phone;
+            });
+            // update hero name
+            const heroName = document.querySelector('.pro-name');
+            if (heroName && name) heroName.textContent = name;
+            const sidebarName = document.querySelector('.pro-sidebar-name');
+            if (sidebarName && name) sidebarName.textContent = name;
+            closeEditProfile();
+        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeEditProfile(); closeAddressSheet(); closeAddAddressSheet(); }
+        });
+    </script>
+
+    <!-- Saved Addresses Sheet -->
+    <div class="ep-overlay" id="addrOverlay" onclick="closeAddressSheet()"></div>
+    <div class="ep-sheet addr-sheet" id="addrSheet">
+        <button class="ep-close" type="button" onclick="closeAddressSheet()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <h2 class="ep-title" style="text-align:left;align-self:flex-start">Saved Addresses</h2>
+        <p class="ep-sub" style="text-align:left;align-self:flex-start;margin-bottom:18px">Where should we send your royal treats next?</p>
+
+        <div class="addr-list" id="addrList"></div>
+
+        <button class="addr-add-btn" type="button" onclick="openAddAddressSheet()">
+            <span class="material-symbols-outlined">location_on</span>
+            Add New Address
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+    <!-- Add New Address Sheet -->
+    <div class="ep-overlay" id="addAddrOverlay" onclick="closeAddAddressSheet()"></div>
+    <div class="ep-sheet" id="addAddrSheet">
+        <button class="ep-close" type="button" onclick="closeAddAddressSheet()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <h2 class="ep-title">Add New Address</h2>
+        <p class="ep-sub">Enter the details for your new delivery address.</p>
+
+        <div class="ep-field">
+            <label class="ep-label">LABEL (e.g. Home, Office)</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="text" id="newAddrLabel" placeholder="Home">
+                <span class="material-symbols-outlined ep-input-icon">label</span>
+            </div>
+        </div>
+        <div class="ep-field">
+            <label class="ep-label">STREET ADDRESS</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="text" id="newAddrStreet" placeholder="245 Velvet Frosting Lane">
+                <span class="material-symbols-outlined ep-input-icon">home</span>
+            </div>
+        </div>
+        <div class="ep-field">
+            <label class="ep-label">CITY, STATE &amp; ZIP</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="text" id="newAddrCity" placeholder="Sweetwater Creek, CA 90210">
+                <span class="material-symbols-outlined ep-input-icon">location_on</span>
+            </div>
+        </div>
+
+        <button class="ep-save-btn" type="button" onclick="saveNewAddress()">Save Address</button>
+        <button class="ep-cancel-btn" type="button" onclick="closeAddAddressSheet()">Cancel</button>
+    </div>
+
+    <script>
+        const _addresses = [
+            { icon: 'home',        label: 'Home',          primary: true,  line1: '245 Velvet Frosting Lane',        line2: 'Sweetwater Creek, CA 90210' },
+            { icon: 'work',        label: 'Office',         primary: false, line1: 'The Sprinkle Tower, Suite 404',   line2: 'Confectionary District, NY 10012' },
+            { icon: 'favorite',    label: "Parent's House", primary: false, line1: '12 Strawberry Field Road',        line2: 'Berryville, WA 98101' },
+        ];
+
+        function renderAddresses() {
+            const list = document.getElementById('addrList');
+            list.innerHTML = _addresses.map((a, i) => `
+                <div class="addr-card">
+                    <div class="addr-card-top">
+                        <div class="addr-icon-wrap">
+                            <span class="material-symbols-outlined">${a.icon}</span>
+                        </div>
+                        <span class="addr-label">${a.label}</span>
+                        ${a.primary ? '<span class="addr-primary-badge">PRIMARY</span>' : ''}
+                        <div class="addr-actions">
+                            <button class="addr-action-btn" type="button" title="Edit">
+                                <span class="material-symbols-outlined">edit</span>
+                            </button>
+                            <button class="addr-action-btn addr-del-btn" type="button" onclick="deleteAddress(${i})" title="Delete">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="addr-line">${a.line1}</p>
+                    <p class="addr-line">${a.line2}</p>
+                </div>
+            `).join('');
+        }
+
+        function deleteAddress(i) {
+            _addresses.splice(i, 1);
+            renderAddresses();
+        }
+
+        function openAddressSheet() {
+            renderAddresses();
+            document.getElementById('addrOverlay').classList.add('open');
+            document.getElementById('addrSheet').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeAddressSheet() {
+            document.getElementById('addrOverlay').classList.remove('open');
+            document.getElementById('addrSheet').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function openAddAddressSheet() {
+            closeAddressSheet();
+            document.getElementById('addAddrOverlay').classList.add('open');
+            document.getElementById('addAddrSheet').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeAddAddressSheet() {
+            document.getElementById('addAddrOverlay').classList.remove('open');
+            document.getElementById('addAddrSheet').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function saveNewAddress() {
+            const label  = document.getElementById('newAddrLabel').value.trim();
+            const street = document.getElementById('newAddrStreet').value.trim();
+            const city   = document.getElementById('newAddrCity').value.trim();
+            if (!label || !street || !city) return;
+            _addresses.push({ icon: 'location_on', label, primary: false, line1: street, line2: city });
+            document.getElementById('newAddrLabel').value = '';
+            document.getElementById('newAddrStreet').value = '';
+            document.getElementById('newAddrCity').value = '';
+            closeAddAddressSheet();
+            openAddressSheet();
+        }
+    </script>
+
+    <!-- Payment Methods Sheet -->
+    <div class="ep-overlay" id="pmOverlay" onclick="closePaymentSheet()"></div>
+    <div class="ep-sheet addr-sheet" id="pmSheet">
+        <button class="ep-close" type="button" onclick="closePaymentSheet()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <h2 class="ep-title" style="text-align:left;align-self:flex-start">Payment Methods</h2>
+        <p class="ep-sub" style="text-align:left;align-self:flex-start;margin-bottom:18px">Your saved cards for royal checkout.</p>
+
+        <div class="addr-list" id="pmCardList"></div>
+
+        <!-- Security note -->
+        <div class="pm-security">
+            <span class="material-symbols-outlined pm-security-icon">verified_user</span>
+            <div>
+                <p class="pm-security-title">Bank-Level Security</p>
+                <p class="pm-security-sub">Your payment data is encrypted and protected by the Royal Guard.</p>
+            </div>
+        </div>
+
+        <button class="addr-add-btn" type="button" onclick="openAddCardSheet()" style="margin-top:16px">
+            <span class="material-symbols-outlined">credit_card</span>
+            Add New Card
+        </button>
+    </div>
+
+    <!-- Add New Card Sheet -->
+    <div class="ep-overlay" id="addCardOverlay" onclick="closeAddCardSheet()"></div>
+    <div class="ep-sheet" id="addCardSheet">
+        <button class="ep-close" type="button" onclick="closeAddCardSheet()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <h2 class="ep-title">Add New Card</h2>
+        <p class="ep-sub">Enter your card details securely.</p>
+
+        <div class="ep-field">
+            <label class="ep-label">CARD NUMBER</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="text" id="newCardNum" placeholder="1234 5678 9012 3456" maxlength="19">
+                <span class="material-symbols-outlined ep-input-icon">credit_card</span>
+            </div>
+        </div>
+        <div class="ep-field">
+            <label class="ep-label">CARDHOLDER NAME</label>
+            <div class="ep-input-wrap">
+                <input class="ep-input" type="text" id="newCardName" placeholder="Sophia Chen">
+                <span class="material-symbols-outlined ep-input-icon">person</span>
+            </div>
+        </div>
+        <div style="display:flex;gap:12px;width:100%">
+            <div class="ep-field" style="flex:1">
+                <label class="ep-label">EXPIRY</label>
+                <div class="ep-input-wrap">
+                    <input class="ep-input" type="text" id="newCardExp" placeholder="MM/YY" maxlength="5">
+                </div>
+            </div>
+            <div class="ep-field" style="flex:1">
+                <label class="ep-label">CVV</label>
+                <div class="ep-input-wrap">
+                    <input class="ep-input" type="text" id="newCardCvv" placeholder="•••" maxlength="4">
+                </div>
+            </div>
+        </div>
+
+        <button class="ep-save-btn" type="button" onclick="saveNewCard()">Save Card</button>
+        <button class="ep-cancel-btn" type="button" onclick="closeAddCardSheet()">Cancel</button>
+    </div>
+
+    <script>
+        const _cards = [
+            { icon: 'credit_card', network: 'VISA',       name: 'Royal Rewards Visa',      last4: '4321', expires: '12/26', isDefault: true  },
+            { icon: 'payments',    network: 'MASTERCARD',  name: 'Frosting Fund Mastercard', last4: '8892', expires: '08/25', isDefault: false },
+        ];
+
+        function renderCards() {
+            const list = document.getElementById('pmCardList');
+            list.innerHTML = _cards.map((c, i) => `
+                <div class="pm-card">
+                    <div class="pm-card-header">
+                        <div class="addr-icon-wrap">
+                            <span class="material-symbols-outlined">${c.icon}</span>
+                        </div>
+                        ${c.isDefault ? '<span class="pm-default-badge">DEFAULT</span>' : '<span></span>'}
+                        <button class="addr-action-btn addr-del-btn" type="button" onclick="deleteCard(${i})" title="Delete">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
+                    <div class="pm-card-nums">
+                        <div>
+                            <p class="pm-field-label">CARD NUMBER</p>
+                            <p class="pm-field-val">•••• •••• •••• ${c.last4}</p>
+                        </div>
+                        <div>
+                            <p class="pm-field-label">EXPIRES</p>
+                            <p class="pm-field-val">${c.expires}</p>
+                        </div>
+                    </div>
+                    <div class="pm-card-footer">
+                        <span class="pm-network-badge ${c.network.toLowerCase()}">${c.network}</span>
+                        <span class="pm-card-name">${c.name}</span>
+                        <button class="addr-action-btn" type="button" title="Edit">
+                            <span class="material-symbols-outlined">edit</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteCard(i) {
+            _cards.splice(i, 1);
+            renderCards();
+        }
+
+        function openPaymentSheet() {
+            renderCards();
+            document.getElementById('pmOverlay').classList.add('open');
+            document.getElementById('pmSheet').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closePaymentSheet() {
+            document.getElementById('pmOverlay').classList.remove('open');
+            document.getElementById('pmSheet').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function openAddCardSheet() {
+            closePaymentSheet();
+            document.getElementById('addCardOverlay').classList.add('open');
+            document.getElementById('addCardSheet').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeAddCardSheet() {
+            document.getElementById('addCardOverlay').classList.remove('open');
+            document.getElementById('addCardSheet').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function saveNewCard() {
+            const num  = document.getElementById('newCardNum').value.trim();
+            const name = document.getElementById('newCardName').value.trim();
+            const exp  = document.getElementById('newCardExp').value.trim();
+            if (!num || !name || !exp) return;
+            const last4 = num.replace(/\s/g,'').slice(-4);
+            _cards.push({ icon: 'credit_card', network: 'CARD', name, last4, expires: exp, isDefault: false });
+            ['newCardNum','newCardName','newCardExp','newCardCvv'].forEach(id => document.getElementById(id).value = '');
+            closeAddCardSheet();
+            openPaymentSheet();
+        }
+    </script>
 
 </body>
 
