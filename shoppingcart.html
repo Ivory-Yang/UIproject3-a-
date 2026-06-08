@@ -53,7 +53,7 @@
             <div class="cart-layout">
 
                 <!-- Select All (mobile only) -->
-                <div class="select-all-row" id="selectAllRow" onclick="toggleSelectAll()">
+                <div class="select-all-row" id="selectAllRow" onclick="toggleSelectAll()" style="display:none">
                     <button class="cb cb-active" id="selectAllCb" type="button">
                         <span class="material-symbols-outlined">check</span>
                     </button>
@@ -64,7 +64,7 @@
                 <div id="cartItemsList"></div>
 
                 <!-- Empty state -->
-                <div class="cart-empty" id="cartEmpty">
+                <div class="cart-empty show" id="cartEmpty">
                     <span class="material-symbols-outlined cart-empty-icon">shopping_bag</span>
                     <p class="cart-empty-title">Your bag is empty</p>
                     <p class="cart-empty-sub">Add something delicious to get started.</p>
@@ -72,7 +72,7 @@
                 </div>
 
                 <!-- Summary (mobile only — shows below items) -->
-                <div class="cart-summary cart-summary-mobile" id="cartSummaryMobile">
+                <div class="cart-summary cart-summary-mobile" id="cartSummaryMobile" style="display:none">
                     <div class="summary-divider"></div>
                     <div class="summary-row">
                         <span>Order Subtotal</span>
@@ -99,7 +99,7 @@
             </div>
 
             <!-- RIGHT: order summary sidebar (desktop only) -->
-            <div class="cart-right" id="cartRight">
+            <div class="cart-right" id="cartRight" style="display:none">
                 <div class="order-summary-card">
                     <h2 class="os-title">Order Summary</h2>
 
