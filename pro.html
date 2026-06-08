@@ -297,7 +297,7 @@
                                     <span class="material-symbols-outlined">delete</span>
                                 </button>
                             </div>
-                            <div class="pro-stars">★★★★<span style="color:#ddd">★</span></div>
+                            <div class="pro-stars">★★★★<span>★</span></div>
                             <p class="pro-review-text">"A bit too rich for some, but perfect for a chocolate lover like
                                 me. The gold flakes made it feel so special!!"</p>
                             <p class="pro-review-date">REVIEWED ON OCT 15, 2022 · <span
@@ -349,6 +349,15 @@
         </div><!-- /pro-content -->
 
     </main>
+    <div class="search-overlay" id="searchOverlay" onclick="closeSearchPanel()"></div>
+    <div class="search-panel" id="searchPanel">
+        <div class="search-panel-header">
+            <button class="search-panel-close" onclick="closeSearchPanel()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <iframe id="searchPanelFrame" src="" class="search-panel-frame" title="Search"></iframe>
+    </div>
     <!-- Bottom nav (mobile only) -->
     <nav class="bottom_bar">
         <a href="index.html" class="bottom-bar-item interactive-bar">
@@ -374,7 +383,6 @@
         </a>
     </nav>
 
-    <!-- Edit Profile Modal -->
     <div class="ep-overlay" id="epOverlay" onclick="closeEditProfile()"></div>
     <div class="ep-sheet" id="epSheet">
         <button class="ep-close" type="button" onclick="closeEditProfile()">
@@ -421,30 +429,44 @@
     </div>
 
     <script>
+        let _scrollY = 0;
+        function lockBodyScroll() {
+            _scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = '-' + _scrollY + 'px';
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
+        }
+        function unlockBodyScroll() {
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflow = '';
+            window.scrollTo(0, _scrollY);
+        }
+
         function openEditProfile() {
             document.getElementById('epOverlay').classList.add('open');
             document.getElementById('epSheet').classList.add('open');
-            document.body.style.overflow = 'hidden';
+            lockBodyScroll();
         }
         function closeEditProfile() {
             document.getElementById('epOverlay').classList.remove('open');
             document.getElementById('epSheet').classList.remove('open');
-            document.body.style.overflow = '';
+            unlockBodyScroll();
         }
         function saveEditProfile() {
             const name  = document.getElementById('epName').value.trim();
             const email = document.getElementById('epEmail').value.trim();
             const phone = document.getElementById('epPhone').value.trim();
-            // update visible detail rows
             document.querySelectorAll('.pro-detail-row').forEach(row => {
                 const label = row.querySelector('.pro-detail-label')?.textContent;
                 const val   = row.querySelector('.pro-detail-value');
                 if (!val) return;
-                if (label === 'FULL NAME')      val.textContent = name;
-                if (label === 'EMAIL ADDRESS')  val.textContent = email;
-                if (label === 'PHONE')          val.textContent = phone;
+                if (label === 'FULL NAME')     val.textContent = name;
+                if (label === 'EMAIL ADDRESS') val.textContent = email;
+                if (label === 'PHONE')         val.textContent = phone;
             });
-            // update hero name
             const heroName = document.querySelector('.pro-name');
             if (heroName && name) heroName.textContent = name;
             const sidebarName = document.querySelector('.pro-sidebar-name');
@@ -452,11 +474,17 @@
             closeEditProfile();
         }
         document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { closeEditProfile(); closeAddressSheet(); closeAddAddressSheet(); }
+            if (e.key === 'Escape') {
+                closeEditProfile();
+                closeAddressSheet();
+                closeAddAddressSheet();
+                closePaymentSheet();
+                closeAddCardSheet();
+            }
         });
     </script>
 
-    <!-- Saved Addresses Sheet -->
+    <!-- ── SAVED ADDRESSES SHEET ── -->
     <div class="ep-overlay" id="addrOverlay" onclick="closeAddressSheet()"></div>
     <div class="ep-sheet addr-sheet" id="addrSheet">
         <button class="ep-close" type="button" onclick="closeAddressSheet()">
@@ -464,9 +492,7 @@
         </button>
         <h2 class="ep-title" style="text-align:left;align-self:flex-start">Saved Addresses</h2>
         <p class="ep-sub" style="text-align:left;align-self:flex-start;margin-bottom:18px">Where should we send your royal treats next?</p>
-
         <div class="addr-list" id="addrList"></div>
-
         <button class="addr-add-btn" type="button" onclick="openAddAddressSheet()">
             <span class="material-symbols-outlined">location_on</span>
             Add New Address
@@ -474,7 +500,7 @@
         </button>
     </div>
 
-    <!-- Add New Address Sheet -->
+    <!-- ── ADD ADDRESS SHEET ── -->
     <div class="ep-overlay" id="addAddrOverlay" onclick="closeAddAddressSheet()"></div>
     <div class="ep-sheet" id="addAddrSheet">
         <button class="ep-close" type="button" onclick="closeAddAddressSheet()">
@@ -482,7 +508,6 @@
         </button>
         <h2 class="ep-title">Add New Address</h2>
         <p class="ep-sub">Enter the details for your new delivery address.</p>
-
         <div class="ep-field">
             <label class="ep-label">LABEL (e.g. Home, Office)</label>
             <div class="ep-input-wrap">
@@ -504,85 +529,11 @@
                 <span class="material-symbols-outlined ep-input-icon">location_on</span>
             </div>
         </div>
-
         <button class="ep-save-btn" type="button" onclick="saveNewAddress()">Save Address</button>
         <button class="ep-cancel-btn" type="button" onclick="closeAddAddressSheet()">Cancel</button>
     </div>
 
-    <script>
-        const _addresses = [
-            { icon: 'home',        label: 'Home',          primary: true,  line1: '245 Velvet Frosting Lane',        line2: 'Sweetwater Creek, CA 90210' },
-            { icon: 'work',        label: 'Office',         primary: false, line1: 'The Sprinkle Tower, Suite 404',   line2: 'Confectionary District, NY 10012' },
-            { icon: 'favorite',    label: "Parent's House", primary: false, line1: '12 Strawberry Field Road',        line2: 'Berryville, WA 98101' },
-        ];
-
-        function renderAddresses() {
-            const list = document.getElementById('addrList');
-            list.innerHTML = _addresses.map((a, i) => `
-                <div class="addr-card">
-                    <div class="addr-card-top">
-                        <div class="addr-icon-wrap">
-                            <span class="material-symbols-outlined">${a.icon}</span>
-                        </div>
-                        <span class="addr-label">${a.label}</span>
-                        ${a.primary ? '<span class="addr-primary-badge">PRIMARY</span>' : ''}
-                        <div class="addr-actions">
-                            <button class="addr-action-btn" type="button" title="Edit">
-                                <span class="material-symbols-outlined">edit</span>
-                            </button>
-                            <button class="addr-action-btn addr-del-btn" type="button" onclick="deleteAddress(${i})" title="Delete">
-                                <span class="material-symbols-outlined">delete</span>
-                            </button>
-                        </div>
-                    </div>
-                    <p class="addr-line">${a.line1}</p>
-                    <p class="addr-line">${a.line2}</p>
-                </div>
-            `).join('');
-        }
-
-        function deleteAddress(i) {
-            _addresses.splice(i, 1);
-            renderAddresses();
-        }
-
-        function openAddressSheet() {
-            renderAddresses();
-            document.getElementById('addrOverlay').classList.add('open');
-            document.getElementById('addrSheet').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeAddressSheet() {
-            document.getElementById('addrOverlay').classList.remove('open');
-            document.getElementById('addrSheet').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-        function openAddAddressSheet() {
-            closeAddressSheet();
-            document.getElementById('addAddrOverlay').classList.add('open');
-            document.getElementById('addAddrSheet').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeAddAddressSheet() {
-            document.getElementById('addAddrOverlay').classList.remove('open');
-            document.getElementById('addAddrSheet').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-        function saveNewAddress() {
-            const label  = document.getElementById('newAddrLabel').value.trim();
-            const street = document.getElementById('newAddrStreet').value.trim();
-            const city   = document.getElementById('newAddrCity').value.trim();
-            if (!label || !street || !city) return;
-            _addresses.push({ icon: 'location_on', label, primary: false, line1: street, line2: city });
-            document.getElementById('newAddrLabel').value = '';
-            document.getElementById('newAddrStreet').value = '';
-            document.getElementById('newAddrCity').value = '';
-            closeAddAddressSheet();
-            openAddressSheet();
-        }
-    </script>
-
-    <!-- Payment Methods Sheet -->
+    <!-- ── PAYMENT METHODS SHEET ── -->
     <div class="ep-overlay" id="pmOverlay" onclick="closePaymentSheet()"></div>
     <div class="ep-sheet addr-sheet" id="pmSheet">
         <button class="ep-close" type="button" onclick="closePaymentSheet()">
@@ -590,10 +541,7 @@
         </button>
         <h2 class="ep-title" style="text-align:left;align-self:flex-start">Payment Methods</h2>
         <p class="ep-sub" style="text-align:left;align-self:flex-start;margin-bottom:18px">Your saved cards for royal checkout.</p>
-
         <div class="addr-list" id="pmCardList"></div>
-
-        <!-- Security note -->
         <div class="pm-security">
             <span class="material-symbols-outlined pm-security-icon">verified_user</span>
             <div>
@@ -601,14 +549,13 @@
                 <p class="pm-security-sub">Your payment data is encrypted and protected by the Royal Guard.</p>
             </div>
         </div>
-
         <button class="addr-add-btn" type="button" onclick="openAddCardSheet()" style="margin-top:16px">
             <span class="material-symbols-outlined">credit_card</span>
             Add New Card
         </button>
     </div>
 
-    <!-- Add New Card Sheet -->
+    <!-- ── ADD NEW CARD SHEET ── -->
     <div class="ep-overlay" id="addCardOverlay" onclick="closeAddCardSheet()"></div>
     <div class="ep-sheet" id="addCardSheet">
         <button class="ep-close" type="button" onclick="closeAddCardSheet()">
@@ -616,7 +563,6 @@
         </button>
         <h2 class="ep-title">Add New Card</h2>
         <p class="ep-sub">Enter your card details securely.</p>
-
         <div class="ep-field">
             <label class="ep-label">CARD NUMBER</label>
             <div class="ep-input-wrap">
@@ -645,85 +591,126 @@
                 </div>
             </div>
         </div>
-
         <button class="ep-save-btn" type="button" onclick="saveNewCard()">Save Card</button>
         <button class="ep-cancel-btn" type="button" onclick="closeAddCardSheet()">Cancel</button>
     </div>
 
     <script>
+        // ── Address data & logic ──────────────────────────
+        const _addresses = [
+            { icon: 'home',     label: 'Home',           primary: true,  line1: '245 Velvet Frosting Lane',      line2: 'Sweetwater Creek, CA 90210' },
+            { icon: 'work',     label: 'Office',          primary: false, line1: 'The Sprinkle Tower, Suite 404', line2: 'Confectionary District, NY 10012' },
+            { icon: 'favorite', label: "Parent's House",  primary: false, line1: '12 Strawberry Field Road',      line2: 'Berryville, WA 98101' },
+        ];
+
+        function renderAddresses() {
+            document.getElementById('addrList').innerHTML = _addresses.map((a, i) => `
+                <div class="addr-card">
+                    <div class="addr-card-top">
+                        <div class="addr-icon-wrap"><span class="material-symbols-outlined">${a.icon}</span></div>
+                        <span class="addr-label">${a.label}</span>
+                        ${a.primary ? '<span class="addr-primary-badge">PRIMARY</span>' : ''}
+                        <div class="addr-actions">
+                            <button class="addr-action-btn" type="button"><span class="material-symbols-outlined">edit</span></button>
+                            <button class="addr-action-btn addr-del-btn" type="button" onclick="deleteAddress(${i})"><span class="material-symbols-outlined">delete</span></button>
+                        </div>
+                    </div>
+                    <p class="addr-line">${a.line1}</p>
+                    <p class="addr-line">${a.line2}</p>
+                </div>`).join('');
+        }
+
+        function deleteAddress(i) { _addresses.splice(i, 1); renderAddresses(); }
+
+        function openAddressSheet() {
+            renderAddresses();
+            document.getElementById('addrOverlay').classList.add('open');
+            document.getElementById('addrSheet').classList.add('open');
+            lockBodyScroll();
+        }
+        function closeAddressSheet() {
+            document.getElementById('addrOverlay').classList.remove('open');
+            document.getElementById('addrSheet').classList.remove('open');
+            unlockBodyScroll();
+        }
+        function openAddAddressSheet() {
+            document.getElementById('addrOverlay').classList.remove('open');
+            document.getElementById('addrSheet').classList.remove('open');
+            document.getElementById('addAddrOverlay').classList.add('open');
+            document.getElementById('addAddrSheet').classList.add('open');
+        }
+        function closeAddAddressSheet() {
+            document.getElementById('addAddrOverlay').classList.remove('open');
+            document.getElementById('addAddrSheet').classList.remove('open');
+            unlockBodyScroll();
+        }
+        function saveNewAddress() {
+            const label  = document.getElementById('newAddrLabel').value.trim();
+            const street = document.getElementById('newAddrStreet').value.trim();
+            const city   = document.getElementById('newAddrCity').value.trim();
+            if (!label || !street || !city) return;
+            _addresses.push({ icon: 'location_on', label, primary: false, line1: street, line2: city });
+            ['newAddrLabel','newAddrStreet','newAddrCity'].forEach(id => document.getElementById(id).value = '');
+            closeAddAddressSheet();
+            openAddressSheet();
+        }
+
+        // ── Payment data & logic ──────────────────────────
         const _cards = [
-            { icon: 'credit_card', network: 'VISA',       name: 'Royal Rewards Visa',      last4: '4321', expires: '12/26', isDefault: true  },
-            { icon: 'payments',    network: 'MASTERCARD',  name: 'Frosting Fund Mastercard', last4: '8892', expires: '08/25', isDefault: false },
+            { icon: 'credit_card', network: 'VISA',       name: 'Royal Rewards Visa',       last4: '4321', expires: '12/26', isDefault: true  },
+            { icon: 'payments',    network: 'MASTERCARD',  name: 'Frosting Fund Mastercard',  last4: '8892', expires: '08/25', isDefault: false },
         ];
 
         function renderCards() {
-            const list = document.getElementById('pmCardList');
-            list.innerHTML = _cards.map((c, i) => `
+            document.getElementById('pmCardList').innerHTML = _cards.map((c, i) => `
                 <div class="pm-card">
                     <div class="pm-card-header">
-                        <div class="addr-icon-wrap">
-                            <span class="material-symbols-outlined">${c.icon}</span>
-                        </div>
-                        ${c.isDefault ? '<span class="pm-default-badge">DEFAULT</span>' : '<span></span>'}
-                        <button class="addr-action-btn addr-del-btn" type="button" onclick="deleteCard(${i})" title="Delete">
-                            <span class="material-symbols-outlined">delete</span>
-                        </button>
+                        <div class="addr-icon-wrap"><span class="material-symbols-outlined">${c.icon}</span></div>
+                        ${c.isDefault ? '<span class="pm-default-badge">DEFAULT</span>' : '<span style="flex:1"></span>'}
+                        <button class="addr-action-btn addr-del-btn" type="button" onclick="deleteCard(${i})"><span class="material-symbols-outlined">delete</span></button>
                     </div>
                     <div class="pm-card-nums">
-                        <div>
-                            <p class="pm-field-label">CARD NUMBER</p>
-                            <p class="pm-field-val">•••• •••• •••• ${c.last4}</p>
-                        </div>
-                        <div>
-                            <p class="pm-field-label">EXPIRES</p>
-                            <p class="pm-field-val">${c.expires}</p>
-                        </div>
+                        <div><p class="pm-field-label">CARD NUMBER</p><p class="pm-field-val">•••• •••• •••• ${c.last4}</p></div>
+                        <div><p class="pm-field-label">EXPIRES</p><p class="pm-field-val">${c.expires}</p></div>
                     </div>
                     <div class="pm-card-footer">
                         <span class="pm-network-badge ${c.network.toLowerCase()}">${c.network}</span>
                         <span class="pm-card-name">${c.name}</span>
-                        <button class="addr-action-btn" type="button" title="Edit">
-                            <span class="material-symbols-outlined">edit</span>
-                        </button>
+                        <button class="addr-action-btn" type="button"><span class="material-symbols-outlined">edit</span></button>
                     </div>
-                </div>
-            `).join('');
+                </div>`).join('');
         }
 
-        function deleteCard(i) {
-            _cards.splice(i, 1);
-            renderCards();
-        }
+        function deleteCard(i) { _cards.splice(i, 1); renderCards(); }
 
         function openPaymentSheet() {
             renderCards();
             document.getElementById('pmOverlay').classList.add('open');
             document.getElementById('pmSheet').classList.add('open');
-            document.body.style.overflow = 'hidden';
+            lockBodyScroll();
         }
         function closePaymentSheet() {
             document.getElementById('pmOverlay').classList.remove('open');
             document.getElementById('pmSheet').classList.remove('open');
-            document.body.style.overflow = '';
+            unlockBodyScroll();
         }
         function openAddCardSheet() {
-            closePaymentSheet();
+            document.getElementById('pmOverlay').classList.remove('open');
+            document.getElementById('pmSheet').classList.remove('open');
             document.getElementById('addCardOverlay').classList.add('open');
             document.getElementById('addCardSheet').classList.add('open');
-            document.body.style.overflow = 'hidden';
         }
         function closeAddCardSheet() {
             document.getElementById('addCardOverlay').classList.remove('open');
             document.getElementById('addCardSheet').classList.remove('open');
-            document.body.style.overflow = '';
+            unlockBodyScroll();
         }
         function saveNewCard() {
             const num  = document.getElementById('newCardNum').value.trim();
             const name = document.getElementById('newCardName').value.trim();
             const exp  = document.getElementById('newCardExp').value.trim();
             if (!num || !name || !exp) return;
-            const last4 = num.replace(/\s/g,'').slice(-4);
-            _cards.push({ icon: 'credit_card', network: 'CARD', name, last4, expires: exp, isDefault: false });
+            _cards.push({ icon: 'credit_card', network: 'CARD', name, last4: num.replace(/\s/g,'').slice(-4), expires: exp, isDefault: false });
             ['newCardNum','newCardName','newCardExp','newCardCvv'].forEach(id => document.getElementById(id).value = '');
             closeAddCardSheet();
             openPaymentSheet();

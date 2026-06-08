@@ -24,6 +24,10 @@ body {
 /* HEADER                        */
 /* ============================= */
 
+.search-panel {
+    display: none;
+}
+
 .mobile-sticky-top {
     position: fixed;
     top: 0;
@@ -1522,8 +1526,13 @@ form {
     align-items: center;
 }
 
-.addr-action-btn .material-symbols-outlined { font-size: 18px; }
-.addr-del-btn:hover { color: #e05070; }
+.addr-action-btn .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.addr-del-btn:hover {
+    color: #e05070;
+}
 
 .addr-line {
     font-size: 13px;
@@ -1552,7 +1561,9 @@ form {
     flex-shrink: 0;
 }
 
-.addr-add-btn .material-symbols-outlined { font-size: 18px; }
+.addr-add-btn .material-symbols-outlined {
+    font-size: 18px;
+}
 
 /* ══════════════════════════════
    PAYMENT CARDS
@@ -1622,9 +1633,20 @@ form {
     flex-shrink: 0;
 }
 
-.pm-network-badge.visa       { background: #1a1f71; color: white; }
-.pm-network-badge.mastercard { background: #eb001b; color: white; }
-.pm-network-badge.card       { background: #e8d0d8; color: var(--text-dark); }
+.pm-network-badge.visa {
+    background: #1a1f71;
+    color: white;
+}
+
+.pm-network-badge.mastercard {
+    background: #eb001b;
+    color: white;
+}
+
+.pm-network-badge.card {
+    background: #e8d0d8;
+    color: var(--text-dark);
+}
 
 .pm-card-name {
     flex: 1;

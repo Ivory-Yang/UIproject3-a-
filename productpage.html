@@ -19,10 +19,10 @@
     <!-- Mobile header (same as productlist) -->
     <div class="mobile-sticky-top">
         <div class="mobile-header">
-            <button class="hamburger-btn" onclick="history.back()">
+            <button class="hamburger-btn" onclick="location.href='productlist.html'">
                 <span class="material-symbols-outlined">arrow_back</span>
             </button>
-            <span class="mobile-brand">Cupcake Princess</span>
+            <span class="mobile-brand">The Cupcake Princess</span>
             <a href="search-page.html" class="mobile-search-btn">
                 <span class="material-symbols-outlined">search</span>
             </a>
@@ -46,13 +46,13 @@
         </form>
     </div>
 
-    <!-- Scrollable page content -->
+    <!-- Page content -->
     <div class="pp-page">
 
-        <!-- TOP: two-column on desktop (image left, details right) -->
+        <!-- Desktop: two-column (image left, details right) -->
         <div class="pp-top-grid">
 
-            <!-- Left: hero image -->
+            <!-- Hero image -->
             <div class="pp-hero-wrap">
                 <div class="pp-hero">
                     <img src="" alt="" class="pp-hero-img" id="ppHeroImg">
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <!-- Right: product details -->
+            <!-- Detail body -->
             <div class="pp-body">
 
                 <p class="pp-category" id="ppCategory">PREMIUM COLLECTION</p>
@@ -79,8 +79,8 @@
 
                 <blockquote class="pp-quote" id="ppQuote"></blockquote>
 
-                <!-- Size / Box section -->
-                <div class="pp-option-section" id="ppSizeSection">
+                <!-- Size options: cake only, shown by JS -->
+                <div class="pp-option-section" id="ppSizeSection" style="display:none">
                     <p class="pp-option-label">SELECT SIZE</p>
                     <div class="pp-option-row" id="ppSizeOptions">
                         <button class="pp-option active" type="button" data-price-add="0" onclick="selectPpOption(this)">4 inch</button>
@@ -88,7 +88,9 @@
                         <button class="pp-option" type="button" data-price-add="40" onclick="selectPpOption(this)">8 inch</button>
                     </div>
                 </div>
-                <div class="pp-option-section" id="ppBoxSection">
+
+                <!-- Box options: cupcake only, shown by JS -->
+                <div class="pp-option-section" id="ppBoxSection" style="display:none">
                     <p class="pp-option-label">SELECT BOX</p>
                     <div class="pp-option-row" id="ppBoxOptions">
                         <button class="pp-option active" type="button" data-price-mult="1" onclick="selectPpOption(this)">Quarter Dozen</button>
@@ -97,50 +99,47 @@
                     </div>
                 </div>
 
-                <!-- Flavor section -->
+                <!-- Flavor options: always shown -->
                 <div class="pp-option-section">
                     <p class="pp-option-label">SELECT FLAVOR</p>
                     <div class="pp-option-row" id="ppFlavorOptions">
-                        <button class="pp-option" type="button" onclick="selectPpOption(this)">Vanilla</button>
-                        <button class="pp-option active" type="button" onclick="selectPpOption(this)">Strawberry</button>
+                        <button class="pp-option active" type="button" onclick="selectPpOption(this)">Vanilla</button>
+                        <button class="pp-option" type="button" onclick="selectPpOption(this)">Strawberry</button>
                         <button class="pp-option" type="button" onclick="selectPpOption(this)">Chocolate</button>
                     </div>
                 </div>
 
-                <!-- Desktop inline add bar -->
+                <!-- Desktop inline add bar (hidden on mobile) -->
                 <div class="pp-add-bar-inline">
                     <div class="pp-qty-row">
                         <button class="pp-qty-btn" onclick="changeQty(-1)" type="button">−</button>
                         <span class="pp-qty-val" id="ppQtyDesktop">1</span>
                         <button class="pp-qty-btn" onclick="changeQty(1)" type="button">+</button>
                     </div>
-                    <button class="pp-add-btn" id="ppAddBtnDesktop" onclick="addToCartFromPage()" type="button">
-                        Add to Cart
-                    </button>
+                    <button class="pp-add-btn" id="ppAddBtnDesktop" onclick="addToCartFromPage()" type="button">Add to Cart</button>
                 </div>
 
-            </div><!-- /pp-body -->
-        </div><!-- /pp-top-grid -->
+            </div>
+        </div>
 
-        <!-- BOTTOM: full-width sections -->
+        <!-- Ingredients + Reviews — full width below grid -->
         <div class="pp-bottom-section">
 
-            <!-- Ingredients card -->
             <div class="pp-ing-card">
                 <h3 class="pp-ing-title">Ingredients</h3>
                 <div id="ppIngredients"></div>
             </div>
 
-            <!-- Customer Reviews -->
             <section class="pp-reviews-section">
                 <h3 class="pp-reviews-title">Customer Reviews</h3>
                 <div id="ppReviews"></div>
             </section>
 
         </div>
+
     </div>
 
-    <!-- Fixed bottom add bar -->
+    <!-- Fixed bottom add bar (mobile only) -->
     <div class="pp-add-bar">
         <div class="pp-qty-row">
             <button class="pp-qty-btn" onclick="changeQty(-1)" type="button">−</button>

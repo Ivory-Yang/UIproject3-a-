@@ -114,23 +114,22 @@ function loadProduct() {
     document.getElementById('ppQuote').textContent =
         product.desc ? '”' + product.desc + '”' : '”A royal treat crafted with love and the finest ingredients.”';
 
-    // show correct size/box section
+    // show correct size/box section based on category
     const sizeSection = document.getElementById('ppSizeSection');
     const boxSection  = document.getElementById('ppBoxSection');
     if (cat === 'cake') {
         sizeSection.style.display = '';
         boxSection.style.display  = 'none';
-        document.querySelector('#ppSizeOptions .pp-option').classList.add('active');
     } else if (cat === 'cupcake') {
         sizeSection.style.display = 'none';
         boxSection.style.display  = '';
-        document.querySelector('#ppBoxOptions .pp-option').classList.add('active');
     } else {
         sizeSection.style.display = 'none';
         boxSection.style.display  = 'none';
     }
 
     window._ppUnitPrice = product.basePrice;
+    document.getElementById('ppPrice').textContent = '$' + (product.basePrice * _qty).toFixed(2);
 
     // ingredients
     const ings = INGREDIENTS[cat] || INGREDIENTS.cake;
@@ -204,16 +203,6 @@ function addToCartFromPage() {
             }, 1800);
         });
 }
-
-// ── chip toggle ───────────────────────────────────────────
-document.addEventListener('click', e => {
-    if (e.target.classList.contains('pp-chip')) {
-        e.target.closest('.pp-chips-scroll')
-            .querySelectorAll('.pp-chip')
-            .forEach(c => c.classList.remove('active'));
-        e.target.classList.add('active');
-    }
-});
 
 // ── search panel (desktop) ────────────────────────────────
 function handleSearchClick(e) {
