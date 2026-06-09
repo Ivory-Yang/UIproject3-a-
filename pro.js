@@ -56,3 +56,88 @@ function saveEditProfile() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeEditProfile(); });
 
+// ── render orders from localStorage ──────────────────────
+function escapeHTML(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderSavedOrders() {
+    const orders = JSON.parse(localStorage.getItem('proOrders') || '[]');
+    const scroll = document.getElementById('proOrdersScroll');
+    const empty  = document.getElementById('proOrdersEmpty');
+
+    if (!orders.length) {
+        if (empty) empty.style.display = '';
+        return;
+    }
+    if (empty) empty.style.display = 'none';
+    if (!scroll) return;
+
+    scroll.innerHTML = '';
+    orders.forEach(o => {
+        const card = document.createElement('div');
+        card.className = 'pro-order-card';
+        card.innerHTML = `
+            <div class="pro-order-top">
+                <span class="material-symbols-outlined pro-order-icon">${escapeHTML(o.icon)}</span>
+                <span class="pro-order-status in-oven">${escapeHTML(o.statusLabel)}</span>
+            </div>
+            <p class="pro-order-name">${escapeHTML(o.name)}</p>
+            <p class="pro-order-meta">Order #${escapeHTML(o.orderNum)}</p>
+            <div class="pro-order-card-footer">
+                <div>
+                    <p class="pro-order-date-label">${escapeHTML(o.dateLabel)}</p>
+                    <p class="pro-order-date-value">${escapeHTML(o.dateValue)}</p>
+                </div>
+                <button class="pro-order-arrow" type="button">
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>`;
+        scroll.appendChild(card);
+    });
+}
+
+function dismissOrderBanner() {
+    const banner = document.getElementById('proOrderBanner');
+    if (banner) {
+        banner.classList.remove('show');
+    }
+}
+
+function showOrderAnimation() {
+    if (!localStorage.getItem('justOrdered')) return;
+    localStorage.removeItem('justOrdered');
+
+    // mark new cards for pulse, then remove class after 2 s so border disappears
+    const scroll = document.getElementById('proOrdersScroll');
+    if (scroll) {
+        Array.from(scroll.children).forEach(card => {
+            card.classList.add('new-order');
+            setTimeout(() => card.classList.remove('new-order'), 2000);
+        });
+    }
+
+    // show banner
+    const banner = document.getElementById('proOrderBanner');
+    if (banner) {
+        setTimeout(() => banner.classList.add('show'), 200);
+        // tap banner scrolls to orders
+        banner.addEventListener('click', () => {
+            document.getElementById('orders')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            dismissOrderBanner();
+        });
+        // auto-dismiss after 5 s
+        setTimeout(dismissOrderBanner, 5000);
+    }
+
+    // scroll to orders section after a short delay
+    setTimeout(() => {
+        document.getElementById('orders')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 700);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderSavedOrders();
+    showOrderAnimation();
+});
+

@@ -30,6 +30,18 @@
         </div>
     </div>
 
+    <!-- Order placed banner (shown via JS after checkout) -->
+    <div class="pro-order-banner" id="proOrderBanner">
+        <span class="material-symbols-outlined pro-order-banner-icon">local_mall</span>
+        <div class="pro-order-banner-text">
+            <p class="pro-order-banner-title">Your order is in the oven!</p>
+            <p class="pro-order-banner-sub">Tap to track your latest order below.</p>
+        </div>
+        <button class="pro-order-banner-close" type="button" onclick="dismissOrderBanner()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+
     <!-- Desktop: homepage-style header (hidden on mobile) -->
     <div class="header">
         <div class="tittle">
@@ -104,58 +116,14 @@
                     <h2 class="pro-section-title">Recent Orders</h2>
                     <a href="#" class="pro-view-all">View All History</a>
                 </div>
-                <div class="pro-orders-scroll">
-                    <div class="pro-order-card">
-                        <div class="pro-order-top">
-                            <span class="material-symbols-outlined pro-order-icon">cake</span>
-                            <span class="pro-order-status in-oven">In the Oven</span>
-                        </div>
-                        <p class="pro-order-name">Royal Velvet Dozen</p>
-                        <p class="pro-order-meta">Order #CP-92831</p>
-                        <div class="pro-order-card-footer">
-                            <div>
-                                <p class="pro-order-date-label">Estimated Arrival</p>
-                                <p class="pro-order-date-value">Today, 4:00 PM</p>
-                            </div>
-                            <button class="pro-order-arrow" type="button">
-                                <span class="material-symbols-outlined">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="pro-order-card">
-                        <div class="pro-order-top">
-                            <span class="material-symbols-outlined pro-order-icon">local_shipping</span>
-                            <span class="pro-order-status delivered">Delivered</span>
-                        </div>
-                        <p class="pro-order-name">Midnight Mocha x6</p>
-                        <p class="pro-order-meta">Order #CP-92745</p>
-                        <div class="pro-order-card-footer">
-                            <div>
-                                <p class="pro-order-date-label">Date Delivered</p>
-                                <p class="pro-order-date-value">Oct 14, 2023</p>
-                            </div>
-                            <button class="pro-order-arrow" type="button">
-                                <span class="material-symbols-outlined">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="pro-order-card">
-                        <div class="pro-order-top">
-                            <span class="material-symbols-outlined pro-order-icon">check_circle</span>
-                            <span class="pro-order-status delivered">Delivered</span>
-                        </div>
-                        <p class="pro-order-name">Rose Cupcake Set</p>
-                        <p class="pro-order-meta">Order #CP-87990</p>
-                        <div class="pro-order-card-footer">
-                            <div>
-                                <p class="pro-order-date-label">Date Delivered</p>
-                                <p class="pro-order-date-value">Sep 2, 2023</p>
-                            </div>
-                            <button class="pro-order-arrow" type="button">
-                                <span class="material-symbols-outlined">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
+                <div class="pro-orders-scroll" id="proOrdersScroll">
+                    <!-- orders injected by JS -->
+                </div>
+                <div class="pro-orders-empty" id="proOrdersEmpty" style="display:none">
+                    <span class="material-symbols-outlined pro-orders-empty-icon">local_mall</span>
+                    <p class="pro-orders-empty-title">No orders yet</p>
+                    <p class="pro-orders-empty-sub">Your sweet treats will appear here.</p>
+                    <a href="productlist.html" class="pro-orders-empty-btn">Start Shopping</a>
                 </div>
             </section>
 

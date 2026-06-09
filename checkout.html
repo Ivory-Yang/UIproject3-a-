@@ -149,6 +149,51 @@
 
     </main>
 
+    <!-- ── ORDER CONFIRMATION MODAL ── -->
+    <div class="co-confirm-overlay" id="coConfirmOverlay" onclick="closeOrderConfirm()"></div>
+    <div class="co-confirm-sheet" id="coConfirmSheet">
+
+        <button class="co-confirm-close" type="button" onclick="closeOrderConfirm()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+
+        <div class="co-confirm-icon-wrap">
+            <span class="material-symbols-outlined co-confirm-icon">local_mall</span>
+        </div>
+
+        <h2 class="co-confirm-title">Confirm Your Order</h2>
+        <p class="co-confirm-sub">Review your details before we start baking.</p>
+
+        <div class="co-confirm-detail">
+            <div class="co-confirm-detail-icon">
+                <span class="material-symbols-outlined">location_on</span>
+            </div>
+            <div class="co-confirm-detail-body">
+                <p class="co-confirm-detail-label">DELIVERY ADDRESS</p>
+                <p class="co-confirm-detail-val" id="coConfirmAddress">245 Velvet Frosting Lane<br>Sweetwater Creek, CA 90210</p>
+            </div>
+        </div>
+
+        <div class="co-confirm-detail">
+            <div class="co-confirm-detail-icon">
+                <span class="material-symbols-outlined">credit_card</span>
+            </div>
+            <div class="co-confirm-detail-body">
+                <p class="co-confirm-detail-label">PAYMENT</p>
+                <p class="co-confirm-detail-val" id="coConfirmPayment">Royal Rewards Visa •••• 4321</p>
+            </div>
+        </div>
+
+        <div class="co-confirm-total-row">
+            <span class="co-confirm-total-label">Order Total</span>
+            <span class="co-confirm-total-amount" id="coConfirmTotal">$0.00</span>
+        </div>
+
+        <button class="co-confirm-btn" type="button" onclick="confirmOrder()">Confirm &amp; Place Order</button>
+        <button class="co-confirm-cancel" type="button" onclick="closeOrderConfirm()">Cancel</button>
+
+    </div>
+
     <script src="checkout.js"></script>
 
 </body>

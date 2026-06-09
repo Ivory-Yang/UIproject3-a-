@@ -197,7 +197,71 @@ function placeOrder() {
         alert('Please choose a delivery or pickup date.');
         return;
     }
-    alert('Order placed! Thank you for your purchase.');
+
+    // populate modal with live total
+    const totalEl = document.getElementById('dTotal') || document.getElementById('mTotal');
+    const total = totalEl ? totalEl.textContent : '$0.00';
+    document.getElementById('coConfirmTotal').textContent = total;
+
+    // update address label based on fulfillment
+    const addrLabel = document.querySelector('#coConfirmAddress')?.closest('.co-confirm-detail')
+        ?.querySelector('.co-confirm-detail-label');
+    if (addrLabel) addrLabel.textContent = _fulfillment === 'pickup' ? 'PICKUP LOCATION' : 'DELIVERY ADDRESS';
+    if (_fulfillment === 'pickup') {
+        document.getElementById('coConfirmAddress').innerHTML =
+            'The Cupcake Princess Boutique<br>12 Royal Bakery Lane, NY 10001';
+    } else {
+        document.getElementById('coConfirmAddress').innerHTML =
+            '245 Velvet Frosting Lane<br>Sweetwater Creek, CA 90210';
+    }
+
+    document.getElementById('coConfirmOverlay').classList.add('open');
+    document.getElementById('coConfirmSheet').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeOrderConfirm() {
+    document.getElementById('coConfirmOverlay').classList.remove('open');
+    document.getElementById('coConfirmSheet').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function confirmOrder() {
+    const btn = document.querySelector('.co-confirm-btn');
+    btn.textContent = 'Order Placed!';
+    btn.style.background = 'linear-gradient(to right, #4caf50, #2e7d32)';
+    btn.style.boxShadow = '0 6px 20px rgba(46,125,50,0.30)';
+    btn.disabled = true;
+
+    // build order records and save to localStorage for profile page
+    const cart = getCart();
+    const orderNum = 'CP-' + (Math.floor(Math.random() * 90000) + 10000);
+    const ICONS = { cake: 'cake', cupcake: 'cake', cookie: 'cookie', diy: 'auto_awesome' };
+    const dateStr = _selectedDate
+        ? _selectedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+        : 'TBD';
+
+    const newOrders = cart.map(item => ({
+        orderNum,
+        name: item.qty > 1 ? item.name + ' ×' + item.qty : item.name,
+        icon: ICONS[item.categoryType] || 'cake',
+        statusLabel: 'In the Oven',
+        dateLabel: _fulfillment === 'pickup' ? 'Pickup Date' : 'Estimated Arrival',
+        dateValue: dateStr,
+    }));
+
+    const existing = JSON.parse(localStorage.getItem('proOrders') || '[]');
+    localStorage.setItem('proOrders', JSON.stringify([...newOrders, ...existing]));
+
+    // clear cart
+    localStorage.removeItem('cupcakeCart');
+    localStorage.removeItem('cupcakeCheckout');
+
+    setTimeout(() => {
+        closeOrderConfirm();
+        localStorage.setItem('justOrdered', '1');
+        location.href = 'pro.html';
+    }, 1800);
 }
 
 // ── init ──────────────────────────────────────────────────
@@ -207,3 +271,5 @@ document.addEventListener('DOMContentLoaded', () => {
     selectFulfillment('delivery');
     initCalendar();
 });
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOrderConfirm(); });

@@ -1686,3 +1686,114 @@ form {
     margin: 0;
     line-height: 1.45;
 }
+
+/* ══════════════════════════════
+   ORDER PLACED BANNER
+══════════════════════════════ */
+
+.pro-order-banner {
+    position: fixed;
+    top: 68px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-120%);
+    width: calc(100% - 32px);
+    max-width: 480px;
+    background: linear-gradient(135deg, #c9527a, var(--pink-main));
+    color: white;
+    border-radius: 18px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1500;
+    box-shadow: 0 8px 28px rgba(172, 45, 94, 0.40);
+    opacity: 0;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    cursor: pointer;
+}
+.pro-order-banner.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+.pro-order-banner-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    font-variation-settings: 'FILL' 1;
+    animation: bannerIconBounce 1s ease-in-out 0.5s 3;
+}
+@keyframes bannerIconBounce {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.25); }
+}
+.pro-order-banner-text { flex: 1; }
+.pro-order-banner-title {
+    font-size: 14px;
+    font-weight: 800;
+    margin: 0 0 2px;
+}
+.pro-order-banner-sub {
+    font-size: 12px;
+    margin: 0;
+    opacity: 0.85;
+}
+.pro-order-banner-close {
+    background: rgba(255,255,255,0.25);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    color: white;
+}
+.pro-order-banner-close .material-symbols-outlined { font-size: 16px; }
+
+/* ── orders empty state ── */
+.pro-orders-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+    text-align: center;
+}
+.pro-orders-empty-icon {
+    font-size: 48px;
+    color: #d9b3c4;
+    margin-bottom: 12px;
+}
+.pro-orders-empty-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 0 0 6px;
+}
+.pro-orders-empty-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 18px;
+}
+.pro-orders-empty-btn {
+    background: linear-gradient(to right, #c9527a, var(--pink-main));
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 10px 28px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--font-main);
+    box-shadow: 0 4px 14px rgba(172, 45, 94, 0.28);
+}
+
+/* ── new order card pulse ── */
+@keyframes orderCardPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(172, 45, 94, 0.50); border-color: var(--pink-main); }
+    60%  { box-shadow: 0 0 0 10px rgba(172, 45, 94, 0); border-color: var(--pink-main); }
+    100% { box-shadow: 0 0 0 0 rgba(172, 45, 94, 0); border-color: transparent; }
+}
+.pro-order-card.new-order {
+    border: 2px solid var(--pink-main);
+    animation: orderCardPulse 2s ease-out forwards;
+}
