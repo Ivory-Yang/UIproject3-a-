@@ -164,23 +164,36 @@
         <h2 class="co-confirm-title">Confirm Your Order</h2>
         <p class="co-confirm-sub">Review your details before we start baking.</p>
 
-        <div class="co-confirm-detail">
-            <div class="co-confirm-detail-icon">
-                <span class="material-symbols-outlined">location_on</span>
-            </div>
-            <div class="co-confirm-detail-body">
-                <p class="co-confirm-detail-label">DELIVERY ADDRESS</p>
-                <p class="co-confirm-detail-val" id="coConfirmAddress">245 Velvet Frosting Lane<br>Sweetwater Creek, CA 90210</p>
+        <!-- Editable contact fields -->
+        <div class="co-confirm-field">
+            <label class="co-confirm-label">FULL NAME</label>
+            <div class="co-confirm-input-wrap">
+                <input class="co-confirm-input" type="text" id="coConfirmName" value="Sophia Chen">
+                <span class="material-symbols-outlined co-confirm-input-icon">person</span>
             </div>
         </div>
 
-        <div class="co-confirm-detail">
-            <div class="co-confirm-detail-icon">
-                <span class="material-symbols-outlined">credit_card</span>
+        <div class="co-confirm-field">
+            <label class="co-confirm-label">PHONE NUMBER</label>
+            <div class="co-confirm-input-wrap">
+                <input class="co-confirm-input" type="tel" id="coConfirmPhone" value="+1 (555) 234-5678">
+                <span class="material-symbols-outlined co-confirm-input-icon">call</span>
             </div>
-            <div class="co-confirm-detail-body">
-                <p class="co-confirm-detail-label">PAYMENT</p>
-                <p class="co-confirm-detail-val" id="coConfirmPayment">Royal Rewards Visa •••• 4321</p>
+        </div>
+
+        <div class="co-confirm-field">
+            <label class="co-confirm-label">DELIVERY ADDRESS</label>
+            <div class="co-confirm-select-wrap">
+                <span class="material-symbols-outlined co-confirm-select-icon">location_on</span>
+                <select class="co-confirm-select" id="coConfirmAddressSelect"></select>
+            </div>
+        </div>
+
+        <div class="co-confirm-field">
+            <label class="co-confirm-label">PAYMENT METHOD</label>
+            <div class="co-confirm-select-wrap">
+                <span class="material-symbols-outlined co-confirm-select-icon">credit_card</span>
+                <select class="co-confirm-select" id="coConfirmPaymentSelect"></select>
             </div>
         </div>
 

@@ -565,11 +565,14 @@
 
     <script>
         // ── Address data & logic ──────────────────────────
-        const _addresses = [
+        const _addrDefaults = [
             { icon: 'home',     label: 'Home',           primary: true,  line1: '245 Velvet Frosting Lane',      line2: 'Sweetwater Creek, CA 90210' },
             { icon: 'work',     label: 'Office',          primary: false, line1: 'The Sprinkle Tower, Suite 404', line2: 'Confectionary District, NY 10012' },
             { icon: 'favorite', label: "Parent's House",  primary: false, line1: '12 Strawberry Field Road',      line2: 'Berryville, WA 98101' },
         ];
+        const _addresses = JSON.parse(localStorage.getItem('proAddresses') || 'null') || _addrDefaults;
+        if (!localStorage.getItem('proAddresses')) localStorage.setItem('proAddresses', JSON.stringify(_addresses));
+        function _saveAddresses() { localStorage.setItem('proAddresses', JSON.stringify(_addresses)); }
 
         function renderAddresses() {
             document.getElementById('addrList').innerHTML = _addresses.map((a, i) => `
@@ -588,7 +591,7 @@
                 </div>`).join('');
         }
 
-        function deleteAddress(i) { _addresses.splice(i, 1); renderAddresses(); }
+        function deleteAddress(i) { _addresses.splice(i, 1); _saveAddresses(); renderAddresses(); }
 
         function openAddressSheet() {
             renderAddresses();
@@ -618,16 +621,20 @@
             const city   = document.getElementById('newAddrCity').value.trim();
             if (!label || !street || !city) return;
             _addresses.push({ icon: 'location_on', label, primary: false, line1: street, line2: city });
+            _saveAddresses();
             ['newAddrLabel','newAddrStreet','newAddrCity'].forEach(id => document.getElementById(id).value = '');
             closeAddAddressSheet();
             openAddressSheet();
         }
 
         // ── Payment data & logic ──────────────────────────
-        const _cards = [
+        const _cardDefaults = [
             { icon: 'credit_card', network: 'VISA',       name: 'Royal Rewards Visa',       last4: '4321', expires: '12/26', isDefault: true  },
             { icon: 'payments',    network: 'MASTERCARD',  name: 'Frosting Fund Mastercard',  last4: '8892', expires: '08/25', isDefault: false },
         ];
+        const _cards = JSON.parse(localStorage.getItem('proCards') || 'null') || _cardDefaults;
+        if (!localStorage.getItem('proCards')) localStorage.setItem('proCards', JSON.stringify(_cards));
+        function _saveCards() { localStorage.setItem('proCards', JSON.stringify(_cards)); }
 
         function renderCards() {
             document.getElementById('pmCardList').innerHTML = _cards.map((c, i) => `
@@ -649,7 +656,7 @@
                 </div>`).join('');
         }
 
-        function deleteCard(i) { _cards.splice(i, 1); renderCards(); }
+        function deleteCard(i) { _cards.splice(i, 1); _saveCards(); renderCards(); }
 
         function openPaymentSheet() {
             renderCards();
@@ -679,6 +686,7 @@
             const exp  = document.getElementById('newCardExp').value.trim();
             if (!num || !name || !exp) return;
             _cards.push({ icon: 'credit_card', network: 'CARD', name, last4: num.replace(/\s/g,'').slice(-4), expires: exp, isDefault: false });
+            _saveCards();
             ['newCardNum','newCardName','newCardExp','newCardCvv'].forEach(id => document.getElementById(id).value = '');
             closeAddCardSheet();
             openPaymentSheet();

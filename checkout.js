@@ -203,17 +203,44 @@ function placeOrder() {
     const total = totalEl ? totalEl.textContent : '$0.00';
     document.getElementById('coConfirmTotal').textContent = total;
 
-    // update address label based on fulfillment
-    const addrLabel = document.querySelector('#coConfirmAddress')?.closest('.co-confirm-detail')
-        ?.querySelector('.co-confirm-detail-label');
-    if (addrLabel) addrLabel.textContent = _fulfillment === 'pickup' ? 'PICKUP LOCATION' : 'DELIVERY ADDRESS';
+    // ── address select ────────────────────────────────────
+    const addrSel = document.getElementById('coConfirmAddressSelect');
+    addrSel.innerHTML = '';
     if (_fulfillment === 'pickup') {
-        document.getElementById('coConfirmAddress').innerHTML =
-            'The Cupcake Princess Boutique<br>12 Royal Bakery Lane, NY 10001';
+        addrSel.innerHTML = '<option>The Cupcake Princess Boutique — 12 Royal Bakery Lane, NY 10001</option>';
     } else {
-        document.getElementById('coConfirmAddress').innerHTML =
-            '245 Velvet Frosting Lane<br>Sweetwater Creek, CA 90210';
+        const rawAddresses = JSON.parse(localStorage.getItem('proAddresses') || 'null') || [
+            { label: 'Home',           primary: true,  line1: '245 Velvet Frosting Lane',      line2: 'Sweetwater Creek, CA 90210' },
+            { label: 'Office',         primary: false, line1: 'The Sprinkle Tower, Suite 404', line2: 'Confectionary District, NY 10012' },
+            { label: "Parent's House", primary: false, line1: '12 Strawberry Field Road',      line2: 'Berryville, WA 98101' },
+        ];
+        // primary first, rest after
+        const primary = rawAddresses.filter(a => a.primary);
+        const others  = rawAddresses.filter(a => !a.primary);
+        [...primary, ...others].forEach((a, i) => {
+            const opt = document.createElement('option');
+            opt.textContent = a.label + ' — ' + a.line1 + ', ' + a.line2;
+            if (i === 0) opt.selected = true;
+            addrSel.appendChild(opt);
+        });
     }
+
+    // ── payment select ────────────────────────────────────
+    const pmSel = document.getElementById('coConfirmPaymentSelect');
+    pmSel.innerHTML = '';
+    const rawCards = JSON.parse(localStorage.getItem('proCards') || 'null') || [
+        { name: 'Royal Rewards Visa',      last4: '4321', expires: '12/26', isDefault: true  },
+        { name: 'Frosting Fund Mastercard', last4: '8892', expires: '08/25', isDefault: false },
+    ];
+    // default card first, rest after
+    const defaultCards = rawCards.filter(c => c.isDefault);
+    const otherCards   = rawCards.filter(c => !c.isDefault);
+    [...defaultCards, ...otherCards].forEach((c, i) => {
+        const opt = document.createElement('option');
+        opt.textContent = c.name + ' •••• ' + c.last4 + '  (exp ' + c.expires + ')';
+        if (i === 0) opt.selected = true;
+        pmSel.appendChild(opt);
+    });
 
     document.getElementById('coConfirmOverlay').classList.add('open');
     document.getElementById('coConfirmSheet').classList.add('open');
